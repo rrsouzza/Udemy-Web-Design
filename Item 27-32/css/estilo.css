@@ -1,0 +1,102 @@
+body{
+    font-family: arial, sans-serif;
+    background-color: #ccc;
+    margin: 0;
+}
+
+.cabecalho{
+    background-image: url(../imagens/bg-3.jpg);
+    height: 500px;
+    background-position: right center;
+    background-size: cover;
+    border-top: 1px solid transparent;
+}
+.cabecalho-content{
+    text-align: center;
+    color: white;
+    margin-top: 150px;
+}
+/*A declaração abaixo indica formatação em todos os elementos h1 descendentes de cabecalho-content.*/
+.cabecalho-content h1{    
+    text-transform: uppercase;
+    font-size: 48px;
+    text-shadow: 3px 3px 2px #333;
+    /*A Formatação de sombra do texto é: <sombra no eixo x> <sombra no eixoy> <contraste/blur da sombra> <cor da sombra>*/    
+}
+.cabecalho-content p{
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid white;
+    margin-top: 60px;
+    padding: 10px;    
+}
+.cabecalho nav ul{
+    text-align: right;
+    margin: 20px 40px 0 0;
+}
+.cabecalho nav li{
+    display: inline-block;    
+    border: 1px solid white;
+    margin-left: 15px;
+}
+.cabecalho nav a{
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.cabecalho nav a:hover{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+main{
+    width: 80%;
+    margin: auto;
+}
+.content-section{    
+    background-color: white;
+    padding: 15px;
+    margin-top: 15px;
+    overflow: auto;
+}
+.card{
+    width: 32%;
+    float: left;    
+    box-sizing: border-box;    
+}
+.card-1, .card-2{
+    margin-right: 2%;
+}
+.card img{
+    width: 100%;
+    display: block;
+}
+.card p{
+    letter-spacing: 2px;
+    text-transform: uppercase;    
+    padding: 15px;
+    margin: 0;
+    background: rgb(104, 104, 104);
+    color: white;
+}
+.content-section h2{
+    background-color: #ccc;
+    padding: 10px;
+    margin-top: 0;    
+    border-bottom: solid 2px rgb(124, 124, 124);
+}
+.rodape{
+    margin-top: 10px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 16px;
+    text-shadow: 1px 1px 3px #333;
+    background-color: rgb(100, 100, 100);
+    opacity: 0.8;    
+}

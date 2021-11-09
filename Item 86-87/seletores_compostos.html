@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Seletores</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+
+        /* EXEMPLOS: */
+        
+        article a{  /* Formatação de todas as tags <a> herdeiras de <article> */
+            background-color: red;
+        }
+
+        article p b{    /* Formatação de todas as tags <b> que são descendentes de <p> que estejam contidas em um <article> */
+                        /* Ex: Não irá afetar as tags <b> que sejam descendentes diretos de <article> (Linha 108) */
+            background-color: red;
+        }
+
+        article p > b{  /* > indica todas as tags <b> que são descendentes diretos de <p> que estejam contidos em um <article> */
+                        /* > = "filho direto" */
+                        /* Na estrutura do HTML - EXEMPLO 1 abaixo, não irá afetar nada, pois não temos nenhum <b> descendente direto de um <p> */
+            background-color: red;
+        }
+        article p > a{  /* Na estrutura do HTML - EXEMPLO 1 abaixo, irá afetar todos os <a>, pois todos eles são descendentes diretos de um <p> que estão contidos em um <article> */
+            background-color: red;
+        }
+
+        /*DETALHE: Para o seletor + (irmãos adjacentes), não é necessário que uma tag seja descendente direta da outra. (Linha 93/94) */
+        /* Na estrutura HTML - EXEMPLO 1 abaixo, h3 + p afeta o PRIMEIRO P, mesmo ele não estando dentro da tag <h3>. */
+
+        article h3 + p{ /* + indica o <p> imediatamente descendente de <h3> */
+                        /* Na estrutura do HTML - EXEMPLO 1 abaixo, irá afetar apenas o PRIMEIRO P.*/
+            background-color: red;
+        }
+        article p + p{  /* Irá afetar todos os <p> que são imediatos a outro <p> */
+                        /* Na estrutura do HTML - EXEMPLO 1 abaixo, irá afetar ambos SEGUNDO P e TERCEIRO P, pois ambos são imediatos à outro <p> */
+            background-color: red;
+        }
+
+        article h3 ~ p{ /* ~ (próximos irmãos) indica todos os <p> imediatos após o <h3>. */
+            background-color: red;
+        }
+
+
+        /* SELETORES DE ATRIBUTOS: */
+
+        a[title]{   /*  Os [] indicam um atributo */
+                    /* Irá afetar todas as tags <a> que possuam um atributo title. */
+                    /* Na estrutura do HTML - EXEMPLO 2 abaixo, irá afetar apenas o SEGUNDO A. */
+            color: red;
+        }
+        a[title="texto"]{   /* Irá afetar todas as tags <a> que possuam um atributo title e "texto" como valor atribuído */
+                            /* Na estrutura do HTML - EXEMPLO 2 abaixo, irá afetar apenas o TERCEIRO A. */
+            color: red;
+        }
+
+        a[href^="http"]{  /* ^= indica todo atributo x que tem valor iniciado por y. */
+                        /* Irá afetar todas as tags <a> que tenham atributo href com valor iniciado por http */
+                        /* Na estrutura do HTML - EXEMPLO 2 abaixo, irá afetar apenas o QUINTO A. */
+            color: red;
+        }
+        img[src$=".png"]{   /* $= indica todo atributo x que valor iniciado por y. */  
+                            /* Irá afetar todas as tags <img> que tenham atributo src com valor finalizado por .png */
+                            /* Na estrutura do HTML - EXEMPLO 3 abaixo, irá afetar apenas o SEGUNDO IMG. */
+            color: red;
+        }
+
+        :not(a){            /* not() indica negação. */
+                            /* Irá afetar todos os elementos em nossa página que não sejam um link <a>. */
+            color: red;
+        }
+        p:not(.destaque){   /* Irá afetar todos os parágrafos <p> que não possuam a classe .destaque. */
+            color: red;
+        }
+        img:not([alt]){     /* Irá afetar todas as tags <img> que não possuam o atributo [alt]. */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tipos de Seletores</h1>
+
+    <h2>EXEMPLO 1:</h2>
+        <!--
+            <article>
+                <h3></h3>
+                <p>     -> PRIMEIRO P
+                    <a><b> </b></a>
+                </p>
+                <p>     -> SEGUNDO P
+                    <a><b> </b></a>
+                </p>
+                <p>     -> TERCEIRO P
+                    <a><b> </b></a>
+                </p>
+            </article>
+        -->
+        <!--
+            <a> e <b> são descendentes de <p>, <h3> e de <article>.
+                <b> é descendente de <a>, <p>, <h3> e de <article>.
+                <b> é descendente direto apenas de <a>.
+            <a> é descendente direto apenas de <p>.
+        -->
+
+    <h2>EXEMPLO 2</h2>
+        <!--
+            <article>
+                <a> sem title </a>              -> PRIMEIRO A
+                <a title=""> com title </a>     -> SEGUNDO A
+                <a title="texto"> com atributo valorado </a>    -> TERCEIRO A
+
+                <a href="..."> link qualquer </a>       -> QUARTO A
+                <a href="http://"> link qualquer </a>   -> QUINTO A
+            </article>
+        -->
+
+    <h2>EXEMPLO 3</h2>
+        <!--
+            <article>
+                <img src="...jpg">      -> PRIMEIRO IMG
+                <img src="...png">      -> SEGUNDO IMG
+            </article>
+        -->
+</body>
+</html>

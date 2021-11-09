@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Exemplo Funcionamento nthchild e Seletores Compostos</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <!--O article abaixo contempla toda a tag em geral-->
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+
+        article:nth-child(2) > p{   /* nth-child(2) daria a entender que está indicando a segunda instância de article, mas como não temos classes os definindo, os <articles> considerados
+                                    são todos do escopo do body.
+                                    article:nth-child(2) só funcionaria caso a 2ª tag do body fosse um <article>. Nesse caso, a 2ª tag herdeira direta do <body> é o <hr>. */
+            color: red;
+        }
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        article:nth-child(3) > p{
+            color: red;     /* Ao indicarmos o número três, referimos à terceira tag do escopo do body, que no caso, é a segunda instância de <article>. */
+        }
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        article:nth-child(5) h1 + p{    /* Indica o primeiro parágrafo imediato após o h1 que esteja dentro da 5ª tag, caso seja ela um <article>. */
+            color: orange;
+        }
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        article:nth-child(7) h1 ~ p{    /* Indica todos os <p> após o <h1> contidos na 7ª tag, caso seja ela um <article>. */
+            color: lightcoral;
+        }
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        article:nth-child(9) p:not(.paragrafo){ /* Indica todos os <p> descendentes que não possuem a classe .paragrafo. */
+            color: aqua;
+        }
+
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        ul a[href="#"]{ /* Indica que todos os <a>, contidos em uma <ul>, que possuam atributo href valorado como "#", terão opacidade .2. */
+            opacity: .2;
+        }
+        ul a[href^="http"]{ /* Indica que todos os <a>, contidos em uma <ul>, que possuam atributo href com valor iniciado por "http", terão a fonte na cor vermelha. */
+            color: red;
+        }
+        ul a[title]{    /* Indica que todos os <a>, contidos em uma <ul>, que possuam um atributo title, terão a fonte na cor amarela. */
+            color: yellow;
+        }
+        ul a[href$=".pdf"]{ /* Indica que todos os <a>, contidos em uma <ul>, que possuam atributo href com valor finalizado por ".pdf" ... */
+            text-decoration: none;
+            color: aqua;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>nth-child e Seletores Compostos</h1>
+    <article>
+        <h1>nth-child</h1>
+
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+    </article>
+
+    <hr>
+
+    <article>
+        <h1>nth-child</h1>
+
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+    </article>
+
+    <hr>
+
+    <article>
+        <h1>nth-child</h1>
+
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+    </article>
+
+    <hr>
+
+    <article>
+        <p>paragrafo antes do h1</p>
+        <h1>nth-child</h1>
+
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+    </article>
+
+    <hr>
+
+    <article>
+        <p class="paragrafo">paragrafo</p>
+        <h1>nth-child</h1>
+
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+        <p>paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+    </article>
+
+    <ul>
+        <li><a href="#">link falso</a></li>
+        <li><a href="#">link falso</a></li>
+        <li><a href="http://google.com" target="_blank">link externo</a></li>
+        <li><a href="../Item 39 - Projeto Fashion/index.html" title="titulo">link interno</a></li>
+        <li><a href="http://google.com/qq.pdf" target="_blank">link externo 2</a></li>
+    </ul>
+</body>
+</html>

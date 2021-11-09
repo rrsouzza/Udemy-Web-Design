@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Overflow</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        div{
+            padding: 2%;
+            margin: 70px 2%;
+            border: 1px solid black;
+            width: 20%;
+            float: left;
+            height: 100px;
+            font-size: 18px;
+        }
+        .div1{
+            overflow: visible; /*Padrão*/
+        }
+        .div2{
+            overflow: hidden; /*Esconde o excesso, seja texto; imagem; etc*/
+        }
+        .div3{
+            overflow: scroll; /*Adiciona uma barra de rolagem completa*/
+        }
+        .div4{
+            overflow: auto; /*Adiciona a barra de rolagem apenas onde é necessário. Nesse caso, ele não adicionou uma barra de rolagem horizontal*/
+            /*Também adiciona apenas se for necessário. Caso não haja texto ou imagem excedente, não sera adicionada a barra de rolagem.*/
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis sodales justo, non sagittis nulla.
+            Aliquam mollis nisl eu metus malesuada dignissim. Sed ultrices ipsum et mi posuere posuere. Quisque sit amet diam ligula. Donec id fringilla justo.
+            Curabitur sapien ligula, pharetra non nisl et, luctus auctor eros. Aliquam consectetur in quam in aliquam.
+        </p>
+    </div>
+
+    <div class="div2">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis sodales justo, non sagittis nulla.
+            Aliquam mollis nisl eu metus malesuada dignissim. Sed ultrices ipsum et mi posuere posuere. Quisque sit amet diam ligula. Donec id fringilla justo.
+            Curabitur sapien ligula, pharetra non nisl et, luctus auctor eros. Aliquam consectetur in quam in aliquam.
+        </p>
+    </div>
+
+    <div class="div3">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis sodales justo, non sagittis nulla.
+            Aliquam mollis nisl eu metus malesuada dignissim. Sed ultrices ipsum et mi posuere posuere. Quisque sit amet diam ligula. Donec id fringilla justo.
+            Curabitur sapien ligula, pharetra non nisl et, luctus auctor eros. Aliquam consectetur in quam in aliquam.
+        </p>
+    </div>
+
+    <div class="div4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis sodales justo, non sagittis nulla.
+            Aliquam mollis nisl eu metus malesuada dignissim. Sed ultrices ipsum et mi posuere posuere. Quisque sit amet diam ligula. Donec id fringilla justo.
+            Curabitur sapien ligula, pharetra non nisl et, luctus auctor eros. Aliquam consectetur in quam in aliquam.
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>CSS Efeitos</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        html, body{
+            height: 100%;
+        }
+        body{
+            font-family: sans-serif;
+            background-image: linear-gradient(rgb(18, 136, 18), rgb(183, 221, 79));
+            /*background-image: linear-gradient(to top, green, yellow); --> Podemos definir a direção do gradiente. De cima pra baixo é o padrão.*/
+                                              /*to right*/
+                                              /*to left*/
+                                              /*to bottom (padrão) == deixar vazio*/
+                                              /*to left top --> diagonal, da esquerda pra cima*/
+                                              /*to right bottom --> diagonal, da direita pra baixo*/
+        }
+        div{
+            float: left;
+            margin: 50px 20px;
+        }
+        #radius{
+            background: orange;
+            width: 200px;
+            height: 200px;            
+
+            border-radius: 25px;
+            /*radius é o raio de um círculo imaginário em cada ponta do bloco. A dimensão*/
+
+            box-shadow: 10px 0 0 black;
+            /*Podemos adicionar uma sombra na div. Formatação: deslocamento na horizontal (x); deslocamento na vertical (y); esfumaçamento; *opcional*:tamanho da sombra; cor;*/
+        }
+        #circulo{
+            background: yellowgreen;
+            width: 200px;
+            height: 200px;
+            margin-right: 50px;
+
+            border-radius: 100px;
+            /*border-radius: 50% --> teria o mesmo resultado*/
+            /*Como o border-radius é metade do tamanho da div, o centro do círculo imaginário é o centro da div inteira. Assim, o bloco vira um círculo.*/
+
+            box-shadow: 10px 10px 3px #ccc;
+        }
+        #div3{
+            background-image: linear-gradient(rgb(18, 136, 18), transparent);
+            width: 200px;
+            height: 200px;            
+
+            border-radius: 50px 20px 100px;
+            /*Podemos definir o raio das bordas individualmente --> top-left; top-right; bottom right; bottom left.*/
+
+            box-shadow: -15px -10px 2px 15px  #999;
+        }
+        #div4{
+            background-image: linear-gradient(to top, rgba(255, 0, 0, .68), transparent), url(../../imagens/steam_logo_200px.png);
+            width: 200px;
+            height: 200px;            
+
+            border-radius: 50px 20px 100px 0 / 40px 20px 50px 0;
+            /*Os valores inseridos antes da barra são referentes à distância partindo da borda da div, no eixo horizontal (x).*/
+            /*Os valores inseridos após a barra são referentes à distância partindo da borda da div, no eixo vertical (y).*/
+            /*O resultado é que temos uma espécie de elipse moldando as bordas da div.*/
+
+            box-shadow: 10px 10px 3px black, -10px -10px 2px red, 20px 30px 5px 5px yellow;
+            /*Conseguimos adicionar mais de uma sombra no mesmo elemento, separando-os com uma vírgula*/
+        }
+        #div4-1{
+            background: rgb(252, 106, 106);
+            width: 200px;
+            height: 200px;            
+
+            border-radius: 50px 100px / 100px 50px;
+        }
+        #teste1{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 50px;
+            text-shadow: -10px -10px 3px #ccc;
+            /*Também podemos adicionar sombra nos textos. Diferente do box-shadow, não conseguimos alterar o *tamanho* da sombra. Apenas sua posição, esfumaçamento e cor.*/
+        }
+        #teste2{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 50px;
+            text-shadow: -10px 20px 3px red;
+        }
+        #teste3{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 50px;
+            text-shadow: -1px 1px 0 rgb(40, 40, 40), -2px 2px 0 rgb(60, 60, 60), -3px 3px 0 rgb(80, 80, 80), -4px 4px 0 rgb(100, 100, 100), -5px 5px 0 rgb(120, 120, 120);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="teste1">Efeitos CSS</h1>
+    <h1 id="teste2">Teste de sombra</h1>
+    <h1 id="teste3">Teste 3</h1>
+
+    <div id="radius"></div>
+    <div id="circulo"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div4-1"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Links e Lists em CSS</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        p, li{            
+            color: red;
+        }
+        a{
+            color:greenyellow;
+        }
+        a:hover{
+            color: red;
+            background-color: #ccc;
+        }
+        a:visited{
+            color: purple;
+        }
+
+        li{
+            list-style-type: circle;            
+        }
+        ul li{
+            list-style-type: square;
+            list-style-position: outside;            
+        }
+        ol li{
+            list-style-type: disc;
+            list-style-position: inside;
+        }
+    </style>
+</head>
+
+<!--Linha 12: Podemos atribuir estilo a mais de uma tag na mesma linha, exceto para a tag <a> (links), que devemos declarar separadamente.-->
+<!--Linha 19: Podemos estilizar o texto do link com algumas atribuições como o Hover. Nesse caso, ao passar o mouse em cima do link, ele irá ficar vermelho.-->
+    <!--O background-color no hover faz com que o fundo do texto do link tenha um highlight na cor escolhida.-->
+<!--Linha 23: Visited: O link ficará amarelo caso o mesmo já tenha sido clicado.-->
+
+<!--Linha 28: Podemos alterar o desenho dos bullets nos itens de lista. No caso do "circle", é inserido uma bolinha vazada. Podemos usar o "square" para quadradinhos, etc-->
+<!--Linha 30 e 33: Para formatarmos um tipo específico de lista (ol ou ul), caso não desejemos formatar todos os tipos de lista-->
+<!--Linha 32 e 36: Podemos definir se queremos os itens da lista para dentro (ident) da lista, ou alinhado com o início (padrão)-->
+<body>
+    <h1 style="text-align: center;">Links e Lists em CSS</h1>
+
+    <p><a href="_base.html">_base.html</a></p>
+    <p><a href="https://www.google.com/imghp"; target="_blank">google.com</a></p>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ol>
+</body>
+</html>

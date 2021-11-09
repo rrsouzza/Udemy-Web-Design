@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Tabelas</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        h1{
+            text-align: center;
+            text-transform: uppercase;
+            margin: 30px;
+        }
+        th{
+            background: lightblue;
+            border: 2px solid brown;
+            padding: 15px;
+        }
+        td{
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        caption{
+            border: 2px solid black;
+            background: lightcoral;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 15px;
+        }
+        table{
+            border-collapse: collapse; /*Tira o espaçamento entre as células. o padrão é border-collapse: separate*/
+            margin: auto;
+            background: beige;            
+        }
+        .tabelas{
+            float: left;            
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabelas</h1>
+    <div class="tabelas">
+        <table>
+            <caption>Tabela normal</caption>
+            <thead>
+                <tr>
+                    <th>Área</th>
+                    <th>Curso</th>
+                    <th>Investimento</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Valores sujeitos a alterações sem aviso prévio</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>Design</td>
+                    <td>InDesign</td>
+                    <td>R$1000,00</td>
+                </tr>
+                <tr>
+                    <td>Design</td>
+                    <td>Photoshop</td>
+                    <td>R$1000,00</td>
+                </tr>
+                <tr>
+                    <td>Design</td>
+                    <td>Illustrator</td>
+                    <td>R$1000,00</td>
+                </tr>
+                <tr>
+                    <td>Development</td>
+                    <td>HTML</td>
+                    <td>R$1000,00</td>
+                </tr>
+                <tr>
+                    <td>Development</td>
+                    <td>CSS</td>
+                    <td>R$1000,00</td>
+                </tr>
+                <tr>
+                    <td>Development</td>
+                    <td>Javascript</td>
+                    <td>R$1000,00</td>
+                </tr>
+                <tr>
+                    <td>Development</td>
+                    <td>PHP</td>
+                    <td>R$1000,00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tabelas">
+        <table>
+            <caption>Tabela otimizada</caption>
+            <thead>
+                <tr>
+                    <th>Área</th>
+                    <th>Curso</th>
+                    <th>Investimento</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Valores sujeitos a alterações sem aviso prévio</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td rowspan="3">Design</td>
+                    <td>InDesign</td>
+                    <td rowspan="7">R$1000,00</td>
+                </tr>
+                <tr>                    
+                    <td>Photoshop</td>                    
+                </tr>
+                <tr>                    
+                    <td>Illustrator</td>                    
+                </tr>
+                <tr>
+                    <td rowspan="4">Development</td>
+                    <td>HTML</td>                    
+                </tr>
+                <tr>                    
+                    <td>CSS</td>                    
+                </tr>
+                <tr>                    
+                    <td>Javascript</td>                    
+                </tr>
+                <tr>                    
+                    <td>PHP</td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

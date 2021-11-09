@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Borders, Margins, Paddings</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        .testeMargens{
+            margin-top: 50px;
+            margin-right: 40px;
+            margin-bottom: 30px;
+            margin-left: 20px;
+            background-color: red;
+        }
+        .testeMargemAbreviada{margin: 50px 40px 30px 20px; background-color: red;}
+
+        .testeMargemAbreviadaDuplicada1{margin: 50px 40px 30px; background-color: red;}
+        .testeMargemAbreviadaDuplicada2{margin: 50px 40px; background-color: red;}
+        .testeMargemAbreviadaDuplicada3{margin: 50px; background-color: red;}
+
+        .testePaddings{
+            padding-top: 50px;
+            padding-right: 40px;
+            padding-bottom: 30px;
+            padding-left: 20px;
+            background-color: green;
+        }
+        .testePaddingAbreviado{padding: 50px 40px 30px 20px; background-color: green;}
+
+        .testePaddingAbreviadoDuplicado1{margin: 50px 40px 30px; background-color: green;}
+        .testePaddingAbreviadoDuplicado2{margin: 50px 40px; background-color: green;}
+        .testePaddingAbreviadoDuplicado3{margin: 50px; background-color: green;}
+
+        .testeBorder{
+            border-style: double;
+            border-width: 5px;
+            border-color: orange;
+        }
+        .testeBorderAbreviado{border: groove 5px orangered;}
+
+        .testeBorderMargem{
+            border-top-style: solid;
+            border-right-color: lightblue;
+            border-right-style: solid;
+            border-right-width: 4px;
+            border-bottom-style: inset;
+            border-bottom-color: orangered;
+            border-bottom-width: 2px;
+            border-left-color: lightgreen;
+            border-left-style: solid;
+            border-left-width: 4px;
+        }
+        .testeBorderMargemAbreviado{
+            border-top: solid 10px blue;
+            border-right: dashed 20px lightblue;
+        }
+
+        .customBox{
+            margin: 200px;
+            padding: 50px;
+            background-color: lightcoral;
+            text-align: center;            
+        }
+    </style>
+</head>
+    <!--testeMargemAbreviada = Podemos declarar todas as margens em uma só linha. É interpretado sempre na seguinte ordem: top, right, bottom, left. Sentido horário.-->
+    
+    <!--testeMargemAbreviadaDuplicada1 = Se não declararmos o valor da margem left, será automaticamente aplicado o valor da margem right (no caso 40px).
+            No caso, ficaria (50px 40px 30px *40px*;)-->
+    
+    <!--testeMargemAbreviadaDuplicada2 = Se não declararmos, por exemplo, ambas as margens bottom e left, será automaticamente aplicado os valores das margens top e right.
+            No caso, ficaria (50px 40px *50px* *40px*;)-->
+    
+    <!--testeMargemAbreviadaDuplicada3 = Se declararmos apenas a margem top, será automaticamente aplicado o mesmo valor à todas as margens.
+            No caso, ficaria (50px *50px* *50px* *50px*;)-->
+
+    <!--As mesmas propriedades valem para padding.-->
+
+    <!--Tipos de border-style: dotted, dashed, solid, groove, double, ridge, inset, outset-->
+<body>
+    <h1 class="testeMargens">testeMargens</h1>
+    <h2 class="testeMargemAbreviadaDuplicada1">testeMargemAbreviadaDuplicada1</h1>
+    <h2 class="testeMargemAbreviadaDuplicada2">testeMargemAbreviadaDuplicada2</h1>
+    <h2 class="testeMargemAbreviadaDuplicada3">testeMargemAbreviadaDuplicada3</h1>
+    
+    <h2 class="testePaddings">testePaddings</h1>
+    <h2 class="testePaddingAbreviadoDuplicado1">testePaddingAbreviadoDuplicado1</h1>
+    <h2 class="testePaddingAbreviadoDuplicado2">testePaddingAbreviadoDuplicado2</h1>
+    <h2 class="testePaddingAbreviadoDuplicado3">testePaddingAbreviadoDuplicado3</h1>
+
+    <h2 class="testeBorder">testeBorder</h1>
+    <h2 class="testeBorderAbreviado">testeBorderAbreviado</h1>
+    <h2 class="testeBorderMargem">testeBorderMargem</h1>
+    <h2 class="testeBorderMargemAbreviado">testeBorderMargemAbreviado</h1> 
+
+    <h1 class="customBox">CAIXA TESTE</h1>
+</body>
+</html>

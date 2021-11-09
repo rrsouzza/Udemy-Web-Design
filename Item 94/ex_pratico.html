@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Exercício Prático</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+
+        a[target="_blank"]::after{
+            content: url(../images/new_tab.png);
+            display: inline-block;
+            margin-left: 5px;
+        }
+        a[href$=".pdf"]:before{
+            content: url(../images/pdf.png);
+            margin-right: 5px;
+        }
+        .chk{       /* formata o nosso span como um bloco, nos tamanhos e cores especificados */
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            background-color: #ddd;
+            border: 2px solid #bbb;
+        }
+        label{
+            height: 15px;
+            display: inline-block;            
+        }
+        input[type="checkbox"]{     /* Vai tirar a exibição do checkbox padrão do input */
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            display: inline-block;
+            margin: 0;
+        }
+        input[type="checkbox"] + label .chk{    /* Arredonda os cantos da nossa span */
+            border-radius: 5px;
+        }
+        input[type="checkbox"]:checked + label .chk{    /* Define a cor de fundo do checkbox e que a posição dele será relativa */
+            background-color: #555;
+            position: relative;
+        }
+        input[type="checkbox"]:checked + label .chk::before{    /* Criamos o segundo elemento dentro do checkbox, que ao formatar seu tamanho, posição e cor, fica parecendo um v de "checked" */
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 4px;
+            left: 4px;
+            right: 4px;
+            border: 2px solid white;
+            transform: rotate(45deg);
+            border-top-color: transparent;
+            border-left-color: transparent;            
+        }
+    </style>
+</head>
+<body>
+    <h1>Título</h1>
+    <a href="http://serfrontend.com" target="_blank">link externo</a><br>
+    <a href="qq.pdf">download do PDF</a><br>
+    <hr>
+
+    <input type="checkbox" name="qq" id="chk">
+    <label for="chk">
+        <span class="chk"></span>Li e aceito o contrato
+    </label>
+</body>
+</html>

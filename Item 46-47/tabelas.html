@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Tabelas</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        p{
+            line-height: 0.2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabelas:</h1>
+    <p>tr: table row</p>
+    <p>td: table data</p>
+    <p>colspan: fusão de colunas</p>
+    <p>rowspan: fusão de linhas</p>
+
+    <table>
+        <caption>Tabela Teste 1</caption> <!--caption ajuda na acessibilidade. -->
+        <tr>
+            <td>1A</td> <td>1B</td>
+        </tr>
+        <tr>
+            <td>2A</td> <td>2B</td>
+        </tr>
+        <tr>
+            <td>3A</td> <td>3B</td>
+        </tr>
+    </table>
+    <br><br><hr>
+
+    <table>
+        <caption>Tabela Teste 2</caption>
+        <tr>
+            <td colspan="2">1A</td>   <!--Indica que a coluna 1A irá ocupar o espaço equivalente de 2 colunas-->
+        </tr>
+        <tr>
+            <td>2A</td> <td>2B</td>
+        </tr>
+        <tr>
+            <td>3A</td> <td>3B</td>
+        </tr>
+    </table>
+    <br><br><hr>
+
+    <table>
+        <caption>Tabela Teste 3</caption>
+        <tr>
+            <td rowspan="2">1A</td>  <!--Indica que a linha 1A irá ocupar o espaço equivalente de 2 linhas-->
+            <td>1B</td>
+        </tr>
+        <tr>
+            <td>2B</td>
+        </tr>
+        <tr>
+            <td>3A</td> <td>3B</td>
+        </tr>
+    </table>
+    <br><br><hr>
+
+    <table>
+        <caption>Tabela Teste 4</caption>
+        <tr>
+            <th>Coluna1</th> <th>Coluna2</th> <!--th = Table Header. Indica o "cabeçalho" da tabela-->
+        </tr>
+        <tr>
+            <td>1A</td>
+            <td rowspan="2">1B</td>  <!--Indica que a linha 1B irá ocupar o espaço equivalente de 2 linhas-->
+        </tr>
+        <tr>
+            <td>2A</td>
+        </tr>
+        <tr>
+            <td>3A</td> <td>3B</td>
+        </tr>
+    </table>
+    <br><br><hr>
+
+    <table>
+        <caption>Tabela Teste 5</caption>
+        <thead> <!--Podemos usar as tags thead e tbody para melhorar a semântica de nossas tabelas-->
+            <tr>
+                <th>Coluna1</th> <th>Coluna2</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <!--tfoot sempre após o thead-->
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>2A</td> <td>2B</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

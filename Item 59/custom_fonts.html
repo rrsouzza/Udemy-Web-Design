@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Fontes customizadas</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        @font-face {    /*Diretiva*/
+            font-family: 'nadia';
+            src: url(../../fonts/nadia/nadia-serif.eot);
+            src: url(../../fonts/nadia/nadia-serif.woff) format('woff'),
+                url(../../fonts/nadia/nadia-serif.ttf) format('truetype'),
+                url(../../fonts/nadia/nadia-serif.svg) format('svg');
+            /*Definimos o nome da família da fonte, e seu endereço*/
+            /*Para melhorarmos a usabilidade da nossa página, podemos adicionar todas as extensões da fonte que darão suporte a diferentes browsers -->
+            /*fontsquirrel.com*/
+
+            /*
+            Poderíamos, também definir apenas um formato da fonte:
+                font-family: 'nadia';
+                src: url(../../fonts/nadia/nadia-serif.ttf);
+
+            Isso também iria funcionar, porém corremos o risco de alguns browsers não serem compatíveis com o formato da fonte.
+            Por isso devemos inserir todos os formatos possíveis.
+            */
+        }
+
+        body{
+            font-family: nadia, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estrutura básica</h1>
+</body>
+</html>

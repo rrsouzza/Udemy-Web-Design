@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Propriedade Transform</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        .div1{
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            /*  transform: translateX(150px);
+                transform: translateY(150px); */
+            transform: translate(50%, 50%); /* 50% relativo ao tamanho da própria div. Esse é o parâmetro da propriedade transform. */
+            /* 150px no eixo x à direita, 150px no eixo y pra baixo */
+        }
+        .div2{
+            height: 150px;
+            width: 150px;
+            background-color: blue;
+            position: relative;
+            left: 50%;  /* 50% relativo ao tamanho do elemento pai, que no caso é o body. Parâmetro padrão do position:relative */
+                        /* Note que a margem esquerda da div está alinhada com o centro da tela. */
+        }
+
+        .div3{
+            width: 50%;
+            overflow: hidden;
+            border: solid 2px black;
+        }
+        .div3-interna{
+            background-color: yellow;
+            transform: translate(70%, 20px);
+        }
+
+        .div4{
+            width: 50%;
+            overflow: hidden;
+            border: solid 2px black;
+        }
+        .div4-interna{
+            background-color: yellow;
+            transform: rotate(-10deg);  /* rotate sempre valores em graus/deg - positivos giram no sentido horário, negativos anti-horário. */
+                                        /* Nota: a origem de rotação do elemento é o seu próprio centro. */
+        }
+        .div5{
+            width: 50%;
+            overflow: hidden;
+            border: solid 2px black;
+        }
+        .div5-interna{
+            background-color: yellow;
+            transform: rotate(30deg);
+            transform-origin: left top; /* A origem do elemento será no canto superior esquerdo. */
+        }
+        .div6{
+            width: 50%;
+            overflow: hidden;
+            border: solid 2px black;
+        }
+        .div6-interna{
+            background-color: yellow;
+            transform: rotate(30deg) translate(50%);    /* Primeiro ele rotacionou 30º, e depois transladou (o eixo x passa a ser no ângulo rotacionado) */
+        }
+        .div7{
+            width: 50%;
+            overflow: hidden;
+            border: solid 2px black;
+        }
+        .div7-interna{
+            background-color: yellow;
+            transform: translate(50px) rotate(30deg);   /* Primeiro ele transladou 50px, e depois rotacionou 30º */
+        }
+
+        .div8{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            transform: skew(10deg, 10deg);  /* Cria uma distorção nos eixos. */
+        }
+        .div9{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transform: scale(2, .5) translate(50%); /* scale: altera a escala do elemento. No caso, ele dobrou (2) a escala no eixo x, e cortou pela metade (.5) a escala no eixo y. */
+            transition: transform .5s ease;
+        }
+        .div9:hover{
+            transform: scale(3, 2) translate(50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <hr>
+    <div class="div3">
+        <div class="div3-interna">conteudo qualquer</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+
+    <hr>
+
+    <div class="div4">
+        <div class="div4-interna">conteudo qualquer</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+
+    <hr>
+
+    <div class="div5">
+        <div class="div5-interna">conteudo qualquer</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+
+    <hr>
+
+    <div class="div6">
+        <div class="div6-interna">conteudo qualquer</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+
+    <hr>
+
+    <div class="div7">
+        <div class="div7-interna">conteudo qualquer</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+
+    <hr>
+
+    <div class="div8">div8</div>
+    <div class="div9">div9</div>
+</body>
+</html>

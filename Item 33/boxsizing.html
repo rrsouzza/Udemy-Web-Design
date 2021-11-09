@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Box-sizing</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        div{
+            background-color: orange;
+            width: 150px;
+            /*Largura: 150px*/
+            height: 100px;
+            /*Altura: 100px*/
+            margin: 10px;
+        }
+        #box1{
+            padding: 25px;
+            /*Declarando deste forma, o tamanho final da div será de 150px (largura) + 25px de cada lado (padding), totalizando 200px.*/
+        }
+        #box2{
+            padding: 25px;
+            box-sizing: border-box;
+            /*Declarando o box-sizing, nós definimos que o tamanho final do div será o declarado acima. Assim, o padding será aplicado dentro do tamanho declarado da div,
+                em vez de somar ao tamanho original.*/
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">teste1 <br> box1</div>
+    <div id="box2">teste2 <br> box2</div>
+</body>
+</html>

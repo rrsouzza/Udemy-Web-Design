@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Pseudo Classes e Elementos - Lista Parte 3</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        div p:nth-of-type(3){   /* nth-of-type irá formatar a instância desejada de p contida em uma div */
+                                /* No caso de 3, será formatada a 3ª instância de p contida em uma div */
+            color: red;
+        }
+
+        div p:nth-child(6){ /* o 6 representa a 6ª tag contida em uma div, que no caso é uma <hr>. Caso fosse uma <p>, aí sim a formatação seria aplicada. */
+            color: orange;
+        }
+        div p:nth-of-type(6){
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>paragrafo</p>
+        <p>paragrafo</p>
+        <hr>
+        <p>paragrafo</p>
+        <p>paragrafo</p>
+        <hr>
+        <p>paragrafo</p>
+        <p>paragrafo</p>
+        <hr>
+        <p>paragrafo</p>
+        <p>paragrafo</p>
+        <hr>
+        <p>paragrafo</p>
+        <p>paragrafo</p>
+        <hr>
+    </div>
+</body>
+</html>

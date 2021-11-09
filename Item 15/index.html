@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Primeiros detalhes de CSS</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            background-color: #ccc;
+        }
+        
+        h1{
+            font-family: sans-serif, Arial, Helvetica;            
+            font-size: 30px;
+            font-style: italic;
+            font-variant: small-caps;
+            color: #123456;
+        }
+        
+        h2{
+            font-family: Impact;
+            font-size: 25px;
+            color: #800040;
+            background-color: #008070;
+        }
+
+        p{
+            font-variant: normal;
+            font-size: 40px;
+            font-weight: 1000;
+            text-align: right;
+            text-decoration: underline;
+            text-indent: 10px;
+            color: orange;
+        }
+
+        .destaque{
+            color: red;
+            background-color: lightblue;
+        }
+    </style>
+    <!--font-family: quando listada mais de uma fonte separada por vírgula, será selecionada por ordem de preferência. 
+        Ex: Caso não esteja disponível uma fonte, será escolhida a próxima-->
+</head>
+<body>
+    <h1>Estrutura básica</h1>
+    <p>Parágrafo de exemplo</p>
+    <p>Outro parágrafo de exemplo</p>
+    <h2>H2 de exemplo</h2>
+    <p class="destaque">Parágrafo de classe</p>
+    <!--Como foi declarada uma formatação para todos os parágrafos (linha 31),
+         qualquer parágrafo inserido terá a formatação declarada, mesmo utilizando de uma classe (ex: .destaque)-->
+</body>
+</html>

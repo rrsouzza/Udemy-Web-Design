@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Formulários</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+        }
+        input{
+            
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        select{
+            margin: 10px 0 5px 0;
+        }
+    </style>
+</head>
+<body>    
+    <h1>Exemplo de formulário:</h1>
+    <form action="#" method="GET" class="formLogin">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+
+            <label>Nome</label>
+            <input type="text" placeholder="Digite seu nome">
+            <!--a propriedade placeholder insere um texto no fundo da caixa de texto. Esse texto some assim que inserimos um caractere na caixa.
+                Ele serve para dar uma "dica" para o usuário do que deve ser inserido, porém não deve ser usado para substituir o label-->
+               
+            <label>Email</label>
+            <input type="email" required maxlength="20" placeholder="Digite seu e-mail">            
+            <!--required torna obrigatório o preenchimento do campo, impedindo o usuário de enviar caso vazio, e exibindo na tela um aviso caso o tente-->
+            <!--a propriedade maxlength define o número máximo de caracteres que podem ser inseridos no campo-->
+
+            <label>Idade</label>
+            <input type="number" min="0" max="1000" placeholder="Idade" step="2">            
+            <!--type="number" já insere automaticamente dois seletores na lateral da caixa
+            para aumentar ou diminuir o número desejado-->
+            <!--ao definirmos o número mínimo e máximo, o browser retorna uma mensagem de erro caso o usuário insira um número
+            que esteja fora dos parâmetros-->
+            <!--O atributo step define qual o intervalo entre as seleções. Ex: 10: Ele iria pular de 0 pra 10, pra 20, pra 30...-->
+
+            <label>Data de Nascimento</label>
+            <input type="date" min="1921-01-01" max="2017-10-08">            
+            <!--type="date" já disponibiliza automaticamente um ícone de calendário para inserir a data desejada-->
+            <!--podemos definir as datas mínimas e máximas que poderão ser inseridas. Elas são escritas no formato "yyyy/mm/dd"-->
+
+            <label>Sexo</label>
+            <label>
+                <input type="radio" name="sexo" value="M">Masculino
+            </label>            
+            <label>
+                <input type="radio" name="sexo" value="F">Feminino
+            </label>            
+            <!--Ao colocarmos o input dentro do label, nós conseguimos clicar na palavra "Masculino" e "Feminino" para marcar a caixa desejada-->
+
+            <label>Estado</label>
+            <select name="estado">
+                <option value="0">Selecione</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="SP">São Paulo</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Área de Interesse</legend>
+            
+            <label>
+                <input type="checkbox" name="html" value="html">HTML
+            </label>
+            <label>
+                <input type="checkbox" name="css" value="css">CSS
+            </label>
+            <label>
+                <input type="checkbox" name="javascript" value="javascript">Javascript
+            </label>            
+        </fieldset>
+
+        <fieldset>
+            <legend>Mensagem</legend>
+            <textarea style="resize: none;" name="msg" cols="30" rows="10" maxlength="300"></textarea>
+            <!--Podemos definir o número de colunas(caracteres na horizontal) (30) e linhas (10) que queremos na nossa caixa-->
+            <!--resize: none remove a propriedade de podermos clicar na caixa (no browser) e mudar seu tamanho-->
+            <!--a propriedade maxlength define o número máximo de caracteres que podem ser inseridos no campo-->
+
+            <textarea style="resize: none;" name="contrato" cols="30" rows="10" readonly>Esse é o texto do contrato a ser aceito
+            </textarea>
+                <!--readonly faz com que o texto da caixa seja apenas leitura e não permite que o usuário o altere-->
+            <label>
+                <input type="checkbox" checked>Li e aceito o contrato
+                <!--a propriedade checked faz com que a checkbox esteja selecionada por padrão-->
+            </label>
+
+            <textarea style="resize: none;" name="texte" cols="30" rows="10" disabled>Esse é o texto do contrato a ser aceito
+            </textarea>
+                <!--disabled tem a mesma função do readonly, porém altera um pouco o visual, indicando que o texto não pode ser modificado-->
+
+            <input type="range" min="0" max="100" step="10">
+                <!--O atributo step define qual o intervalo entre as seleções. Ex: 10: Ele iria pular de 0 pra 10, pra 20, pra 30...-->
+
+            <select name="opcoes" size="3" multiple>
+                <!--a propriedade multiple permite selecionar múltiplas opções ao segurar o Ctrl e selecioná-las-->
+                <!--a propriedade size permite definir quantas opções queremos que sejam exibidas por padrão-->
+                <option>Opção 1</option>
+                <option>Opção 2</option>
+                <option>Opção 3</option>
+                <option>Opção 4</option>
+                <option>Opção 5</option>
+            </select>
+        </fieldset>
+
+        
+
+        <input type="submit" value="Enviar">
+        <input type="button" value="Botão">
+        <input type="reset" value="Limpar formulário">
+        <!--type="button" nos permite adicionar um botão, e atribuí-lo uma função através do Javascript-->
+        <!--type="reset" faz com que todos os dados inseridos na página sejam resetados-->
+
+        <!--Tipos de input:-->
+        <input type="text">
+        <input type="password">
+        <input type="checkbox">
+        <input type="radio">
+        <input type="file">
+        <input type="hidden">
+        <input type="submit">
+        <input type="button">
+        <input type="reset">
+        <!--HTML5:-->
+        <input type="email">
+        <input type="tel">
+        <input type="url">
+        <input type="search">
+        <input type="number">
+        <input type="range">
+        <input type="date">
+        <input type="time">
+        <input type="color">
+        <!--Alguns atributos-->
+        <p>autofocus</p>
+        <p>checked</p>
+        <p>required</p>
+        <p>maxlength</p>
+        <p>multiple</p>
+        <p>placeholder</p>
+        <p>max</p>
+        <p>min</p>
+        <p>cols</p>
+        <p>rows</p>
+        <p>size</p>
+        <p>step</p>
+
+
+    
+    </form>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Exemplo de Media Queries</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body{
+            background-color: yellow;            
+        }
+
+        .teste{
+            background-color: red;
+            width: 320px;
+            height: 50px;
+        }
+
+        img{
+            width: 100%;
+            margin-top: 30px;            
+        }
+
+        .container{
+            background-color: white;
+            padding: 15px;
+        }
+        .container div{
+            background-color: #ccc;
+            margin-bottom: 15px;
+            height: 150px;
+        }
+        .clearfix::after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+
+        @media screen and (min-width: 400px){
+            body{
+                background-color: #eee;
+            }
+
+            .container div{
+                margin: 10px;
+                width: calc(50% - 20px);
+                float: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Media Queries</h1>
+
+    <p>Parágrafo Qualquer</p>
+
+    <div class="teste"></div>
+
+    <div class="container clearfix">
+        <div>div1</div>
+        <div>div2</div>
+    </div>
+    
+    <img src="media_queries.jpg" alt="Exemplo de Media Queries">
+    <img src="media_queries_2.jpg" alt="Exemplo de Imagem adapatada ao tamanho da tela">
+
+    <img src="media_querie_3_1.jpg" alt="Responsividade das divs: arraste o tamanho lateral da janela para visualizar a adaptação">
+    <img src="media_querie_3_2.jpg" alt="Responsividade das divs: arraste o tamanho lateral da janela para visualizar a adaptação">
+    <img src="media_querie_3_3.jpg" alt="Responsividade das divs: arraste o tamanho lateral da janela para visualizar a adaptação">
+    <img src="media_querie_3_4.jpg" alt="Responsividade das divs: arraste o tamanho lateral da janela para visualizar a adaptação">
+    <img src="media_querie_3_5.jpg" alt="Responsividade das divs: arraste o tamanho lateral da janela para visualizar a adaptação">    
+</body>
+</html>

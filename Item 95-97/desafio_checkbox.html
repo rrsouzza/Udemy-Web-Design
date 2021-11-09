@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Checkbox Diferenciado</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+
+        label{
+            display: inline-block;
+            
+        }
+
+        input[type="checkbox"]{
+            opacity: 0;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+        }
+        label span{
+            width: 60px;
+            height: 30px;
+            display: inline-block;
+            background-color: #ddd;
+            border: 1px solid #bbb;
+            border-radius: 15px;            
+        }        
+        label span::before{
+            content: "";
+            display: block;  
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin: 5px;
+            /*
+            transition: transform .5s;  -> Dessa forma, não animaria a troca de cor, por exemplo */
+            transition: all .5s;    /* all: a transição de cor também é animada*/
+        }
+        label input[type="checkbox"]:focus + span{  /* Formata o focus (ao apertar Tab no teclado) no elemento span */
+            box-shadow: 0 0 0 1px red;
+            /* border: 2px solid red;   --> essa borda altera um pouco o posicionamento da bolinha interna, então é melhor usar um box-shadow */
+        }
+        input[type="checkbox"]:checked + span::before{
+            background-color: red;
+            transform: translateX(30px);
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox">
+        <span></span>
+        Esporte
+    </label>
+    
+    <label>
+        <input type="checkbox">
+        <span></span>
+        Política
+    </label>
+
+    <label>
+        <input type="checkbox">
+        <span></span>
+        Educação
+    </label>
+</body>
+</html>

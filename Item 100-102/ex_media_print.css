@@ -1,0 +1,10 @@
+body{
+    font-family: sans-serif;
+    color: black;
+    font-size: 14px;    
+}
+a::after{
+    content: attr(href);    /* media_print_attr().jpg */
+    display: inline-block;
+    margin: 0 10px;
+}

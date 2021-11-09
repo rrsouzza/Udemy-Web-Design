@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Layout com semântica</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        header#header{
+            background-image: url(imagens/bg-1.jpg);     
+        }
+        nav#header{
+            margin-top: 0;
+        }
+        ul#menu{            
+            margin-left: 60%;
+        }
+        li#menu{
+            display: inline;
+            margin-left: 20px;
+        }
+        ul#body li{
+            display: inline;            
+        }
+        h1#header{
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        h2#article{
+            background-color: rgb(241, 241, 241);
+            padding: 10px;
+            border-bottom: solid 3px rgb(173, 173, 173);
+            
+        }
+        h3#header{
+            text-align: center;;
+            margin-bottom: 100px;
+        }
+        section#main{
+            background-color: rgb(231, 230, 230);
+            padding-left: 60px;
+            padding-right: 60px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }        
+        header#main{
+            background-color: white;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        article#main{
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav id="header">
+            <ul id="menu">
+                <li id="menu">INÍCIO</li>
+                <li id="menu">QUEM SOU EU</li>
+                <li id="menu">CONTATO</li>
+            </ul>
+        </nav>
+        <h1 id="header">CURSO WEB<br>FUNDAMENTOS</h1>
+        <footer>
+            <h3 id="header">Aprenda HTML, CSS e JavaScript</h3><br><br><br><br>
+        </footer>
+    </header>
+    <section id="main">
+        <header id="main">
+            <ul id="body">
+                <li id="menu">SELETORES</li>
+                <li id="menu">POSICIONAMENTO</li>
+                <li id="menu">FONTES E ÍCONES</li>
+            </ul>
+        </header>
+        <br>
+        <article id="main">
+            <header>
+                <h2 id="article">TÍTULO</h2>
+            </header>
+            <p>Primeiro parágrafo de exemplo</p>
+            <p>Segundo parágrafo de exemplo</p>
+        </article>
+    </section>
+</body>
+</html>

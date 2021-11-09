@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Listas Alinhadas e Listas de Definição</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        p{
+            font-weight: bold;
+        }
+
+        li ul{
+            display: none;
+            /*Irá desativar o display de todas as ul que estejam dentro de uma li*/
+        }
+        li:hover{
+            background-color: #ccc;
+            /*Define a cor de fundo ao passar o mouse por cima de uma li*/
+        }
+        li:hover ul{
+            display: block; /*display: block é o padrão*/
+            /*Ao passar o mouse em cima de qualquer ul que esteja dentro de uma li, ele será exibido em bloco*/
+        }
+
+        li ol{
+            height: 0;
+            overflow: hidden;
+            transition: height .5s; /*Cria um efeito de transição*/
+        }
+        li:hover ol{            
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listas Alinhadas e Listas de Definição</h1>
+
+    <!--Podemos ter listas dentro de listas, as chamadas Linhas Alinhadas-->
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2        
+            <ul>
+                <li>Item 2.1</li>
+                <li>Item 2.2</li>
+            </ul>
+        </li>
+        <li>Item 3
+            <ul>
+                <li>Item 3.1</li>
+                <li>Item 3.2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2
+            <ol>
+                <li>Item 2.1</li>
+                <li>Item 2.2</li>
+            </ol>
+        </li>
+        <li>Item 3
+            <ol>
+                <li>Item 3.1</li>
+                <li>Item 3.2</li>
+            </ol>
+        </li>
+        <li>Item 4</li>
+    </ul>
+    <p>Essas são as chamadas Listas Alinhadas</p>
+    <hr>
+
+    <!--Podemos fazer listas de Definição-->
+    <dl>
+        <dt>CSS</dt>
+        <dd>Cascade Style Sheet</dd>
+        <p>Podemos ter um termo dt (definition term) e uma descrição dd (definition description) pra esse termo</dt></p>
+        
+        <dt>HTML</dt>
+        <dd>Hypertext Markup Language</dd>
+        <dd>Linguagem de Marcação de Hipertexto</dd>
+        <p>Podemos ter mais de uma descrição pro mesmo termo</p>
+
+        <dt>WWW</dt>
+        <dt>Internet</dt>
+        <dt>World Wide Web</dt>
+        <dd>Rede mundial de computadores</dd>
+        <p>Também podemos ter mais de um termo com a mesma definição</p>
+    </dl>
+</body>
+</html>

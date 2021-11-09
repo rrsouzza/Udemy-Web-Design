@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Transitions</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        /*cubic-bezier.com*/
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            float: left;
+            margin-right: 30px;
+            text-align: center;            
+        }
+        div:hover{
+            width: 300px;
+        }
+        #div1, #div2, #div3, #div4, #div5, #div6{
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+        }
+        #div2{            
+            transition-timing-function: ease;
+        }
+        #div3{
+            transition-timing-function: ease-in;
+        }
+        #div4{
+            transition-timing-function: ease-out;
+        }
+        #div5{
+            transition-timing-function: ease-in-out;
+        }
+        #div6{
+            transition-timing-function: cubic-bezier(.06,-0.47,.98,.36);
+        }
+        #div7{            
+            transition-property: all;
+            /*all: irá animar tanto width quanto height*/
+            transition-duration: 1s;
+            transition-timing-function: ease;
+            transition-delay: .2s;
+            /*transition-delay: atrasa o início da animação*/
+        }
+        #div7:hover{
+            height: 300px;
+        }
+        #div8{
+            transition-property: width, height;
+            transition-duration: 1s , 3s;
+            /*1s para width, 3s para height*/
+            transition-timing-function: ease;
+            transition-delay: .2s, .8s;
+            /*.2s para width, .8s para height*/
+
+        }
+        #div8:hover{
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transições</h1>
+    <div id="div1">linear</div>
+    <div id="div2">ease</div>
+    <div id="div3">ease-in</div>
+    <div id="div4">ease-out</div>
+    <div id="div5">ease-in-out</div>
+    <div id="div6">cubic-bezier</div>    
+    <div id="div7">width and height<br>ease</div>
+    <div id="div8">width and height com tempos diferentes<br>ease</div>
+    
+</body>
+</html>

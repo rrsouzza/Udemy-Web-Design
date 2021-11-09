@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Pseudo-classes e Pseudo-elementos</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        input[type="checkbox"]{
+            width: 100px;
+            height: 100px;
+        }
+        input[type="checkbox"]:checked{
+            width: 50px;
+            height: 50px;
+        }
+
+        button:disabled{
+            background-color: blue;
+            color: white;
+        }
+
+        p{
+            color: red;
+        }
+        p:empty::before{        /* A Pseudo-classe empty não afeta o PARAGRAFO 3 */
+            content: "paragrafo vazio";
+        }
+
+        input[type="text"]:focus{   /* Quando a caixa de texto estiver selecionada/focada */
+            background: #eee;
+        }
+
+        a:focus, a:hover, div:focus{   /* :focus é quando o link estiver selecionado */
+                                        /* funciona também ao pressionar Tab e navegar pelas seleções da página */
+            background-color: red;
+        }
+
+        input::placeholder{
+            background-color: #ccc;
+        }
+        input[type="text"]:read-only{
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <label for="aceitar"><input type="checkbox" value="aceitar">Aceito o contrato</label><br>
+
+    <button>vai</button>
+    <button disabled>volta</button>
+
+    <p>paragrafo 1</p>
+    <p> </p>    <!-- PARAGRAFO 2-->
+    <p></p>     <!-- PARAGRAFO 3-->
+
+    <input type="text"><br>
+    <input type="text" value="valor inicial"><br>
+    <input type="text" value="valor inicial readonly" readonly><br>
+    <input type="text" value="valor inicial disabled" disabled><br>
+    <input type="text" placeholder="valor do placeholder"><br>
+    
+
+    <ul>
+        <li><a href="#">link vazio</a></li>
+        <li><a href="#">link vazio</a></li>
+        <li><a href="#">link vazio</a></li>
+        <li><a href="#">link vazio</a></li>
+    </ul>
+
+    <div tabindex="1">div 1</div>
+    <div tabindex="2">div 2</div>
+    <div tabindex="3">div 3</div>
+    <!-- tabindex define a ordem prioritária de seleção na página usando o Tab. (após a seleção da url) -->
+    
+</body>
+</html>

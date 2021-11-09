@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Pseudo-classes e Pseudo-elementos</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        body{
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        h1{
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+        table{
+            border: 2px solid black;            
+            border-collapse: collapse;
+            width: 95%;
+            text-align: center;
+            margin: 40px;
+        }        
+        th{
+            padding: 10px;
+            border-bottom: 1px solid black;
+            text-transform: uppercase;
+            background-color: #eee;
+            margin: 0;
+        }
+        th p{
+            font-size: 11px;
+            font-weight: normal;
+            text-transform: lowercase;
+            margin: 0;
+        }
+        td{
+            padding: 5px 40px;
+            border: .2px solid #ccc;
+            width: 25%;
+            color: #454545;
+            
+        }
+        td b:hover{
+            color: #99c71a;
+            transition: all .2s linear;
+        }
+        td::selection{
+            color: #99c71a;
+        }
+        b::selection{
+            color: #99c71a;
+        }       
+        a{
+            text-decoration: none;
+            text-transform: uppercase;
+            color: blue;
+        }
+        a:visited{
+            color: blue;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Pseudo-classes e Pseudo-elementos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4"><article class="titulo"><a href="http://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes" target="_blank">Pseudo-classes</a></article></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>:checked</b>-> formatação do input type: radio ou checkbox.</td>
+                <td rowspan="2"><b>:disabled e :enabled</b>-> formatação de um botão</td>
+                <td><b>:empty</b>-> formatação de uma tag vazia</td>
+                <td><b>:first-of-type</b></td>
+            </tr>
+            <tr>
+                <td><b>:first-child</b></td>
+                <td><b>:focus</b></td>
+                <td><b>:hover</b></td>
+            </tr>
+            <tr>
+                <td><b>:invalid</b>-> caso o usuário insira um valor inválido</td>
+                <td><b>:last-child</b></td>
+                <td><b>:last-of-type</b></td>
+                <td><b>:link</b></td>
+            </tr>
+            <tr>
+                <td><b>:not()</b></td>
+                <td><b>:nth-child()</b></td>
+                <td><b>:nth-last-child()</b></td>
+                <td><b>:nth-last-of-type()</b></td>
+            </tr>
+            <tr>
+                <td><b>:nth-of-type</b></td>
+                <td><b>:only-child</b></td>
+                <td><b>:only-of-type</b></td>
+                <td><b>:out-of-range</b></td>
+            </tr>
+            <tr>
+                <td><b>:read-only</b>-> um formulário de apenas leitura</td>
+                <td><b>:read-write</b>-> um formulário de apenas escrita</td>
+                <td><b>:required</b></td>
+                <td><b>:target</b></td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>:valid</b></td>
+                <td colspan="2"><b>:visited</b>-> links já visitados</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">
+                    <article class="titulo"><a href="http://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-elementos" target="_blank">Pseudo-elementos</a></article>
+                    <p>*Pseudo-elementos começam com dois ::</p>
+                </th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>::after</b></td>
+                <td><b>::before</b></td>
+                <td><b>::first-letter</b></td>
+                <td><b>::first-line</b></td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>::selection</b>-> formatação da seleção ao clicar e arrastar</td>
+                <td colspan="2"><b>::placeholder</b></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
