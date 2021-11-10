@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+html{
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Oxygen";
+}
+.top-header, .top-section, .middle-section{
+    background-color: #f6f6f6;
+}
+
+.top-header{
+    text-align: center; /* <img> é, por padrão, um elemento de linha. Por isso conseguimos alinhá-lo com um text-align. */    
+}
+.top-header-logo{
+    margin: .5em;
+}
+
+.top-nav{
+    background-color: #612674;
+    text-align: center;    
+}
+.top-nav ul{
+    list-style: none; /* Remove os bullets */
+    margin: 0;    
+    /* padding: 1em 0; */
+    padding: 0;
+}
+.top-nav a{
+    color: white;
+    text-decoration: none;  /* Remove o sublinhado */    
+    display: block;
+    padding: 1em;
+}
+.top-nav a:hover{
+    background-color: #7c3792;
+}
+
+.top-section{
+    text-align: center;    
+}
+.top-section-title{
+    color: #612674;
+    font-size: 1.65em;
+    padding: .75em;
+    margin-top: 0;
+}
+.top-section-subtitle{
+    color: #a87bb7;
+    margin: 1em 1.5em;
+    text-justify: distribute;
+}
+
+.button-default{
+    display: inline-block;
+    background-color: #58c4c4;
+    color: white;
+    text-decoration: none;    
+    padding: 1em 2.5em;    
+    border-radius: .5em;
+    font-size: 1.5em;
+}
+.button-default:hover{
+    background-color: #4e8f8f;
+}
+
+.middle-section{
+    text-align: center;
+    padding: 3em 0;
+}
+.middle-section-icons{    
+}
+.middle-section-titles{
+    text-transform: uppercase;
+    color: #612674;
+    font-size: 1.5em;    
+}
+.middle-section-p{
+    margin: 1em 2em;
+    font-size: 1.3em;
+}
+
+.bottom-section{
+    padding: 2em 4em 3em 3em;
+}
+.bottom-section-articles{
+    margin-bottom: 5em;
+}
+.bottom-section-titles{
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: normal;
+    color: #612674;
+}
+.bottom-section-p{
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+.page-footer{
+    background-color: #25303e;
+    color: #83969f;    
+    text-align: center;
+    padding-bottom: 4em;
+}
+.footer-nav{
+    background-color: #303d4c;
+    text-align: center;
+}
+.footer-nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.footer-nav li{
+    text-decoration: none;
+    display: inline-block;    
+    margin: 1em 2em;
+}
+.footer-icons{
+    width: 2em;
+    height: 2em;
+}
+.page-footer p{
+    font-size: 1.5em;
+}
