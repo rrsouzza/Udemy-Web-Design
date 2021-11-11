@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+
+<head>
+    <title>Picture</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+
+<body>
+    <h1>Picture</h1>
+
+<!--     
+    <img src="http://lorempixel.com/400/200/" srcset="http://lorempixel.com/600/300/ 600w, http://lorempixel.com/800/400 800w" alt="">
+    600w/800w indica ao browser que a imagem sendo requisitada tem 600 e 800px de largura (width), respectivamente
+-->
+
+<!--
+    <img src="http://lorempixel.com/400/200/" srcset="http://lorempixel.com/600/300/ 600w, http://lorempixel.com/800/400 800w" alt="" sizes="33.33vw">
+    sizes="33.33vw" indica que a imagem será contida em um container de 33.33% do tamanho da viewport(vw) 
+-->
+
+<!--
+    <img src="http://lorempixel.com/400/200/" srcset="http://lorempixel.com/600/300/ 600w, http://lorempixel.com/800/400 800w" alt="" sizes="(min-width: 480px) 33.33vw, 100vw">
+    Neste caso, podemos usar sizes="(min-width: 480px" para definir o tamanho da imagem caso estejamos definindo media queries na página.
+    Desta forma, caso a tela tenha pelo menos 480px, a imagem será exibida em 33.33% da viewport.
+    Caso a tela seja menor que 480px, a imagem ocupará 100% da viewport.
+-->
+
+<picture>
+    <source media="(min-width: 480px)" sizes="33vw" srcset="http://lorempixel.com/800/400 800w, http://lorempixel.com/600/300 600w, http://lorempixel.com/400/200 400w" />
+    <source sizes="100vw" srcset="http://lorempixel.com/800/400 800w, http://lorempixel.com/600/300 600w, http://lorempixel.com/400/200 400w" />
+    <img src="../Item 39 - Projeto Fashion/imagens/bg_detalhe.png" alt="fallback para browser sem suporte ao source. Obrigatório o uso de uma img dentro de uma picture.">
+
+    <!-- É obrigatório a utilização da tag <img> dentro de uma <picture>. Ela serve como fallback, mas seu uso é obrigatório neste caso.-->
+</picture>
+</body>
+</html>
