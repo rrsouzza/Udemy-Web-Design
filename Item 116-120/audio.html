@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Áudio</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Áudio</h1>
+
+    <!--
+        <audio src="../utils/media/mozar_trompa.mp3"></audio>
+        Desta forma inserimos diretamente o arquivo, porém nem todos os browsers podem ter suporte ao formato .mp3 para reprodução de áudio.
+        Usando as tags <audio> e <source>, podemos definir a origem do áudio de formatos diferentes, garantindo assim que browsers diferentes reproduzirão o mesmo áudio.
+    -->
+    
+    <audio controls autoplay loop>  <!-- autoplay reproduz o áudio automaticamente ao carregar a página // alguns browser bloqueiam este atributo -->
+                                    <!-- loop reproduz o áudio repetidamente -->                                    
+        <source src="../utils/media/mozart_trompa.mp3" type="audio/mp3">
+        <source src="../utils/media/mozart_trompa.ogg" type="audio/ogg">
+        <p>Seu browser não suporta este recurso</p> <!-- Aparece caso a reprodução de áudio não esteja disponível -->
+    </audio>
+</body>
+</html>
