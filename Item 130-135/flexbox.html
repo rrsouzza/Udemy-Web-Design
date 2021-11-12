@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+
+<head>
+    <title>Flexbox</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <style>
+        p{
+            font-size: 24px;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+        .flexbox {
+            height: auto;
+            border: 4px solid black;
+            display: flex;
+            margin-bottom: 30px;
+            font-size: 42px;
+        }        
+        .flexbox div {
+            background: orange;
+            width: 500px;
+            margin: 15px;
+        }
+
+        /*======================================================================================================================================*/
+        /* nth-child começa em 4 pois os 3 primeiros elementos são 1 <h1> e 2 <p>'s */
+        .flexbox:nth-child(5) {
+            flex-direction: row;    /* valor padrão */
+        }
+        .flexbox:nth-child(7) {
+            flex-direction: column; /**/
+        }
+        .flexbox:nth-child(9) {
+            flex-direction: column-reverse; /* inverteu a ordem e a posição das divs */
+        }
+        .flexbox:nth-child(11) {
+            flex-direction: row-reverse;    /* inverteu a ordem e a posição das divs */
+        }
+        .flexbox:nth-child(13) {
+            /* flex-direction: row;
+            flex-wrap: wrap;    Insere automaticamente uma quebra de linha caso o elemento não caiba na mesma linha */
+            flex-flow: row wrap;    /* atalho para as duas propriedades */
+        }
+        
+        /*======================================================================================================================================*/
+        .flexbox:nth-child(15) div, .flexbox:nth-child(17) div, .flexbox:nth-child(19) div{
+            width: 50px;
+            height: 200px;
+        }
+        .flexbox:nth-child(15) {
+            justify-content: center;    /* justifica todo seu conteúdo no centro */
+        }
+        .flexbox:nth-child(17) {            
+            justify-content: space-around;  /* o espaço que sobrar entre os conteúdos é distribuído em volta dos elementos das extremidades*/
+        }        
+        .flexbox:nth-child(19) {            
+            justify-content: space-between; /* o espaço que sobrar entre os conteúdos é distribuído entre os elementos internos*/
+        }
+        
+        /*======================================================================================================================================*/
+        .flexbox:nth-child(21) div{
+            width: 100px;
+        }
+        .flexbox:nth-child(21) {
+            height: 300px;
+            align-items: center;    /* os itens são alinhados no centro (vertical) */
+            justify-content: center;    /* os itens são alinhados no centro (horizontal) */
+        }
+        .flexbox:nth-child(23) {  
+            height: 200px;
+            align-items: flex-start;    /* são colocados no início */
+        }
+        .flexbox:nth-child(25) {            
+            height: 200px;
+            align-items: flex-end;  /* são colocados no final */
+        }
+        .flexbox:nth-child(27) {            
+            height: 200px;
+            align-items: stretch;   /* são esticados na vertical: padrão */
+        }        
+
+        /*======================================================================================================================================*/
+        .flexbox:nth-child(29) div, .flexbox:nth-child(31) div, .flexbox:nth-child(33) div, .flexbox:nth-child(35) div, .flexbox:nth-child(37) div{
+            width: 400px;
+        }        
+        .flexbox:nth-child(29) {            
+            height: 300px;
+            justify-content: center;    /* centraliza na horizontal */
+            flex-wrap: wrap;            /* insere a quebra de linha automagicamente */
+            align-content: center;              /* centraliza na vertical */
+        }
+        .flexbox:nth-child(31) {            
+            height: 300px;
+            justify-content: center;    /* centraliza na horizontal */
+            flex-wrap: wrap;            /* insere a quebra de linha automagicamente */
+            align-content: flex-start;          /* coloca tudo pra cima, na linha superior */
+        }
+        .flexbox:nth-child(33) {            
+            height: 300px;
+            justify-content: center;    /* centraliza na horizontal */
+            flex-wrap: wrap;            /* insere a quebra de linha automagicamente */
+            align-content: flex-end;            /* coloca tudo pra baixo, na linha inferior */
+        }
+        .flexbox:nth-child(35) {
+            height: 300px;
+            justify-content: center;    /* centraliza na horizontal */
+            flex-wrap: wrap;            /* insere a quebra de linha automagicamente */
+            align-content: space-around;        /* distribui o espaço acima e abaixo dos elementos*/
+        }
+        .flexbox:nth-child(37) {
+            height: 300px;
+            justify-content: center;    /* centraliza na horizontal */
+            flex-wrap: wrap;            /* insere a quebra de linha automagicamente */
+            align-content: space-between;        /* distribui o espaço dentre os elementos*/
+        }
+        /*======================================================================================================================================*/
+    </style>
+</head>
+
+<body>
+    <h1>Flexbox</h1>
+    <h2>Acomodar ou distribuir elementos de modo fácil</h2>
+    <h2>Ajuda a centralizar na vertical</h2>
+
+    <p>flex-direction: row  = valor padrão</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>flex-direction: column</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>flex-direction: column-reverse</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>flex-direction: row-reverse</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>flex-flow: row-wrap: insere uma quebra de linha automagicamente</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>justify-content: center: justifica todo seu conteúdo no meio</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>justify-content: space-around: o espaço que sobrar entre os conteúdos é distribuído em volta dos elementos das extremidades</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>justify-content: space-between: o espaço que sobrar entre os conteúdos é distribuído entre os elementos internos</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>align-items: center: os itens são alinhados no centro (vertical) <br> justify-content: center: os itens são alinhados no centro (horizontal) </p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>align-items: flex-start: são colocados no início</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>align-items: flex-end: são colocados no final</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p>align-items: stretch: os elementos são esticados na vertical. padrão</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p class="p_linha">justify-content: center: Centraliza na horizontal <br>flex-wrap: wrap: Insere a quebra de linha automagicamente<br>align-content: center: Centraliza na vertical</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p class="p_linha">justify-content: center: Centraliza na horizontal <br>flex-wrap: wrap: Insere a quebra de linha automagicamente<br>align-content: flex-start: coloca tudo pra cima, na linha superior</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p class="p_linha">justify-content: center: Centraliza na horizontal <br>flex-wrap: wrap: Insere a quebra de linha automagicamente<br>align-content: flex-start: coloca tudo pra cima, na linha inferior</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p class="p_linha">justify-content: center: Centraliza na horizontal <br>flex-wrap: wrap: Insere a quebra de linha automagicamente<br>align-content: space-around: distribui o espaço acima e abaixo dos elementos</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>
+    <p class="p_linha">justify-content: center: Centraliza na horizontal <br>flex-wrap: wrap: Insere a quebra de linha automagicamente<br>align-content: space-between: distribui o espaço dentre os elementos</p>
+    <div class="flexbox">   <!-- : display container -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>    
+</body>
+
+</html>
