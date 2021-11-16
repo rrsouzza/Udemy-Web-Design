@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>CSS Grids - Auto-rows</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        .gridContainer1, .gridContainer2{
+            width: 90%;
+            background-color: #ccc;
+            margin: 30px auto;
+            display: grid;
+            gap: 10px;
+        }
+        .gridContainer1{
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));    /* o auto-fit fará com que as células sempre se adequem para ocupar todo o espaço disponível */
+        }
+        .gridContainer2{
+            width: 20%;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));   /* o auto-fill irá inserir células "fantasmas" no local disponível */
+            grid-auto-rows: 50px 150px; /* grid-auto-rows define que as novas linhas/rows se ajustarão automaticamente, obedecendo os parâmetros de tamanho passados. */
+        }
+        .gridItem{
+            background-color: orange;
+            padding: 15px;
+            font-family: sans-serif;
+        }
+
+        /*auto-fill, auto-fit e auto-rows são úteis para definir responsividade nas grids, assim elas podem se ajustar automaticamente de acordo com o tamanho da tela do aparelho. */
+    </style>
+</head>
+<body>
+    <h2>CSS Grids - Auto-rows</h2>
+
+    <div class="gridContainer1">
+        <div class="gridItem">1</div>
+        <div class="gridItem">2</div>
+        <div class="gridItem">3</div>
+        <!-- <div class="gridItem">4</div>
+        <div class="gridItem">5</div>
+        <div class="gridItem">6</div>
+        <div class="gridItem">7</div>
+        <div class="gridItem">8</div>
+        <div class="gridItem">9</div>
+        <div class="gridItem">10</div>
+        <div class="gridItem">11</div>
+        <div class="gridItem">12</div> -->
+    </div>
+    <div class="gridContainer2">
+        <div class="gridItem">1</div>
+        <div class="gridItem">2</div>
+        <div class="gridItem">3</div>
+        <div class="gridItem">4</div>
+        <div class="gridItem">5</div>
+        <div class="gridItem">6</div>
+        <div class="gridItem">7</div>
+        <div class="gridItem">8</div>
+        <div class="gridItem">9</div>
+        <div class="gridItem">10</div>
+        <div class="gridItem">11</div>
+        <div class="gridItem">12</div>
+    </div>
+</body>
+</html>

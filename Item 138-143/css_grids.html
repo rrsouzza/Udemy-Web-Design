@@ -2,29 +2,29 @@
 <!-- doctype informa ao agente de usuario a versão do html que deve ser renderizada-->
 <html lang="pt-br">
     <head>
-        <title> pagina de exemplo estrutura basica </title>
+        <title>CSS Grids</title>
         <meta charset="utf-8">
         <meta name="author" content="Daniel">
         <meta name="description" content="descrição bacanuda">
         <meta name="keywords" content="html5, tecnologia">
         
         <style>
-            .gridContainer1, .gridContainer2{
+            .gridContainer1, .gridContainer2, .gridContainer3{
                 width: 300px;
                 background: #ccc;
             }
 
-            .gridItem1, .gridItem2{
+            .gridItem1, .gridItem2, .gridItem3{
                 background: #999;
                 
                 font-size: 2em;
                 font-family: sans-serif;
             }
-            .gridItem1:nth-child(even), .gridItem2:nth-child(even){
+            .gridItem1:nth-child(even), .gridItem2:nth-child(even), .gridItem3:nth-child(even){
                 background: #999;
                 color: white;
             }
-            .gridItem1:nth-child(odd), .gridItem2:nth-child(odd){
+            .gridItem1:nth-child(odd), .gridItem2:nth-child(odd), .gridItem3:nth-child(odd){
                 background: #eee;
             }
 
@@ -47,11 +47,42 @@
                                                         /* Toda a largura será dividida por igual entre as 3 colunas. */
                 /* grid-template-columns: 100px 1fr 2fr; */ /* a primeira coluna teria 100px fixos, a segunda teria 1fr e a terceira 2fr. Ou seja, independente da largura da grid, o espaço que sobrasse seria dividido em 3 partes, aplicando 1 parte na segunda coluna e duas partes na terceira coluna. */
                 grid-template-rows: 100px 100px;
+                gap: 20px 10px;
+            }
+            .gridItem2:nth-child(1){    /* Se a grid possui 3 células na horizontal, então ela possui 4 gridlines na vertical.*/
+                background-color: red;  /* Se a grid possui 2 células na vertical, então ela possui 3 gridlines na horizontal */
+                grid-row-start: 1;      /* A gridline 1(horizontal) é a linha superior à 3ª célula */
+                grid-row-end: 2;        /* A gridline 2(horizontal) é a linha inferior à 3ª célula */
+                grid-column-start: 3;   /* A gridline 3(vertical) é a linha à esquerda da 3ª célula */
+                grid-column-end: 4;     /* A gridline 4(vertical) é a linha à direita da 3ª célula */
+            }
+
+            .gridContainer3{
+                width: 500px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr) 100px;
+                grid-template-rows: 100px 100px 100px;
+                gap: 30px 10px;
+            }
+            .gridItem3:nth-child(1){
+                background-color: red;
+                /* grid-row-start: 1; */
+                /* grid-row-end: 2; */
+                /* grid-column-start: 1; */   /* Definimos que a 1ª célula começa na primeira gridline. */
+                /* grid-column-end: -1; */    /* -1 indica que a célula irá ocupar a primeira linha(row) inteira, independente do tamanho da grid */
+                grid-row: 1 / 2;    /* podemos definir o start e end na mesma linha */
+                grid-column: 2 / -1;    /* podemos definir o start e end na mesma linha */
+            }
+            .gridItem3:nth-child(2){
+                grid-row: 1 / 3;
+            }
+            .gridItem3:nth-child(6){
+                grid-column: 1 / -1;
             }
         </style>
     </head>
     <body>
-        <h2>Grid Layout</h2>
+        <h2>CSS Grids</h2>
         
         <div class="gridContainer1">
             <div class="gridItem1">1</div>
@@ -70,8 +101,14 @@
             <div class="gridItem2">5</div>
             <div class="gridItem2">6</div>
         </div>
-        
-        
-        
+        <br><br>
+        <div class="gridContainer3">
+            <div class="gridItem3">1</div>
+            <div class="gridItem3">2</div>
+            <div class="gridItem3">3</div>
+            <div class="gridItem3">4</div>
+            <div class="gridItem3">5</div>
+            <div class="gridItem3">6</div>
+        </div>
     </body>
 </html>
