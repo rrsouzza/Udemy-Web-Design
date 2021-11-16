@@ -1,0 +1,77 @@
+<!doctype html>
+<!-- doctype informa ao agente de usuario a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+    <head>
+        <title> pagina de exemplo estrutura basica </title>
+        <meta charset="utf-8">
+        <meta name="author" content="Daniel">
+        <meta name="description" content="descrição bacanuda">
+        <meta name="keywords" content="html5, tecnologia">
+        
+        <style>
+            .gridContainer1, .gridContainer2{
+                width: 300px;
+                background: #ccc;
+            }
+
+            .gridItem1, .gridItem2{
+                background: #999;
+                
+                font-size: 2em;
+                font-family: sans-serif;
+            }
+            .gridItem1:nth-child(even), .gridItem2:nth-child(even){
+                background: #999;
+                color: white;
+            }
+            .gridItem1:nth-child(odd), .gridItem2:nth-child(odd){
+                background: #eee;
+            }
+
+            /* GRID */
+            .gridContainer1{
+                display: grid;
+                /* grid-template-columns: 100px 100px 100px; */
+                /* grid-template-columns: repeat(2, 75px) 150px; */
+                grid-template-columns: repeat(3, 90px);    /* a mesma coisa que 100px 100px 100px; */
+                grid-template-rows: 100px 100px;
+                /* row-gap: 30px;
+                column-gap: 10px; */
+                gap: 30px 10px; /* define um espaçamento entre as células */
+            }
+
+            .gridContainer2{
+                width: 500px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* define que terá 3 colunas, e que a medida delas será de 1 fração. */
+                                                        /* Toda a largura será dividida por igual entre as 3 colunas. */
+                /* grid-template-columns: 100px 1fr 2fr; */ /* a primeira coluna teria 100px fixos, a segunda teria 1fr e a terceira 2fr. Ou seja, independente da largura da grid, o espaço que sobrasse seria dividido em 3 partes, aplicando 1 parte na segunda coluna e duas partes na terceira coluna. */
+                grid-template-rows: 100px 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Grid Layout</h2>
+        
+        <div class="gridContainer1">
+            <div class="gridItem1">1</div>
+            <div class="gridItem1">2</div>
+            <div class="gridItem1">3</div>
+            <div class="gridItem1">4</div>
+            <div class="gridItem1">5</div>
+            <div class="gridItem1">6</div>
+        </div>
+        <br><br>
+        <div class="gridContainer2">
+            <div class="gridItem2">1</div>
+            <div class="gridItem2">2</div>
+            <div class="gridItem2">3</div>
+            <div class="gridItem2">4</div>
+            <div class="gridItem2">5</div>
+            <div class="gridItem2">6</div>
+        </div>
+        
+        
+        
+    </body>
+</html>
