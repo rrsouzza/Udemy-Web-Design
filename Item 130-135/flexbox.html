@@ -221,6 +221,20 @@
             align-self: center;         /* o terceiro elemento irá se alinhar no centro do elemento pai */
         }
         /*======================================================================================================================================*/
+        .flexbox:nth-child(54){ /* uma flexbox tem, por padrão, um main-axis (eixo principal, na horizontal), e um cross-axis(eixo transversal, na vertical). */
+            height: 500px;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .flexbox:nth-child(54) div, .flexbox:nth-child(56) div{
+            flex-basis: 60px;
+        }
+        .flexbox:nth-child(56){
+            height: 500px;
+            justify-content: center;
+            align-items: flex-end;
+            flex-direction: column; /* ao definirmos o flex-direction: column, nós invertemos os eixos padrões. Assim, o justify-content passa a justificar na vertical, e o align-items: flex-end passa a aplicar o flex-end no eixo horizontal. */
+        }
     </style>
 </head>
 
@@ -392,6 +406,20 @@
         <div class="div">3</div>   <!-- : display item -->
         <div class="div">4</div>   <!-- : display item -->
     </div>    
-    <p class="p_linha"></p>
+    <p style="font-size: 80px; color: black; font-weight: bold; text-transform: uppercase;">Item 134 da aula ==>>></p>
+    <p class="p_linha">Uma flexbox tem, por padrão, um main-axis (eixo principal, na horizontal), e um cross-axis(eixo transversal, na vertical)<br>Esse abaixo é uma flexbox com valores padrões:<br>height: 500px;<br>justify-content: center;<br>align-items: flex-end;</p>
+    <div class="flexbox">   <!-- : display container -->        <!-- flexbox 54 -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>    
+    <p class="p_linha">Essa flexbox é igual à anterior, porém agora aplicamos flex-direction: column;<br>flex-direction: column inverte os eixos, tornando main-axis o eixo vertical, e cross-axis o eixo horizontal<br>Assim, as propriedades justify-content: center; passa a ser aplicado na vertical<br>e align-items: flex-end; passa a ser aplicado na horizontal. Por isso os elementos internos se esticam até a extremidade direita da flexbox.</p>
+    <div class="flexbox">   <!-- : display container -->        <!-- flexbox 56 -->
+        <div class="div">1</div>   <!-- : display item -->
+        <div class="div">2</div>   <!-- : display item -->
+        <div class="div">3</div>   <!-- : display item -->
+        <div class="div">4</div>   <!-- : display item -->
+    </div>    
 </body>
 </html>
