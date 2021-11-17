@@ -23,7 +23,13 @@
                 formatá-la no CSS.</p>
         </li>
         <li>
-            <p>&lt;time&gt; : time; indica uma data ou horário</p>Podemos definir o atributo <b>datetime</b> para declarar qual a data que está sendo inserida. Devemos sempre passar no padrão (YYYY-MM-DD).<br>
+            <p>&lt;time&gt; : time; indica uma data ou horário. Podemos definir o atributo <b>datetime</b> para declarar qual a data que está sendo inserida. Devemos sempre passar no padrão (YYYY-MM-DD). Para definir um horário, inserimos a letra T e inserimos o horário no formato hh:mm:ss.<br>Após o horário, podemos inserir o fuso horário (-3, +2, etc)</p>
+        </li>
+        <li>
+            <p>&lt;del&gt; e &lt;ins&gt; : delete e insert. Para definir uma palavra ou termo que foi excluído e substituído por outro. Visualmente, ambos ainda estarão visíveis, mas não o conteúdo dentro de &lt;del&gt>&lt;/del&gt; não será lido por um leitor de tela.</p>
+        </li>
+        <li>
+            <p>Caso haja um termo ou título no meio da página que seja em uma língua diferente, podemos simplesmente envolvê-lo em uma &lt;span&gt; e definir lang="idioma";.</p>
         </li>
     </ul>
 
@@ -48,11 +54,11 @@
     </ul>
 
     <h2>Confirme sua presença</h2>
-    <p>O agendamento está marcado para 18h00</p>
+    <p>O agendamento está marcado para <time datetime="18:00:00">18h00</time></p>
 
-    <p>Aprender semântica HTML é complicado</p>
+    <p>Aprender semântica HTML é <del>complicado</del> <ins>fácil</ins></p>
 
-    <p>O evento JS Conference será em Agosto</p>
+    <p>O evento <span lang="en-us">JS Conference</span> será em Agosto</p>
 
 </body>
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Especificidade</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: #f5d549;
+        }
+        .tabela{
+            border-collapse: collapse;
+            margin: 50px auto;
+            border: 5px solid white;
+            background-color: #eee;
+            width: 1000px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .tabela caption{
+            font-size: 42px;
+            font-weight: 1000;
+            margin-bottom: 2em;
+            color: #225c97;
+        }
+        .tabela tr, .tabela th, .tabela td{
+            border: 2px solid white;
+            padding: .5em;
+        }
+        .tabela thead{
+            border-bottom: 2px solid white;
+            background-color: #5697d9;
+            height: 50px;
+            color: white;
+            font-weight: 800;
+        }
+        .tabela tr:nth-child(odd){
+            background-color: #d2ddf0;
+        }
+        .tabela tr:nth-child(even){
+            background-color: #eaeff8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Especificidade</h1>
+
+    <table class="tabela">
+        <caption>Calcular a Especificidade</caption> <!--Caption auxilia na acessibilidade-->
+        <thead>
+            <tr>
+                <th></th><th>Estilo Inline</th> <th>Id #</th> <th>Atributos e Pseudoclasses</th> <th>Tags e Pseudoelementos</th> <th>Resultado</th>
+            </tr>
+        </thead>
+        <tfoot></tfoot>
+        <tbody>
+            <tr>
+                <td>*</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td> <td>0000</td>
+            </tr>
+            <tr>
+                <td>p</td> <td>0</td> <td>0</td> <td>0</td> <td>1</td> <td>0001</td>
+            </tr>
+            <tr>
+                <td>.destaque</td> <td>0</td> <td>0</td> <td>1</td> <td>0</td> <td>0010</td>
+            </tr>
+            <tr>
+                <td>p.destaque</td> <td>0</td> <td>0</td> <td>1</td> <td>1</td> <td>0011</td>
+            </tr>
+            <tr>
+                <td>p[lang]</td> <td>0</td> <td>0</td> <td>1</td> <td>1</td> <td>0011</td>
+            </tr>
+            <tr>
+                <td>#unico</td> <td>0</td> <td>1</td> <td>0</td> <td>0</td> <td>0100</td>
+            </tr>
+            <tr>
+                <td>#nav ul li a</td> <td>0</td> <td>1</td> <td>0</td> <td>3</td> <td>0103</td>
+            </tr>
+            <tr>
+                <td>p:first-child</td> <td>0</td> <td>0</td> <td>1</td> <td>1</td> <td>0011</td>
+            </tr>
+            <tr>
+                <td>p::first-letter</td> <td>0</td> <td>0</td> <td>0</td> <td>2</td> <td>0002</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
