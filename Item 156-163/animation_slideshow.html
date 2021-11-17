@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Animation - Slideshow</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        @keyframes slide{
+            0%, 22%, 100%{
+                transform: translateY(0);
+            }
+            25%, 47%{
+                transform: translateY(-50vh);
+            }
+            50%, 72%{
+                transform: translateY(-100vh);
+            }
+            75%, 97%{
+                transform: translateY(-150vh);
+            }
+        }
+        
+        body{
+            font-family: sans-serif;
+            color: white;
+            background-color: #1a1818;
+            margin: 0;
+        }
+        #slide-externo{
+            width: 80vw;
+            height: 50vh;
+            border: 10px solid white;
+            box-shadow: 0 0 10px black;
+            margin-left: 10vw;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        #slide-interno{
+            width: 100%;
+            animation: slide 15s infinite ease-in-out;
+        }
+        #slide-interno img{
+            display: block;
+            height: 50vh;
+            width: 100%;
+            /* object-fit: cover; */
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation - Slideshow</h1>
+
+    <div id="slide-externo">
+        <div id="slide-interno">
+            <img src="../utils/images/dog1.jpg" alt="dog 1">
+            <img src="../utils/images/dog2.jpg" alt="dog 2">
+            <img src="../utils/images/dog3.jpg" alt="dog 3">
+            <img src="../utils/images/dog4.jpg" alt="dog 4">
+        </div>
+    </div>
+</body>
+</html>
