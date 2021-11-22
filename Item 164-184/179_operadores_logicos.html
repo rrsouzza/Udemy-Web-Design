@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Operadores Lógicos</h1>
+    <p>!  --> NOT   ----  ORDEM DE PRECEDÊNCIA: 1º</p>
+    <p>&& --> AND   ----  ORDEM DE PRECEDÊNCIA: 2º</p>
+    <p>|| --> OR    ----  ORDEM DE PRECEDÊNCIA: 3º</p>
+
+
+    <script>
+        var n1 = parseFloat(prompt("Digite um número:"));
+        var n2 = parseFloat(prompt("Digite outro número:"));
+        var media = (n1 + n2) / 2;
+        
+        if ((n1 > 0) && (n2 > 0) && (media > 5)){
+            alert("Parabéns! Você foi aprovado.");
+        }else{
+            alert("Desculpe, não foi dessa vez.");
+        }
+    </script>
+</body>
+</html>

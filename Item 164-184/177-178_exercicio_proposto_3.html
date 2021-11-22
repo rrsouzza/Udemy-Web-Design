@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Exercício Proposto</h1>
+    <script>
+        var n1 = prompt("Digite um número:");
+        n1 = parseInt(n1);
+        var n2 = prompt("Digite outro número:");
+        n2 = parseInt(n2);
+
+        if (n1 == n2){
+            alert("Empate!");
+        }else{
+            var sorteio = parseInt(Math.random() * 2);
+            if (sorteio == 0){
+                if (n1 < n2){
+                    alert("O Jogador 1 ganhou pois " +n1+ " é menor que " +n2+ ".");
+                }else{
+                    alert("O Jogador 2 ganhou pois " +n2+ " é menor que " +n1+ ".");
+                }
+            }else if (sorteio == 1){
+                if (n1 > n2){
+                    alert("O Jogador 1 ganhou pois " +n1+ " é maior que " +n2+ ".");
+                }else{
+                    alert("O Jogador 2 ganhou pois " +n2+ " é maior que " +n1+ ".");
+                }
+            }else{
+                alert("Ocorreu um erro no sorteio.");
+            }
+        }
+    </script>
+</body>
+</html>
