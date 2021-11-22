@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">    
+</head>
+<body>
+    <h1>Lógica de Programação - Funções</h1>
+
+    <div id="output" style="background-color: lightblue;">
+
+    </div>
+
+    <script>
+        var output = document.querySelector('#output'); //Acessa um elemento contido no HTML 
+
+        var mensagem = '';
+        for(var i = 0; i < 1001; i++){
+            mensagem += "i: " +i;
+        }
+
+        output.innerHTML = mensagem;    //Define o conteúdo do elemento no HTML
+    </script>
+</body>
+</html>
