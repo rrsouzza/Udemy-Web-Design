@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - While Loop</h1>
+    <script>
+        var num = parseFloat(prompt("Insira um número:"));
+
+        var indice = 1;
+        while (indice <= 1000){
+            document.write(num+ " x " +indice+ " = " +(num * indice)+ " <br>"); /* O uso de document.write() em aplicações web reais é uma má prática e não é recomendado o seu uso. */
+            indice++;
+        }
+    </script>
+</body>
+</html>

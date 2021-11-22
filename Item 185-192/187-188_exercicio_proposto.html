@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Linha Horizontal</h1>
+    <script>
+        var num = parseFloat(prompt("Insira um número:"));        
+
+        for (var i=0; i <= 1000; i++){
+            document.write(num+ " x " +i+ " = " +(num * i)+ " <br>");
+            if (((i % 10) == 0) && (i > 0)){
+                document.write(" <hr> ");
+            }
+        }
+        document.write("Fim do Loop");
+    </script>
+</body>
+</html>

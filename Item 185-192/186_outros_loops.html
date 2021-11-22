@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Outros Loops</h1>
+    <script>
+        var num = parseFloat(prompt("Insira um número:"));
+        var indice = 1001;
+
+        // O do{}while() irá executar o código ao menos uma vez antes de verificar a condição de repetição, já que o while() vem após do do{}
+        // do{
+        //     document.write(num+ " x " +indice+ " = " +(num * indice)+ " <br>"); /* O uso de document.write() em aplicações web reais é uma má prática e não é recomendado o seu uso. */
+        //     indice++;
+        // }while (indice <= 1000);
+        // document.write("Fim do Loop");
+
+        for (var i=1; i <= 1000; i++){
+            document.write(num+ " x " +i+ " = " +(num * i)+ " <br>");
+        }
+        document.write("Fim do Loop");
+    </script>
+</body>
+</html>
