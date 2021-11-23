@@ -19,19 +19,31 @@
     </div>
 
     <script>
-        function mostrarTabuada(){
-            alert("mostrarTabuada chamada");
-        }
-
-        mostrarTabuada();   //Executa todo o código contido na função
-        var output = document.querySelector('#output'); //Acessa um elemento contido no HTML 
-
         var mensagem = '';
-        for(var i = 0; i < 1001; i++){
-            mensagem += "i: " +i;
-        }
+        var output = document.querySelector('#output'); //Acessa um elemento contido no HTML 
+        
+        function mostrarTabuada(){
+            //alert("mostrarTabuada chamada");
+            var n = parseFloat(prompt("Insira um número:"));
+            limparTabuada();
 
-        output.innerHTML = mensagem;    //Define o conteúdo do elemento no HTML
+            var i = 1;
+            while(i <= 1000){
+                mensagem += n+ " x " +i+ " = " +(n*i)+ "<br>";
+                i++;
+            }
+            output.innerHTML = mensagem;    //Define o conteúdo do elemento no HTML
+        }
+        function limparTabuada(){
+            mensagem = "";
+            output.innerHTML = mensagem;
+        }
+        
+
+        // mostrarTabuada();   //Executa todo o código contido na função
+        // for(var i = 0; i < 1001; i++){
+        //     mensagem += "i: " +i;
+        // }
     </script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        div{
+            font-size: 32px;
+        }
+        button{
+            font-size: 32px;
+            width: 2em;
+        }
+        #limpar{
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lógica de Programação - Funções - Exercício Proposto</h1>
+
+    <button onClick="somar()">+</button>
+    <button onClick="subtrair()">-</button>
+    <button onClick="dividir()">/</button>
+    <button onClick="multiplicar()">*</button>
+    <button id="limpar" onClick="limparCampo()">Limpar</button>
+
+    <div id="output">
+    </div>
+
+    <script>
+        var num = parseFloat(prompt("Digite um número:"));
+        
+        var output = document.querySelector('#output');
+        var mensagem = num;
+        output.innerHTML = mensagem;
+
+        function somar(){
+            num = parseFloat(prompt("Insira um número para somar:"));
+            mensagem = parseFloat(mensagem) + num;
+            output.innerHTML = mensagem;            
+        }
+        function subtrair(){
+            num = parseFloat(prompt("Insira um número para subtrair:"));
+            mensagem = parseFloat(mensagem) - num;
+            output.innerHTML = mensagem;
+        }
+        function dividir(){
+            num = parseFloat(prompt("Insira um número para dividir:"));
+            mensagem = parseFloat(mensagem) / num;
+            output.innerHTML = mensagem;
+        }
+        function multiplicar(){
+            num = parseFloat(prompt("Insira um número para multiplicar:"));
+            mensagem = parseFloat(mensagem) * num;
+            output.innerHTML = mensagem;
+        }
+        function limparCampo(){
+            mensagem = "";
+            output.innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>

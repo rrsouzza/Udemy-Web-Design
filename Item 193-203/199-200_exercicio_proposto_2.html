@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <style>
+        div{
+            font-size: 32px;
+        }
+        button{
+            font-size: 32px;
+            width: 2em;
+        }
+        #limpar{
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lógica de Programação - Funções - Exercício Proposto</h1>
+
+    <button onClick="calcular('+')">+</button>
+    <button onClick="calcular('-')">-</button>
+    <button onClick="calcular('/')">/</button>
+    <button onClick="calcular('*')">*</button>
+    <button id="limpar" onClick="limparCampo()">Limpar</button>
+
+    <div id="output">
+    </div>
+
+    <script>
+        var num = parseFloat(prompt("Digite um número:"));
+        
+        var output = document.querySelector('#output');
+        var mensagem = num;
+        output.innerHTML = mensagem;
+
+        function calcular(operador){
+            num = parseFloat(prompt("Insira um número para operar:"));
+            switch(operador){
+                case '+':
+                    mensagem = parseFloat(mensagem) + num;
+                    break;
+                case '-':
+                    mensagem = parseFloat(mensagem) - num;
+                    break;
+                case '/':
+                    mensagem = parseFloat(mensagem) / num;
+                    break;
+                case '*':
+                    mensagem = parseFloat(mensagem) * num;
+                    break;
+                default:
+                    mensagem = "ERRO";
+            }
+            output.innerHTML = mensagem;
+        }
+        function limparCampo(){
+            mensagem = "";
+            output.innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>
