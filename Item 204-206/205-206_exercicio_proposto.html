@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">    
+</head>
+<body>
+    <h1>Lógica de Programação - Funções - Exercício Proposto</h1>
+
+    <button onClick="Executar()">Executar</button>
+
+    <div id="output">
+    </div>
+
+    <script>
+        Executar();
+        function Executar(){            
+            var lado1 = parseFloat(prompt("Digite um número:"));
+            var lado2 = parseFloat(prompt("Digite outro número:"))                    
+            
+            try{
+                var area = lado1 * lado2;
+            }catch(e){
+                area = e;
+            }
+
+            document.querySelector('#output').innerHTML = ("A área do retângulo é: " +area);
+            
+            // if ((isNaN(lado1)) || (isNaN(lado2))){
+            //     alert("Insira apenas números");
+            //     return;
+            // }            
+            // var output = document.querySelector('#output');
+            // output.innerHTML = ("Área do retângulo: " +(lado1 * lado2)+ "u²");
+        }
+    </script>
+</body>
+</html>
