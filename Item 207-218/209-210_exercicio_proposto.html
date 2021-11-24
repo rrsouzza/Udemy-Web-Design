@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Javascript - Exercício Proposto</h1>
+    <div id="output">
+
+    </div>
+
+    <script>
+        var dias = new Array("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado");
+        var hoje = new Date();
+        var diaSemana = hoje.getDay();
+
+        alert("Bem-vindo, hoje é " +dias[diaSemana]);
+        // var msg = "Bem-vindo, hoje é " +dias[diaSemana];
+        // alert(msg);
+        
+        //JEITO BURRO:
+        // switch(diaSemana){
+        //     case 0:
+        //         msg += dias[0];
+        //         alert(msg);
+        //         break;
+        //     case 1:
+        //         msg += dias[1];
+        //         alert(msg);
+        //         break;
+        //     case 2:
+        //         msg += dias[2];
+        //         alert(msg);
+        //         break;
+        //     case 3:
+        //         msg += dias[3];
+        //         alert(msg);
+        //         break;
+        //     case 4:
+        //         msg += dias[4];
+        //         alert(msg);
+        //         break;
+        //     case 5:
+        //         msg += dias[5];
+        //         alert(msg);
+        //         break;
+        //     case 6:
+        //         msg += dias[6];
+        //         alert(msg);
+        //         break;
+        //     default:
+        //         msg += "dia inválido";
+        //         alert(msg);
+        // }
+    </script>
+</body>
+</html>

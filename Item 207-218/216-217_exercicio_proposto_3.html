@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Javascript</h1>
+
+    <div id="output"></div>
+    <script>
+        var dados = [
+            {'Nome': "Josias", 'Email': "josias@outlook.com"},
+            {'Nome': "José", 'Email': "jose@outlook.com"},
+            {'Nome': "Josimar", 'Email': "josimar@outlook.com"}
+        ];
+        
+        var msg = "";
+        for (var i = 0; i < dados.length; i++){
+            msg += "<h2>Nome: " +dados[i].Nome+ "</h2><h3>Email: " +dados[i].Email+ "</h3><br>";
+        }
+        document.querySelector('#output').innerHTML = msg;
+    </script>
+</body>
+</html>

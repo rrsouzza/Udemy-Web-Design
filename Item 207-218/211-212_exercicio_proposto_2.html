@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <h1>Lógica de Programação - Javascript - Exercício Proposto</h1>
+    <div id="output">
+
+    </div>
+
+    <script>
+        var numeros = new Array(25, 30, 45, 28, 0, 12, 78, 64);
+        var output = document.querySelector('#output');
+        var soma = 0;
+        for (var i=0; i<numeros.length; i++){
+            if (!isNaN(numeros[i]) && (numeros[i] % 2) == 0){
+                soma += numeros[i];
+            }
+        }
+        alert("A soma dos números pares é igual a " +soma);
+    </script>
+</body>
+</html>
