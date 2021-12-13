@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Desafio IMC</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <script>
+        (function(){
+            function calcularIMC(peso, altura){
+                return peso / (altura * altura);
+            }
+            
+            function sortIMC(imc){
+                var imc = calculaIMC(peso, altura);
+                if (imc <= 16.9){
+                    return "Muito abaixo do peso";
+                }
+                else if (imc <= 18.4){
+                    return "Abaixo do peso";
+                }
+                else if (imc <= 24.9){
+                    return "Peso normal";
+                }
+                else if (imc <= 29.9){
+                    return "Acima do peso";
+                }
+                else if (imc <= 34.9){
+                    return "Obesidade Grau I";
+                }
+                else if (imc <= 40){
+                    return "Obesidade Grau II";
+                }
+                else if (imc > 40){
+                    return "Obesidade Grau III";
+                }
+                else{
+                    return "Ocorreu um erro.";
+                }
+            }
+
+            var peso = 65;
+            var altura = 1.75;
+
+            var imc = calcularIMC(peso, altura);
+            var classificacao = sortIMC(imc);
+            //var classificacao = sortIMC(calcularIMC(peso, altura));
+            console.log("Classificação IMC: ", classificacao);
+        })()
+    </script>
+</head>
+<body>
+    <h1>Desafio IMC</h1>
+</body>
+</html>

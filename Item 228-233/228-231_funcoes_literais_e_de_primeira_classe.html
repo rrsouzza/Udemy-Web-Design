@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Funções literais, de primeira classe, e callbacks</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+    <script>
+        
+        //Forma literal de criar funções:
+        function somar(n1, n2){
+            return n1 + n2;
+        }
+        var soma = somar(10, 20);
+        console.log("Resultado: ", soma);
+
+        //No Javascript, funções são "cidadãos" de primeira classe. Sendo assim, podemos tratá-lo como qualquer outro objeto:
+        somar.teste = "Propriedade da função";  //Aqui estamos atribuindo uma string à propriedade "teste" da função somar.
+        console.log(somar.teste);
+
+        //A função abaixo é uma função anônima, pois ela não possui nome. Note que ela possui um parâmetro 'str'.
+        var teste = function(str){
+            console.log("teste", str)
+        };
+        //Para chamar a função acima:
+        teste("Olá");   //"Olá" é o parâmetro 'str'.
+
+
+        //É possível passar uma função como parâmetro
+        var teste2 = function(f){   //uma função é atribuída a 'teste2', a qual possui um parâmetro 'f'
+            f();    //aqui o parâmetro 'f' é executado como uma função
+        };
+
+        teste2(function abacaxi(){  //aqui 'teste2' é executado como uma função, passando uma nova função como parâmetro
+            console.log("Função passada por parâmetro");
+        });
+
+        //Todas as funções possuem por padrão, uma propriedade chamada 'name', que identifica o nome da função.
+        //No caso de uma função anônima (que não possui nome), a propriedade 'name' deverá ser uma string vazia.
+        //teste.name = "";
+        //teste2.name = "abacaxi";
+
+
+
+        console.log("================================");
+
+        var x = 0;  //Criada no escopo global
+        var y;  //Criada no escopo global, sem atribuição
+        function mostraX(){
+            var x = 10; //Criada no escopo local, então essa variável existe apenas dentro dessa função. Ela não interfere com a variável x do escopo global.
+            var y = 20;
+            console.log("Mostra x: (dentro da função)", x);
+            console.log("Mostra y: (dentro da função)", y);
+        }
+        mostraX();
+        console.log("Mostra x: (fora da função)", x);
+        console.log("Mostra y: (fora da função)", y);
+
+        console.log("================================");
+
+        //IIFE - Immediatly-invoked function expression - Função auto-executável: ela será automaticamente executada
+        (function(){
+            'use strict';       //o interpretador, dentre muitas coisas, não permite o uso de variáveis que não tenham sido declaradas. (Deve ser invocado na primeira linha dentro da função).
+            var isValid = false;
+            //isValid = false       //sem declarar uma var, isValid estaria disponível no escopo global
+
+            function somar(){
+                console.log(arguments); //arguments lista todos os argumentos passados para a função, mesmo que ela não exija nenhum parâmetro em sua declaração (linha acima)
+                var result = 0;
+                var x = 0;
+
+                while(arguments[x]){
+                    //result = result + arguments[x];
+                    result += arguments[x];
+                    //x = x + 1;
+                    x++;
+                }
+                console.log("Resultado da soma:", result);
+            }
+
+            somar(10, 10, 20, 25, 45, 90);
+        })()
+
+        console.log(isValid);   //Retornará um erro, pois isValid foi declarado em um escopo local, dentro da função auto-executável
+    </script>
+</head>
+<body>
+    <h1>Funções literais, de primeira classe, e callbacks</h1>
+</body>
+</html>

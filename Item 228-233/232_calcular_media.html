@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Exercício: Calcular Média</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <script>
+        (function(){
+            function calcularMedia(){
+                var soma = 0;
+                var x = 0;
+                //while (arguments[x]){
+                while (typeof arguments[x] === "number"){   //verifica se o valor inserido é um número. Caso não houvesse tal verificação e arguments[x] == 0, o while seria interrompido, pois 0 é também lido como um valor "false". 
+                    soma += arguments[x];
+                    x++;
+                }
+                var media = soma / x;
+                return media;
+            }
+            var media1 = calcularMedia(10, 20, 30, 40);
+            var media2 = calcularMedia(5, 6, 0, 8, 9);
+            console.log("Média:", media1);
+            console.log("Média:", media2);
+        })()
+    </script>
+</head>
+<body>
+    <h1>Exercício: Calcular Média</h1>
+
+    
+</body>
+</html>
