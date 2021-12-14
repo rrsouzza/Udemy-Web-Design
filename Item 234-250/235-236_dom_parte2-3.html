@@ -23,7 +23,17 @@
             document.getElementByClassName("paragrafos")[0].textContent = "Texto alterado 0"; //getElementByClassName retorna um array de objetos cuja classe seja "paragrafos", por isso é necessário indicar qual o índice do elemento que se deseja modificar. É necessário indicar o índice mesmo que exista apenas um elemento com a classe indicada, pois getElementByClassName retorna um array de qualquer forma.
             document.getElementByClassName("paragrafos")[1].textContent = "Texto alterado 1";
             
+            document.getElementsByTagName("p"); //retorna um "array" de todas as tags <p> no html
+            document.getElementsByTagName("p")[0];   //retorna o objeto de tag <p> na posição 0 do "array"
+            document.getElementsByTagName("main");   //retorna uma coleção de objetos da tag informada, mesmo que exista apenas uma tag em todo o documento (no caso de <main>, existe apenas um no html).
+
+            //querySelector retorna apenas um objeto. Então se passarmos como parâmetro um 'p', mesmo o documento tendo várias tags <p>, será retornado apenas o primeiro.
+            document.querySelector("#idmain");  //querySelector funciona com os mesmos símbolos utilizados no CSS. # para id, . para class, etc.
+            document.querySelector("#idmain p"); //seleciona o parágrafo contido dentro de #idmain.
+            document.querySelector("#idmain h2"); //seleciona o h2 contido dentro de #idmain.
+            document.querySelector("#idmain h2").textContent = "Texto alterado";
+
+            document.querySelectorAll("#idmain h2")[0].textContent = "Texto alterado";  //querySelectorAll retorna uma coleção de objetos, então é necessário indicar o índice do objeto que desejamos modificar.
         </script>
-        
     </body>
 </html>
