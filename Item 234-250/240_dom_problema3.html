@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <!--
+        Mostrar na tela (div com um #msg) uma mensagem de boas-vindas ao clicar no botão. O nome do usuário será recuperado de um input.
+    -->
+
+    <input type="text" id="txtNome" value="Digite seu nome"><button onClick="escrever()">OK</button>
+    <div id="msg"></div>
+
+    <script>
+        function escrever(){
+            var txtNome = document.querySelector("#txtNome");
+            var nome = txtNome.value;
+            document.querySelector("#msg").innerHTML = "Bem-vindo, <b>" + nome + "</b>";
+        }
+    </script>
+</body>
+</html>

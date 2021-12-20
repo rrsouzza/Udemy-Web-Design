@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+</head>
+<body>
+    <!--
+        Mostrar na tela (div com um #msg) uma mensagem de boas-vindas. Ex: "Bem-vindo, Daniel!". O nome do usuário pode ser uma variável cujo valor foi digitado pelo prompt().
+    -->
+
+    <div id="msg"></div>
+
+    <script>
+        (function(){
+            var nome = prompt("Insira o seu nome:");
+            document.querySelector("#msg").innerHTML = "Bem-vindo, <b>" + nome + "</b>";
+            // document.getElementById("msg").innerHTML = "Bem-vindo, <b>" + nome + "</b>";
+
+            //innerHTML interpreta tags HTML. No exemplo acima, caso houvesse sido aplicado apenas textContent, os "<b>" e "</b>" iriam aparecer como texto puro.
+        })()    
+    </script>
+</body>
+</html>

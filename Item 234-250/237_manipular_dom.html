@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>DOM</title>
+        <meta charset="utf-8">
+        <!--
+        <script>
+            document.querySelector("h1").textContent = "Parágrafo alterado via Javascript";
+        </script>
+
+        Ao inserirmos o script dentro do <head>, o querySelector acima retornaria um erro, pois neste instante da execução, o HTML abaixo ainda não foi interpretado.
+            Por isso seria mais interessante ter o <script> no final do <body>
+        -->
+    </head>
+    <body>
+        <h1>DOM</h1>
+        
+        <main class="cmain" id="idmain">
+            <h2>subtitulo</h2>
+            <p id="pmain" class="pmain">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </main> 
+        
+        <section class="csection" id="idsection">
+            <h3>subtitulo</h3>
+            <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+            <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </section>
+
+        <script>
+            document.querySelector("h1").textContent = "Texto alterado via Javascript";
+
+            /*
+                As mudanças realizadas no DOM são aplicadas ao visual da página, porém o código HTML original é preservado.
+            */
+        </script>
+    </body>
+</html>
