@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Construtores e Objetos Passados por Referência</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Lógica de Programação - Construtores e Objetos Passados por Referência</h1>
+
+    <script>
+        //==============================================
+        var x = 0;
+        function mudaX(x){
+            console.log("mudaX:", x);    //mudaX: 10    --> x foi passado como argumento, portanto existe apenas no escopo da função. Não faz referência ao x da linha 19.
+        }
+
+        mudaX(10);  //10 passado como argumento
+        console.log("x: ", x);  //x: 0  --> esse x é o do escopo geral, declarado na linha 19.
+
+
+        //==============================================
+        var y = [0];    //Agora y é uma coleção
+
+        function mudaY(y){  
+            var z = y;  //Armazena a coleção em uma variável local (escopo apenas da função)
+            z.push(2);  //Adiciona um novo valor/índice na coleção z
+            console.log("mudaY (y): ", y);  //mudaY (y): (2)[0, 2]
+            console.log("mudaY (z): ", z);  //mudaY (z): (2)[0, 2]
+            //Tanto y quanto z possuem os mesmos valores, mesmo tendo sido realizado o push apenas em z.
+            //Isso ocorre pois arrays são tipos de objetos. Não são primitivos como number, string, etc. Ao passar uma coleção como argumento, ela é passada como referência e não como valor. Isso quer dizer que a função mudaY não recebe os valores da coleção, e sim a coleção em si.
+            //Mesmo que a coleção seja associada à uma variável nova (linha 32), todas as mudanças feitas na variável nova irão impactar na coleção original.
+        }
+
+        mudaY(y);   //Passa a coleção y como argumento
+        console.log("Y: ", y);  //Y: (2)[0, 2]  --> O push feito dentro da função (linha 33) afetou a coleção y declarada na linha 29, mesmo o push tendo sido feito na variável z. Por ser uma referência a partir da coleção Y, a mesma também foi alterada.
+
+        console.log("");
+        console.log("");
+        //==============================================
+        //Exemplificações:
+
+        if (2 === 2){
+            console.log("2 === 2 --> true");    //2 === 2 true pois são number, tipo primitivo, portanto possuem valor e tipo equivalentes.
+        }
+        if ("repolho" === "repolho"){
+            console.log("repolho === repolho --> true");    //"repolho" === "repolho" true pois são string, tipo primitivo, portanto possuem valor e tipo equivalentes.
+        }
+        
+        if ([] === []){
+            console.log("[] === [] --> true");
+        }else{
+            console.log("[] === [] --> false"); //[] === [] false pois são coleções, tipo objeto, portanto possuem referências diferentes. (são armazenados em locais diferentes na memória).
+        }
+        if ([1, 2] === [1, 2]){
+            console.log("[1, 2] === [1, 2] --> true");
+        }else{
+            console.log("[1, 2] === [1, 2] --> false"); //[1, 2] === [1, 2] false pois são coleções, tipo objeto, portanto possuem referências diferentes. (são armazenados em locais diferentes na memória).
+        }
+    </script>
+</body>
+</html>

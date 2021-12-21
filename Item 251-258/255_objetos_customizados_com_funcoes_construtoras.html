@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Lógica de Programação - Objetos Customizados com Funções Construtoras</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Lógica de Programação - Objetos Customizados com Funções Construtoras</h1>
+
+    <script>
+        function Caneta(){  //Funções construtoras começam com letra maiúscula
+            this.preco = 1;
+            this.cor = "black";
+            this.mudarCor = function(cor){
+                this.cor = cor;
+            }
+        }
+        var caneta_1 = new Caneta();
+        console.log(caneta_1);
+
+        //===================================================================================
+
+        function Caneta2(preco, cor){
+            this.preco = preco || 1;    //Se o objeto for instanciado sem um preço como argumento, o valor padrão será 1.
+            this.cor = cor || "black";  //Se o objeto for instanciado sem uma cor como argumento, o valor padrão será black.
+            this.mudarCor = function(cor){
+                this.cor = cor;
+            }
+        }
+        var caneta_2 = new Caneta2(3, "blue");
+        var caneta_3 = new Caneta2(2);
+        console.log(caneta_2);  //{preco: 3, cor: "blue"}
+        console.log(caneta_3);  //{preco: 2, cor: "black"}
+        caneta_3.mudarCor("green");
+        console.log(caneta_3);  //{preco: 2, cor: "green"}
+
+        caneta_2.preco = 4;
+        console.log(caneta_2);  //{preco: 4, cor: "blue"}
+        caneta_2.cor = "red";
+        console.log(caneta_2);  //{preco: 4, cor: "red"}
+        //Ao declararmos as propriedades utilizando apenas o this, é possível alterar seus valores diretamente.
+
+
+        //===================================================================================
+
+        function Caneta3(preco, cor){
+            var color = cor || "black"; //color agora está sendo armazenado em uma variável acessível apenas pelo escopo local da função, por isso deixa de ser acessado livremente.
+            this.preco = preco || 1;
+            this.mudarCor = function(cor){
+                if (cor != "black" && cor != "blue" && cor != "green"){
+                    return;     //Caso a cor passada por parâmetro seja diferente de preto, azul ou verde, essa função irá dar um retorno sem completar a mudança da linha 60.
+                }
+                color = cor;
+            }
+            this.pegaCor = function(){
+                return color;
+            }
+        }
+        var caneta_4 = new Caneta3(3, "green");
+        console.log(caneta_4.pegaCor());    //green
+        console.log(caneta_4.color);    //undefined
+        //Agora como color é uma variável existente apenas no escopo interno do objeto, não conseguimos acessar o conteúdo da propriedade diretamente.
+        console.log(caneta_4);  //Repare que agora ele mostra apenas o preço e as funções mudarCor e pegaCor.
+    </script>
+</body>
+</html>
