@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Problema</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Problema</h1>
+
+    <script>
+        //Temos três objetos. Cada objeto tem duas propriedades: nome e sobrenome. Precisamos mostrar no console o nome completo de cada um deles.
+
+        var pessoa1 = {
+            nome: "José",
+            sobrenome: "Oliveira"
+        };
+        var pessoa2 = {
+            nome: "Maria",
+            sobrenome: "Helena"
+        };
+        var pessoa3 = {
+            nome: "Joaquim",
+            sobrenome: "Teixeira"
+        };
+        
+        console.log(pessoa1);   //No Developer's Tools, podemos chamar diretamente o nome do objeto e temos acesso às suas propriedades e conteúdos.
+        console.log(window.pessoa2);    //Os objetos acima foram declarados no ambiente window, então podemos acessar suas informações através do "window.".
+        var teste = "pessoa3";
+        console.log(window.teste);  //Se fizermos assim, o valor de "teste" é apenas impresso na tela. --> pessoa3
+        console.log(window[teste]); //Se adicionamos as [] (sem o ponto .), a string contida na var teste é interpretada como um "comando". Equivalente a console.log(window.pessoa3).
+        //Podemos usar disso para acessar os objetos através de um loop:
+
+        for (var i=1; i <= 3; i++){
+            console.log(window["pessoa" + i].nome + " " + window["pessoa" + i].sobrenome);
+        }
+
+    </script>
+</body>
+</html>

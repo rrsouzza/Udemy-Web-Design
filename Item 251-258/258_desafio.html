@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Desafio</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Desafio</h1>
+
+    <script>
+        // var colecaoPessoas = new Array(pessoa1{}, pessoa2{}, pessoa3{});
+        var colecaoPessoas = [
+            pessoa1 = {
+                nome: "José",
+                sobrenome: "Oliveira"
+            },
+            pessoa2 = {
+                nome: "Maria",
+                sobrenome: "Helena"
+            },
+            pessoa3 = {
+                nome: "Joaquim",
+                sobrenome: "Teixeira"
+            }
+        ];
+        
+        var x = 0;
+        while (colecaoPessoas[x]){
+            console.log(colecaoPessoas[x].nome + " " + colecaoPessoas[x].sobrenome);
+            x++
+        }
+
+        // console.log(colecaoPessoas);
+    </script>
+</body>
+</html>
