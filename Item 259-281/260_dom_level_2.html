@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - DOM Level 2</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - DOM Level 2</h1>
+
+        <button id="btn1" onclick="clicar()">Botão 1</button>
+        <button id="btn2">Botão 2</button>
+    </div>
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+
+        btn1.onclick = clicar;
+
+        function clicar(){
+            alert("Clicou!");
+        }
+
+        btn2.addEventListener("click", function(){
+            alert("Clicou! DOM Level 2");
+        })
+        btn2.addEventListener("click", function(){
+            alert("Clicou! DOM Level 2 com outro evento");
+        })
+        //É possível adicionar mais de um evento ao mesmo elemento usando o addEventListener. No DOM Level 0, isso não é possível, pois o onclick recebe uma ação única.
+    </script>
+</body>
+</html>

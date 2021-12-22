@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - DOM Level 2</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - DOM Level 2</h1>
+
+        <button id="btn1" onclick="clicar()">Botão 1</button>
+        <button id="btn2">Botão 2</button>
+    </div>
+
+    <div class="container">
+        <h1>Propagração de Eventos</h1>
+
+        <div id="d1" style="background-color: red; padding: 25px; height: 200px;">
+            texto dentro da div1
+            <span id="d1span1" style="background-color: yellow;">texto dentro da span1</span>
+            <span id="d1span2" style="background-color: blue;">texto dentro da span2</span>
+        </div>
+
+        <div id="d2" style="background-color: orangered; height: 200px;">texto dentro da div2</div>
+    </div>
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+
+        btn1.onclick = clicar;
+
+        function clicar(){
+            alert("Clicou!");
+        }
+
+        btn2.addEventListener("click", function(){
+            alert("Clicou! DOM Level 2");
+        })
+        btn2.addEventListener("click", function(){
+            alert("Clicou! DOM Level 2 com outro evento");
+        })
+        //É possível adicionar mais de um evento ao mesmo elemento usando o addEventListener. No DOM Level 0, isso não é possível, pois o onclick recebe uma ação única.
+
+        var $d1 = document.querySelector("#d1");
+        var $d1Span1 = document.querySelector("#d1span1");
+        var $d1Span2 = document.querySelector("#d1span2");
+        $d1.addEventListener("click", function(){               //false = Ao clicar --> "Click no $d1   /   clicou no document"
+            console.log("Click no $d1");                        //true  = Ao clicar --> "clicou no document   /   "Click no $d1"
+        }, true);
+        $d1Span1.addEventListener("click", function(){          //false = Ao clicar --> "Click no $d1Span1  /   Click no $d1    /   clicou no document"
+            console.log("Click no $d1Span1");                   //true  = Ao clicar --> "ciclou no document /   Click no $d1    /   Click no $d1Span1"
+        }, true);
+        
+        document.addEventListener("click", function(){          //false = Ao clicar --> "clicou no document"
+            console.log("clicou no document");                  //true  = Ao clicar --> "clicou no document"
+        }, true);
+        
+        $d1Span2.addEventListener("click", function(){          //false = Ao clicar --> "Click no $d1Span2  /   Click no $d1    /   clicou no document"
+            console.log("Click no $d1Span2");                   //true  = Ao clicar --> "clicou no document /   Click no $d1    /   Click no $d1Span2"
+        }, true);
+
+        //Os eventos são propagados pelo documento.
+        //Por exemplo, ao clicar na primeira Span, o EventListener dessa span é disparado, e logo em seguida o EventListener da div na qual a span está contida, e logo em seguida o EventListener do document onde tanto a span quanto a div estão contidas. O mesmo ocorre ao clicar na segunda Span.
+        //Ao clicar na div, o EventListener da div é disparado, e logo em seguida o EventListener do document.
+        //O terceiro parâmetro de um addEventListener é um boolean que indica a ordem de propagação dos eventos. O padrão é false, e assim, os eventos são propagados a partir do elemento que disparou o evento, até chegar no document. Se for true, os eventos começam a partir do document, e são realizados até chegar no elemento que realizou o disparo.
+
+        //Objeto Event:
+        var $d2 = document.querySelector("#d2");
+        $d2.addEventListener("click", function(evt){
+            console.log("Click no $d2");
+            console.log(evt);   //Imprime no console o objeto do evento em questão. Podemos ver todas as suas propriedades, como por exemplo se o botão Shift estava pressionado no momento em que o evento foi disparado (shiftKey : true/false), ou se o Ctrl estava pressionado (ctrlKey: true/false).
+            console.log(evt.currentTarget); //Imprime no console o alvo do evento, que no caso é o elemento que disparou o evento.
+            console.log(evt.target);
+            evt.stopPropagation;    //Impede e para a propagação de eventos. Vai variar de acordo com os parâmetros true ou false de propagação dos elementos ancestrais e herdeiros do elemento que dispara o evento.
+        });
+    </script>
+</body>
+</html>
