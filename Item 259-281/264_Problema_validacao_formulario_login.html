@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Validação de Formulário de Login</title>
+    <!--
+        PROBLEMA: Validar um formulário de login (usuário e senha) ao clicar no botão de envio. Se tiver algum campo vazio deve ser mostrado um alert e impedir o envio.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Validação de Formulário de Login</h1>
+
+        <form action="#">
+            <label for="txtUser">Usuario</label>
+            <input type="text" id="txtUser" name="user">
+
+            <br>    <!-- inadequado o uso de <br> em páginas práticas reais -->
+
+            <label for="txtPass">Senha</label>
+            <input type="password" id="txtPass" name="pass">
+
+            <br>    <!-- inadequado o uso de <br> em páginas práticas reais -->
+
+            <button type="button" id="btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+            var $txtUser = document.getElementById("txtUser");
+            var $txtPass = document.getElementById("txtPass");
+            var $btn = document.getElementById("btn");
+
+            $btn.addEventListener("click", function(){
+                if (!$txtUser.value || !$txtPass.value){        //.value retorna uma string. Ao tentar converter uma string para boolean, o conteúdo da string influencia se será um boolean true ou false. Uma string vazia "" retorna false, por isso invertemos o valor com !. if(!$txtUser.value): se o valor for vazio, o boolean será invertido para true, tornando verdadeira a validação do if.
+                    alert("Preencha todos os campos!");
+                }
+            })
+        })();
+
+        //Exemplos:
+        var teste1 = Boolean("asdasd");
+        console.log("Teste 1:" + teste1);    //true
+
+        var teste2 = Boolean(1);
+        console.log("Teste 2:" + teste2);    //true
+        
+        var teste3 = Boolean(0);
+        console.log("Teste 3:" + teste3);    //false
+        
+        var teste4 = Boolean("false");
+        console.log("Teste 4:" + teste4);    //true --> "false" é uma string, e qualquer string com conteúdo é tida como um boolean true.
+
+        var teste5 = Boolean("");
+        console.log("Teste 5:" + teste5);    //false --> uma string vazia é tida como um boolean false.
+    </script>
+</body>
+</html>

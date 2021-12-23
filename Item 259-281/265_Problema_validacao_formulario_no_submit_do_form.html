@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Validação de Formulário de Login</title>
+    <!--
+        PROBLEMA: Validar um formulário de login (usuário e senha), não mais ao clicar no botão, mas sim no submit do formulário.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Validação de Formulário de Login</h1>
+
+        <form action="#" method="POST">
+            <label for="txtUser">Usuario</label>
+            <input type="text" id="txtUser" name="user">
+
+            <br>    <!-- inadequado o uso de <br> em páginas práticas reais -->
+
+            <label for="txtPass">Senha</label>
+            <input type="password" id="txtPass" name="pass">
+
+            <br>    <!-- inadequado o uso de <br> em páginas práticas reais -->
+
+            <button type="submit" id="btn">Login</button>   <!-- type não é mais button -->
+        </form>
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+            var $form = document.querySelector("form");
+            var $txtUser = document.getElementById("txtUser");
+            var $txtPass = document.getElementById("txtPass");
+            var $btn = document.getElementById("btn");
+
+            //Antes a validação era feita no botão. Porém, agora que nosso botão é type="submit", a validação será feita toda vez que for feita a tentativa de enviar o formulário, já que com o botão submit, é possível enviar o formulário apenas ao pressionar Enter. Dessa forma, a validação é feita em todo caso, e não apenas ao clicar no botão.
+            $form.addEventListener("submit", function(e){
+                if (!$txtUser.value || !$txtPass.value){        //.value retorna uma string. Ao tentar converter uma string para boolean, o conteúdo da string influencia se será um boolean true ou false. Uma string vazia "" retorna false, por isso invertemos o valor com !. if(!$txtUser.value): se o valor for vazio, o boolean será invertido para true, tornando verdadeira a validação do if.
+                    alert("Preencha todos os campos!");
+                    e.preventDefault(); //Impede o funcionamento padrão do processo. Dessa forma, caso o usuário tente enviar o formulário faltando algum dado a ser preenchido, será interrompido o envio do formulário.
+                }
+            })
+        })();
+    </script>
+</body>
+</html>

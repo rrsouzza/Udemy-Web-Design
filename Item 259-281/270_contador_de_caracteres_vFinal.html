@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Contador de caracteres de um textarea</title>
+    <!--
+        PROBLEMA: Num textarea com um número máximo de caracteres permitidos, mostrar numa span o número de cacteres restantes e indicar pro usuário quando restam apenas 10 caracteres.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Contador de caracteres de um textarea</h1>
+
+        <textarea id="msg" cols="50" rows="10" maxlength="10"></textarea>
+        <br>
+        <div id="restaContainer" style="display: none">
+            Restam <span id="resta"></span> caracteres
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+            
+            var $txtMsg = document.getElementById("msg");
+            var $restaContainer = document.getElementById("restaContainer");
+            var $resta = document.getElementById("resta");
+            var maxima = $txtMsg.maxLength;            
+
+            function mostrarContainerResta(){
+                $restaContainer.style.display = "block";
+            }
+            mostrarContainerResta();
+            mostrarCaracteresRestantes(maxima);
+            $txtMsg.addEventListener("input", checkLength);
+
+            function checkLength(e){
+                var numLetrasDigitadas = this.value.length;
+                var caracteresRestantes = parseInt(maxima) - parseInt(numLetrasDigitadas);
+                mostrarCaracteresRestantes(caracteresRestantes);
+            }
+
+            function mostrarCaracteresRestantes(n){
+                $resta.textContent = n;
+            }
+        })();
+    </script>
+</body>
+</html>

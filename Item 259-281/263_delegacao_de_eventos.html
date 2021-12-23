@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Delegação de Eventos</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- h1{Javascript - Delegação de Eventos}+ul>li{lista $}*3 --> <!-- Comando para inserção rápida-->
+        
+        <h1>Javascript - Delegação de Eventos</h1>
+        <ul>
+            <li>lista 1</li>
+            <li>lista 2</li>
+            <li>lista 3</li>
+        </ul>
+    </div>
+
+    <script>
+        var $ul = document.querySelector("ul");
+        var $lis = document.querySelectorAll("li"); //Como estamos utilizando um querySelectorAll para referenciar múltiplas li's, o conteúdo armazenado na variável $lis será um nodelist; uma coleção com todas as li's. Por isso ao adicionar um eventListener, é necessário indicar o índice de qual li gostaríamos de atrelar o evento. Poderíamos, por exemplo, criar um loop para atrelar um eventListener à todos os índices da $lis, como exemplificado abaixo:
+
+        // var x = 0;
+        // while ($lis[x]){
+        //     $lis[x].addEventListener("click", function(e){
+        //         e.stopPropagation();
+        //         console.log("Clicou na li");
+        //     })
+        //     x++;
+        // }
+
+        //Delegação de Eventos: Em vez de adicionarmos um eventListener em um objeto diretamente, podemos atrelar o evento ao elemento pai (no caso na ul que é pai das li's), e usar do currentTarget e target para monitorar qual elemento filho foi, no caso, clicado.
+        $ul.addEventListener("click", function(e){
+            e.stopPropagation;
+            console.log(this);      //this e currentTarget, nesse caso, são a mesma coisa: a ul.
+            console.log(e.currentTarget);
+            console.log(e.target);  //imprime qual o alvo responsável por disparar o evento.
+
+            console.log(e.target.nodeName); //imprime o nodeName do alvo. No caso, se clicarmos em uma das li's, retornará uma string "LI".
+            if (e.target.nodeName === "LI"){
+                alert("Clicou na li");
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Contador de caracteres de um textarea</title>
+    <!--
+        PROBLEMA: Num textarea com um número máximo de caracteres permitidos, mostrar numa span o número de cacteres restantes e indicar pro usuário quando restam apenas 10 caracteres.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Contador de caracteres de um textarea</h1>
+
+        <textarea id="msg" cols="50" rows="10" maxlength="10"></textarea>
+        <br>
+        <div id="restaContainer" style="display: none"> <!-- Caso, por qualquer motivo, o javascript não puder ser carregado na página, devemos/podemos fazer com que o HTML possa exibir a página sem mostrar erros ou problemas visuais -->
+            Restam <span id="resta"></span> caracteres
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+            
+            var $txtMsg = document.getElementById("msg");
+            var $restaContainer = document.getElementById("restaContainer");
+            var $resta = document.getElementById("resta");
+            // var maxima = 20;
+            var maxima = $txtMsg.maxLength; //No HTML se escreve maxlength (tudo minúsculo), mas no Javascript fica maxLength
+            //É retornado uma string, então apesar do navegador fazer a conversão implícita ao realizar uma operação aritmética com esses dados, é interessante fazer a conversão explícita da string para números.
+
+            function mostrarContainerResta(){
+                $restaContainer.style.display = "block";
+            }
+
+            mostrarContainerResta();
+            // $resta.textContent = maxima;
+            mostrarCaracteresRestantes(maxima);
+
+            // $txtMsg.addEventListener("keypress", keypress);
+            // $txtMsg.addEventListener("keyup", keyup);
+            // $txtMsg.addEventListener("keydown", keydown);
+            $txtMsg.addEventListener("input", checkLength);
+
+            // function keypress(e){
+            //     console.log("keypress", this.value);    //this.value é o valor intenro do elemento, no caso o textarea. É todo o conteúdo que estiver escrito no textarea.
+            // }
+            // function keyup(e){
+            //     console.log("keyup");
+            // }
+            // function keydown(e){
+            //     console.log("keydown");
+            // }
+            //Para o caso do problema, não é ideal utilizar keypress, keydown ou keyup, pois caso o usuário apenas copiasse e colasse um texto dentro do textarea, nenhum desses tipos de ações iria reconhecer o texto inserido. Por isso, é mais interessante utilizar o "input", que identifica qualquer tipo de atualização ao inserir dados no textarea.
+
+            function checkLength(e){
+                // console.log("input");
+                // console.log(this.value);
+                var numLetrasDigitadas = this.value.length;
+                // $resta.textContent = maxima - numLetrasDigitadas;
+                // var caracteresRestantes = maxima - numLetrasDigitadas;  //É retornado uma string, então apesar do navegador fazer a conversão implícita ao realizar uma operação aritmética com esses dados, é interessante fazer a conversão explícita da string para números.
+                var caracteresRestantes = parseInt(maxima) - parseInt(numLetrasDigitadas);
+                mostrarCaracteresRestantes(caracteresRestantes);
+            }
+
+            function mostrarCaracteresRestantes(n){
+                $resta.textContent = n;
+            }
+        })();
+    </script>
+</body>
+</html>
