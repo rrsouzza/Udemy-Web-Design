@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Lista de tarefas Parte 4-5</title>
+    <!--
+        PROBLEMA: Fazer uma pequena lista de tarefas onde o usuário pode acrescentar um novo item (li) na lista (ul) através de um input e um botão. Esta lista deve estar preenchida previamente com três itens quaisquer. Acrescentar eventos de click em cada li para marcar como feito.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+
+    <style>
+        .done{
+            text-decoration: line-through;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Lista de tarefas Parte 4-5</h1>
+
+        <input type="text" id="txtTask">
+        <button id="btn">Cadastrar Tarefa</button>
+        
+        <ul>
+            <li>Estudar Javascript - DOM</li>
+            <li>Estudar eventos em Javascript</li>
+            <li>Trabalhar</li>
+        </ul>    
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+
+            var $ul = document.querySelector("ul");
+            var $lis = $ul.querySelectorAll("li");
+            var $txtTask = document.querySelector("#txtTask");
+            var $btn = document.querySelector("#btn");
+
+            $btn.addEventListener("click", addTask);
+            $txtTask.addEventListener("keyup", function(e){
+                // console.log(e.keyCode);      --> Para descobrir o código da tecla pressionada
+                if (e.keyCode === 13){      //Se a tecla pressionada for o Enter
+                    addTask();
+                }
+            });
+
+            for (var i = 0; i < $lis.length; i++){
+                addEvent($lis[i]);
+            }
+
+            function toggleDone(){
+                this.classList.toggle("done");      //classList permite add(), remove() ou toggle() uma classe dentro de elementos do HTML. No caso, sempre que o usuário clicar em cima de uma li, será aplicado ou removido a classe "done" daquele elemento. Ao definir essa classe no CSS, podemos adicionar o estilo desejado, fazendo com que as propriedades visuais do elemento mudem sempre que o usuário clicar em cima da li.
+            }
+
+            function addTask(){
+                // var task = "<li>" + $txtTask.value + "</li";
+                // $ul.innerHTML += task;
+                //O innerHTML provoca uma "limpeza" em todas as referências do DOM criadas anteriormente à execução do innerHTML. Isso quer dizer que, no caso desta aplicação, assim que o usuário inserir um item novo na lista, todos os eventListeners criados anteriormente deixarão de existir. Por isso, há uma solução melhor:
+
+                var li = document.createElement("li");      //Criamos um elemento novo
+                var text = document.createTextNode($txtTask.value);     //Armazenamos o conteúdo atual do campo de texto
+
+                li.appendChild(text);   //Acrescentamos o texto no nosso novo elemento
+                $ul.appendChild(li);    //Acrescentamos o nosso elemento dentro da ul
+                addEvent(li);
+
+                $txtTask.value = "";    //Irá limpar o campo assim que o usuário clicar no botão.
+                $txtTask.focus();       //Já insere o cursor de volta no campo assim que o usuário clica no botão.
+
+            }
+
+            function addEvent(li){
+                li.addEventListener("click", toggleDone);
+            }
+        })()
+    </script>
+</body>
+</html>

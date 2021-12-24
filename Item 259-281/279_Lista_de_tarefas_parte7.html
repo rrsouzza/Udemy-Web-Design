@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Lista de tarefas Parte 7</title>
+    <!--
+        PROBLEMA: Fazer uma pequena lista de tarefas onde o usuário pode acrescentar um novo item (li) na lista (ul) através de um input e um botão. Esta lista deve estar preenchida previamente com três itens quaisquer. Acrescentar eventos de click em cada li para marcar como feito.
+        PROBLEMA 2: O cliente pediu para fazer com que, ao clicar num item da lista, pergunte ao usuário se ele quer excluir aquele item da lista de tarefas. Se confirmado, efetuar a remoção.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Lista de tarefas Parte 7</h1>
+
+        <input type="text" id="txtTask">
+        <button id="btn">Cadastrar Tarefa</button>
+        
+        <ul>
+            <li>Estudar Javascript - DOM</li>
+            <li>Estudar eventos em Javascript</li>
+            <li>Trabalhar</li>
+        </ul>    
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+
+            var $ul = document.querySelector("ul");
+            var $lis = $ul.querySelectorAll("li");
+            var $txtTask = document.querySelector("#txtTask");
+            var $btn = document.querySelector("#btn");
+
+            $btn.addEventListener("click", addTask);
+            $txtTask.addEventListener("keyup", function(e){
+                // console.log(e.keyCode);      --> Para descobrir o código da tecla pressionada
+                if (e.keyCode === 13){      //Se a tecla pressionada for o Enter
+                    addTask();
+                }
+            });
+
+            //Caso o usuário insira muitas li's, cada uma tem seu próprio evento, e isso pode ser prejudicial à performance da página. Por isso, é interessante fazer uma delegação de eventos, atribuindo um evento à ul, e verificando se uma li contida nessa ul foi o elemento disparador do evento: 
+            // for (var i = 0; i < $lis.length; i++){
+            //     addEvent($lis[i]);
+            // }
+
+            $ul.addEventListener("click", function(e){
+                if (e.target.nodeName === "LI"){
+                    removeTask(e.target);   //Ao clicar na li, o usuário terá a opção de selecionar se aquele item deve ser excluído da lista.
+                }
+            })
+
+            function removeTask(li){
+                if (confirm("Deseja realmente excluir a tarefa:\n -"+ li.textContent +"\n?")){      //Confirm exibe uma mensagem na tela. Caso o usuário seleciona o botão de "OK", retorna true. "Cancelar" retorna false.
+                    console.log(li.parentNode);         //parentNode retorna o "pai"/elemento ancestral imediato de um certo elemento. No caso, o parentNode da li é a ul.
+                    li.parentNode.removeChild(li);      //Através do parentNode nós conseguimos remover um "filho" dele. Assim como existe appendChild.
+                }
+            }
+
+            function addTask(){
+                // var task = "<li>" + $txtTask.value + "</li";
+                // $ul.innerHTML += task;
+                //O innerHTML provoca uma "limpeza" em todas as referências do DOM criadas anteriormente à execução do innerHTML. Isso quer dizer que, no caso desta aplicação, assim que o usuário inserir um item novo na lista, todos os eventListeners criados anteriormente deixarão de existir. Por isso, há uma solução melhor:
+
+                var li = document.createElement("li");      //Criamos um elemento novo
+                var text = document.createTextNode($txtTask.value);     //Armazenamos o conteúdo atual do campo de texto
+
+                li.appendChild(text);   //Acrescentamos o texto no nosso novo elemento
+                $ul.appendChild(li);    //Acrescentamos o nosso elemento dentro da ul
+
+                $txtTask.value = "";    //Irá limpar o campo assim que o usuário clicar no botão.
+                $txtTask.focus();       //Já insere o cursor de volta no campo assim que o usuário clica no botão.
+            }
+        })()
+    </script>
+</body>
+</html>

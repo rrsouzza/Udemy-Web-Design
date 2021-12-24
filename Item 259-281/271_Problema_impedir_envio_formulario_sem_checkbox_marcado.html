@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Impedir envio de formulário sem marcar checkbox</title>
+    <!--
+        PROBLEMA: Permitir o envio de um formulário apenas quando o usuário aceitar os termos do contrato (checkbox). Para este exemplo, vamos habilitar ou desabilitar o botão dependendo do checkbox.
+    -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Impedir envio de formulário sem marcar checkbox</h1>
+
+        <form action="#">
+            <textarea id="contrato" cols="50" rows="10" readonly>Contrato de Serviços Prestados
+            </textarea>
+
+            <label style="display: block;">
+                <input type="checkbox" id="chk" checked> Li e aceito os termos do contrato
+            </label>
+
+            <input type="submit" value="Enviar" id="btn">
+        </form>
+    </div>
+
+    <script>
+        (function(){
+            "use strict";
+
+            var $btn = document.getElementById("btn");
+            var $chk = document.getElementById("chk");
+            // $btn.disabled = true;
+            // $btn.disabled = !$chk.checked;   --> Podemos incluir essa atribuição em uma função
+            toggleBtn();
+
+            $chk.addEventListener("change", function(){
+                // if (this.checked){  //Se o checkbox estiver selecionado,
+                //     $btn.disabled = false;  //habilita o botão.
+                // }else{  //Senão,
+                //     $btn.disabled = true;   //desabilita o botão.
+                // }
+                
+                //Considerando a lógica acima (checkbox == true, btn == false; checkbox == false, btn == true), podemos escrever tudo em apenas uma linha:
+                // $btn.disabled = !this.checked;   --> Podemos incluir essa atribuição em uma função
+                toggleBtn();
+            });
+
+            function toggleBtn(){
+                $btn.disabled = !$chk.checked;
+            }
+        })()
+    </script>
+</body>
+</html>
