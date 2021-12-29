@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Strings</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Strings</h1>
+
+    <script>
+        //STRINGS
+
+        //Literal:  
+        var meuTexto = "texto qualquer";
+        //Objeto:
+        var meuTexto2 = new String("texto qualquer");
+
+        //Métodos e Propriedades de Strings:
+        
+        //-length: retorna o número de caracteres que a string possui
+        console.log("Quantidade de caracteres de meuTexto: " + meuTexto.length);
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+
+
+        //-replace: substitui o primeiro caractere passado como parâmetro pelo outro caractere passado como parâmetro
+        console.log("meuTexto2 com o primeiro caractere substituído: " + meuTexto2.replace("e", "E"));
+            //Nota 1: Para substituir todos os caracteres da string, é necessário utilizar de uma expressão regular: meuTexto2.replace(/i/g, "I");
+            //Nota 2: O valor original da variável meuTexto2 continua o mesmo. Replace não altera o valor original da variável (se for o caso).
+        console.log("Valor original de meuTexto2 continua o mesmo: " + meuTexto2);
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+
+        //-indexOf: retorna o índice do primeiro caractere da string passada como parâmetro
+        console.log("Posição do caractere e na string meuTexto: " + meuTexto.indexOf("e"));
+        console.log("Posição do primeiro espaço encontrado na string meuTexto: " + meuTexto.indexOf(" "));   //Retornará a posição do primeiro espaço " " /string vazia/ que encontrar
+        console.log("Posição do primeiro caractere da string *teste* (t) em meuTexto: " + meuTexto.indexOf("teste"));    //Retornará a posição da letra t, caso encontre a palavra teste.
+        //Nota: Caso não seja encontrada a string passada como parâmetro, retorna o valor -1.
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+
+
+        var meuTexto3 = "teste com vários espaços";
+        //-lastIndexOF: retorna o último índice encontrado da string passada como parâmetro.
+        console.log("Último índice encontrado na string meuTexto3 que contenha um espaço: " + meuTexto3.lastIndexOf(" "));
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+
+
+        //-slice: corta a string no índice passado como parâmetro e retorna o valor remanescente. Nota: o valor da variável original (se for o caso) não é alterado.
+        console.log("Valor recuperado ao usar o slice() no índice 5 da variável meuTexto3: " + meuTexto3.slice(5));  //Todos os caracteres anteriores ao índice 5 são "excluídos"
+            //Também é possível passar dois valores como parâmetro, retornando assim o valor remanescente dentre esses dois índices:
+            console.log("Valor recuperado ao usar o slice() passando dois parâmetros: 5 e 12: " + meuTexto3.slice(5, 12));   //Nota: O índice 5 é incluído no retorno, enquanto que o índice 12 é excluído. Então a string remanescente será todo o conteúdo do índice 5 até o índice 11.
+            console.log("Note que o valor original da variável meuTexto3 permanece o mesmo: " + meuTexto3);
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+
+
+        //-split: corta a string baseado no parâmetro passado e retorna um array com os valores divididos em índices (excluindo o parâmetro passado).
+        console.log("Valor recuperado ao dividir uma string utilizando *e* como parâmetro para o split():");
+        console.log(meuTexto3.split("e"));  //Nota: a letra e passada como parâmetro foi excluída do retorno feito pelo método.
+        console.log("Valor recuperado ao dividir uma string utilizando espaço (' ') como parâmetro para o split():");
+        console.log(meuTexto3.split(" "));
+            //Nota: o valor original da variável permance o mesmo.
+            console.log("O valor original da variável meuTexto3 permance o mesmo: " +meuTexto3);
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+
+
+        //-toUpperCase: transforma uma string inteira para caracteres maiúsculos:
+        console.log("String utilizando toUpperCase(): " + meuTexto3.toUpperCase());
+        //-toLowerCase: transforma uma string inteira para caracteres minúsculos:
+        console.log("String utilizando toLowerCase(): " + meuTexto3.toLowerCase());
+        console.log(" -------------------------------------------------------------------------------------------------------------------------------------- ");
+    </script>
+</body>
+</html>

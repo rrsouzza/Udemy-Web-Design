@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <!-- 
+        DESAFIO: Selecionar todos os parágrafos de uma página e, se o texto tiver mais que duzentos caracteres, mostrar somente os duzentos primeiros seguidos de reticências...
+    -->
+    <title>Javascript - Desafio</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Desafio</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic illum corrupti nulla impedit quae itaque assumenda possimus iusto rerum quia aliquam perferendis excepturi ipsa, voluptatum modi fuga beatae placeat totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic illum corrupti nulla impedit quae itaque assumenda possimus iusto rerum quia aliquam perferendis excepturi ipsa, voluptatum modi fuga beatae placeat totam.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic illum corrupti nulla impedit quae itaque assumenda possimus iusto rerum quia aliquam perferendis excepturi ipsa, voluptatum modi fuga beatae placeat totam.</p>
+    <p>Lorem ipsum dolor sit amet</p>
+
+    <script>
+        (function(){
+            window.addEventListener("load", init);
+
+            function init(){
+                var $paragrafos = document.querySelectorAll("p");
+
+                var x = 0;
+                while ($paragrafos[x]){
+                    $paragrafos[x].innerHTML = formatarTexto($paragrafos[x].innerHTML);
+                    x++;
+                }
+            }
+
+            function formatarTexto(texto){
+                var numMaximoCaracteres = 200;
+                if (texto.length <= numMaximoCaracteres) return texto;  //Quando o conteúdo do if tem apenas 1 linha, não precisamos usar as {}, declarando a condição e o retorno na mesma linha.
+                //Se o if acima for falso, irá prosseguir normalmente para as linhas abaixo.
+                var subTexto = texto.slice(0, numMaximoCaracteres);
+                return subTexto + "...";
+            }
+        })()
+    </script>
+</body>
+</html>

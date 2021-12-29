@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <!-- 
+        PROBLEMA: Criar uma função que recebe um nome completo e retorna este nome formatado, seguindo o exemplo: "Daniel Tapias Morales" será transformado em "Morales, Daniel Tapias" 
+    -->
+    <title>Javascript - Problema: Formatar Nome Completo</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Problema: Formatar Nome Completo</h1>
+
+    <script>
+        var nome = "Ricardo Rodrigues de Souza";
+        var nomeFormatado = formatarNome(nome);
+        console.log("nomeFormatado: " + nomeFormatado);
+
+
+        function formatarNome(nome){
+            //return "Souza, Ricardo Rodrigues de";
+            var posUltimoEspaco = nome.lastIndexOf(" ");
+            if (posUltimoEspaco <= 0){  //retorna -1 se não existir
+                return nome;
+            }else{
+                var ultimoNome = nome.slice(posUltimoEspaco + 1);   //+1 para não contar com o primeiro espaço
+                console.log("ultimoNome: " + ultimoNome);
+
+                var primeiroNome = nome.slice(0, posUltimoEspaco);
+                console.log("primeiroNome: " + primeiroNome);
+
+                return ultimoNome + ", " + primeiroNome;
+            }
+        }
+    </script>
+    
+    
+    
+    
+    <!-- <script>
+        (function(){
+            var nome = "Ricardo Rodrigues de Souza";
+            var nomeFormatado = formataNome(nome);
+            console.log(nomeFormatado);
+        })()
+
+        function formataNome(nome){
+            var splitNome = nome.split(" ");
+            var x = splitNome.length;
+            var nomeFormatado = splitNome[x-1] + ", ";
+            for (var i=0; i < x-1; i++){
+                nomeFormatado += splitNome[i] + " ";
+            }
+            return nomeFormatado;
+        }
+    </script> -->
+</body>
+</html>
