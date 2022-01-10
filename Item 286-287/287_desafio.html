@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <!-- 
+        DESAFIO: Tratar a saída da função que calcula a média (beluga.js) e retornar um número com apenas duas casas decimais.
+    -->
+    <title>Javascript - Desafio</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Desafio</h1>
+
+    <script>
+        (function(){
+            window.addEventListener("load", init);
+
+            function init(){
+                var media = calcularMedia(4.56, 2.879, 10.23456, 45.8123);
+                console.log("Média com duas casas decimais: " +media);
+            }
+        })()
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <!-- 
+        PROBLEMA: No beluga.js, criar uma função chamada sortear que deve receber por parâmetro o número de valores possíveis de serem retornados pela função. Por exemplo: sortear(2) deve retornar 0 ou 1; sortear(10) deve retornar números de 0 a 9.
+    -->
+    <title>Javascript - Problema</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Problema</h1>
+
+    <script>
+        (function(){
+            window.addEventListener("load", init);
+
+            function init(){
+                console.log(sortear());
+                console.log(sortear());
+                console.log(sortear());
+                console.log(sortear(2));
+                console.log(sortear(2));
+                console.log(sortear(8));
+                console.log(sortear(8));
+                console.log(sortear(10));
+            }
+        })()
+    </script>
+</body>
+</html>

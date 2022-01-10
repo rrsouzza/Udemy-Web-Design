@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Métodos e Propriedades de Number</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Métodos e Propriedades de Number</h1>
+
+    <script>
+        (function(){
+            //Forma literal:
+            var meuNum = 123;
+            //Objeto:
+            var meuNum2 = new Number("123");    //Converte automaticamente a string em um número
+
+
+            //Métodos:
+            
+            //toFixed()
+            var meuNum3 = 1234.5678;
+            console.log("meuNum3.toFixed(2) = " + meuNum3.toFixed(2));  //toFixed() arredonda o número, recebendo como parâmetro o número de casas decimais que o mesmo deve ter.
+            console.log("meuNum3 continua intacto = " + meuNum3);   //toFixed() não altera o valor original do objeto.
+            console.log("meuNum3.toFixed(10) = " + meuNum3.toFixed(10));    //No caso do número de casas decimais passadas como parâmetro forem maior que as casas decimais do objeto, são adicionados zeros (0) para completar o número.
+
+            //toPrecision()
+            var meuNum4 = 12.345;
+            console.log("meuNum4.toPrecision(2) = " + meuNum4.toPrecision(2));  //toPrecision() define quantas casas numéricas exatamente o valor deve ter. No caso, com duas casas numéricas o retorno é apenas 12.
+            console.log("meuNum4.toPrecision(3) = " + meuNum4.toPrecision(3));  //Com 3 casas numéricas.
+            console.log("meuNum4.toPrecision(8) = " + meuNum4.toPrecision(8));  //Caso o número passado como parâmetro seja maior que a quantidade de dígitos do objeto, ele será completado com zeros.
+
+            //toString()
+            var meuNum5 = 12;
+            console.log("meuNum5.toString() = " + meuNum5.toString());  //toString normal, apenas transforma o número em uma string.
+            console.log("meuNum5.toString(2) = " + meuNum5.toString(2));  //O parâmetro passado dentro do toString define qual a base numérica para qual o número será convertido. No caso de 2, o objeto será convertido para a base binária, retornando 1100.
+            console.log("meuNum5.toString(16) = " + meuNum5.toString(16));  //16 converte para a base hexadecimal.
+
+            //toExponential()
+            var meuNum6 = 10;
+            console.log("meuNum6.toExponential() = " + meuNum6.toExponential());  //toExponential() retorna o número convertido em notação científica. Nesse caso, retorna 1e+1.
+                //1e+1 = 1 * 10 ^ 1
+                //4e+2 = 4 * 10 ^ 2
+                //6e+3 = 6 * 10 ^ 3
+            meuNum6 = 1000;
+            console.log("meuNum6.toExponential() = " + meuNum6.toExponential());    //1e+3 --> 1 * 10 ^ 3
+            meuNum6 = 12345.678;
+            console.log("meuNum6.toExponential(2) = " + meuNum6.toExponential(2));  //O parâmetro passado define quantos dígitos devem ser exibidos após a vírgula.                   No caso, retorna 1.23e+4;
+        })()
+    </script>
+</body>
+</html>

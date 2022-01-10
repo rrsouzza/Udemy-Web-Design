@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Math</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Math</h1>
+
+    <script>
+        (function(){
+            //MÉTODOS
+
+            //min() e max()
+            console.log("min() de {2, 4, 7, 9} = " + Math.min(2, 4, 7, 9));
+            console.log("max() de {2, 4, 7, 9} = " + Math.max(2, 4, 7, 9));
+
+            //round()
+            console.log("round() de 55.55 = " + Math.round(55.55));
+            console.log("round() de 55.50 = " + Math.round(55.50));
+            console.log("round() de 55.49 = " + Math.round(55.49)); //round() arredonda automaticamente para o número mais próximo (seja para "cima" ou para "baixo")
+
+            //floor()
+            console.log("floor() de 55.55 = " + Math.floor(55.55));
+            console.log("floor() de 55.99 = " + Math.floor(55.99)); //floor() sempre arredonda para baixo
+
+            //ceil()
+            console.log("ceil() de 55.55 = " + Math.ceil(55.55));
+            console.log("ceil() de 55.01 = " + Math.ceil(55.01));   //ceil() sempre arredonda para cima
+
+            //pow()
+            console.log("pow() de 2 ^ 3 = " + Math.pow(2, 3));
+            console.log("pow() de 2 ^ 10 = " + Math.pow(2, 10));    //pow() retorna a potenciação de um número por outro. Primeiro parâmetro é sempre a base, segundo parâmetro é sempre a potência.
+            console.log("pow() é a mesma coisa que, por exemplo, 2 ** 3. Resultado de 2 ** 3 = " + 2 ** 3); //** também é um operador aritmético, usado para potenciação.
+
+            //sqrt()
+            console.log("sqrt() de 25 = " + Math.sqrt(25));
+            console.log("sqrt() de 49 = " + Math.sqrt(49)); //sqrt() calcula a raíz quadrada de um número.
+
+            //cbrt()
+            console.log("cbrt() de 27 = " + Math.cbrt(27));
+            console.log("cbrt() de 125 = " + Math.cbrt(125)); //cbrt() calcula a raíz cúbica de um número.
+
+            //random()
+            console.log("random() = " + Math.random());
+            console.log("random() = " + Math.random()); //random() gera um número aleatório de 0 a 0.9999999 (por padrão, exclui o 1).
+
+
+            //ALGUMAS PROPRIEDADES:
+
+            //PI
+            console.log("Math.PI = " + Math.PI);    //retorna o valor de Pi
+
+            //SQRT2
+            console.log("SQRT2 = " + Math.SQRT2);   //retorna a raíz quadrada de 2
+        })()
+    </script>
+</body>
+</html>
