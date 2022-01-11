@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Arrays</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Arrays</h1>
+
+    <script>
+        (function(){
+            //MÉTODOS
+
+            //Tanto o every() quanto o some() precisam ter uma função declarada como seus parâmetros
+            //every()   --> retorna true se todos (every) os indices cumprirem uma certa condição.
+            var arr = ["1", 2, 3, 4, 5, "asd", 4, 6, 7, "qwe"];
+            var apenasNumeros = arr.every(function(el){    //o every percorre todo o array, e retorna true apenas se todos os indices cumprirem uma condição. Nesse caso irá retornar false pois o array acima possui também elementos do tipo string.
+                return typeof el === 'number';  //Se o tipo do indice for number, retorna true
+            });
+            console.log("every() = " + apenasNumeros);
+
+            
+            //some()    --> retorna true se ao menos um dos indices cumprir uma certa condição.
+            var aoMenosUmNumero = arr.some(function(el){   //se ao menos um dos indices cumprir uma certa condição, irá retornar true.
+                return typeof el === 'number';
+            });
+            console.log("some() = " + aoMenosUmNumero);
+
+            
+            //filter()  --> retorna um array com apenas os elementos que cumprirem uma certa condição. Funciona como um filtro.
+            var filtroNumeros = arr.filter(function(el, i, arr){    //Caso precise, é possível passar como parâmetro o elemento(el), indice(i), e o array(arr).
+                return typeof el === 'number';
+            });
+            console.log("filter() de numeros = ");
+            console.log(filtroNumeros); //Note que o método filter() retornou um array.
+            console.log(arr);   //Note também que o array original continua como estava antes.
+
+
+            //forEach() --> funciona como um loop for, que percorre todo o array. Com ele não é necessário declarar uma variável/ponto de parada do loop. Não retorna nada, apenas percorre o array.
+            console.log("forEach() = ");
+            arr.forEach(function(el, i, arr){   //Caso precise, é possível passar como parâmetro o elemento(el), indice(i), e o array(arr).
+                console.log("el=", el, " | i=", i, " | i - ", arr.toString());
+            });
+
+
+            //indexOf() --> retorna a primeira posição encontrada de um elemento contido dentro de um array. Se não encontrar, retorna -1.  (Se for o caso de existir o mesmo elemento em múltiplos indices no array, retornará apenas a primeira posição em que for encontrado).
+            var posElemento = arr.indexOf("asd");
+            console.log("indexOf(asd) = " + posElemento);
+            var posElemento2 = arr.indexOf("asd", 6);   //É possível passar um segundo argumento, que indica a partir de qual índice deve ser iniciada a procura.
+            console.log("indexOf(asd) a partir do índice 6 = " +posElemento2);  //Note que retornou -1, pois ao começar a procurar a partir do índice 6, não foi encontrado o elemento "asd".
+
+
+            //lastIndexOf() --> retorna a última posição do array onde tal elemento se encontra.
+            var posElementoIndexOf = arr.indexOf(4);
+            var posElementoLastIndexOf = arr.lastIndexOf(4);
+            console.log("posElementoIndexOf = " + posElementoIndexOf);
+            console.log("posElementoLastIndexOf = " + posElementoLastIndexOf);
+            
+            //Também é possível passar um segundo argumento indicando a posição onde deve ser iniciada a procura.
+            var posElementoIndexOf2 = arr.indexOf(4, 5);
+            var posElementoLastIndexOf2 = arr.lastIndexOf(4, 5);
+            console.log("posElementoIndexOf2 a partir do indice 5 = " + posElementoIndexOf2);   //retorna 6 pois, contando a partir do indice 5, o indice 6 é a primeira ocorrência do número 4.
+            console.log("posElementoLastIndexOf2 a partir do indice 5 = " + posElementoLastIndexOf2);   //retorna 3 pois, por ser lastIndexOf, ele conta de trás para frente. Assim, contando a partir do índice 5, em ordem reversa, a primeira(última) ocorrência do número 4 é no índice 3.
+
+
+            //map() --> utilizado para modificar/operar os valores dos elementos de um array. Retorna um array com os valores novos. Ele percorre o array e realiza a função declarada em cada um dos índices.
+                //Vamos selecionar apenas os números da nossa array arr:
+                var numerosMap = arr.filter(function(el, i, arr){
+                    return typeof el === 'number';
+                });
+            console.log("numerosMap antes do map() = ", numerosMap);
+            numerosMap = numerosMap.map(function(el, i, arr){
+                return el * i;  //Iremos multiplicar o valor de cada elemento pelo seu próprio índice.
+            });
+            console.log("numerosMap depois do map() = ", numerosMap);
+
+
+            //concat()  --> faz a fusão entre duas arrays, retornando uma array resultante. Nota: não modifica o conteúdo dos arrays originais.
+                //Vamos concatenar o array arr com o array da operação de map()
+            var arrConcat = arr.concat(numerosMap, "ert", "zxc", 100);  //É possível concatenar com valores passados como argumentos
+            console.log("array arr concat() com numerosMap, ert, zxc e 100 = ", arrConcat);
+
+
+            //join()    --> transforma o array em uma string, assim como o toString(). Porém podemos passar como argumento uma string que irá separar os valores dos elementos na string resultante.
+            var stringJoin = arrConcat.join(" -- ");
+            console.log("stringJoin com -- separando os valores = ", stringJoin);
+
+
+            //push()    --> insere um novo elemento no array, e retorna o índice no qual o elemento novo mais recente foi inserido. Nota: esse método literalmente altera o conteúdo do array original.
+            console.log("array arr antes do push() = ", arr);
+            var indexTeste = arr.push("novo", "item");  //Ao realizar o push(), o retorno será armazenado na variável indexTeste.
+            console.log("array arr com dois novos itens por push() = ", arr);
+            console.log("Valor armazenado na variável indexTeste ao realizar o push() = ", indexTeste);    //Note que o valor armazenado na variável ao realizar o push() é o índice no qual o elemento mais recente foi inserido. No caso, o elemento "item", no índice 12.
+
+
+            //pop() --> assim como o push(), o pop() modifica o conteúdo do array. Ele exclui o último elemento do array, e o retorna.
+            console.log("array arr antes do pop() = ", arr);
+            var ultimoItem = arr.pop();
+            console.log("array arr depois de realizar o pop() = ", arr);
+            console.log("conteúdo da variável ultimoItem, resultado do método pop() = ", ultimoItem);
+
+
+            //shift()   --> igual ao pop(), exceto que ele elimina e retorna o primeiro elemento, diferente do pop() que elimina e retorna o último. Nota: também modifica o valor original do array.
+            console.log("array arr antes do shift() = ", arr);
+            var primeiroItem = arr.shift();
+            console.log("array arr depois de realizar o shift() = ", arr);
+            console.log("conteúdo da variável primeiroItem, resultado do método shift() = ", primeiroItem);
+
+
+            //unshift() --> igual ao push(), exceto que em vez de adicionar elemento(s) no final do array, ele insere no início. Nota: também modifica o valor original do array.
+            console.log("array arr antes do unshift() = ");
+            console.log(arr);
+            arr.unshift(true, false, "unshift");
+            console.log("array arr depois de realizar o unshift() = ");
+            console.log(arr);
+
+
+            //reduce()  --> executa uma função para cada elemento do array, retornando no final um único valor.
+                //Vamos utilizar o array numerosMap, que contém apenas numeros.
+            var somaDoArr = numerosMap.reduce(function(anterior, atual, i){ //anterior, atual --> previousValue, currentValue
+                console.log("anterior ", anterior + " | atual ", atual + " | i ", i);
+                return anterior + atual + i;
+            }, 1);  //é possível passar um outro argumento fora da função que indica qual o valor inicial. No caso, o argumento "anterior" começa com o valor 1.
+            console.log("array numerosMap = ", numerosMap);
+            console.log("soma do array = ", somaDoArr);
+            
+        })()
+    </script>
+</body>
+</html>
