@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <!--
+        DESAFIO: Selecionar todos os parágrafos da página e, se tiver mais de 10 palavras, mostrar as 10 primeiras seguido de reticências.
+    -->
+    <title>Javascript - Desafio</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Javascript - Desafio</h1>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <script>
+        var paragrafos = document.querySelectorAll("p");
+
+        paragrafos.forEach(function(el, i){
+            paragrafos[i].innerHTML = formataParagrafo(paragrafos[i].innerHTML);
+        });
+
+        function formataParagrafo(texto){
+            var arr = texto.split(" ");
+            console.log(arr);
+            
+            if (arr.length > 10){
+                return arr.slice(0, 10).join(" ") + "...";
+            }else{
+                return texto;
+            }
+        }
+    </script>
+</body>
+</html>

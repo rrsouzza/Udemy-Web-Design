@@ -124,7 +124,7 @@
             console.log(arr);
 
 
-            //reduce()  --> executa uma função para cada elemento do array, retornando no final um único valor.
+            //reduce()  --> executa uma função para cada elemento do array, retornando no final um único valor. Também funciona para concatenar as strings contidas em um array.
                 //Vamos utilizar o array numerosMap, que contém apenas numeros.
             var somaDoArr = numerosMap.reduce(function(anterior, atual, i){ //anterior, atual --> previousValue, currentValue
                 console.log("anterior ", anterior + " | atual ", atual + " | i ", i);
@@ -132,7 +132,46 @@
             }, 1);  //é possível passar um outro argumento fora da função que indica qual o valor inicial. No caso, o argumento "anterior" começa com o valor 1.
             console.log("array numerosMap = ", numerosMap);
             console.log("soma do array = ", somaDoArr);
-            
+                
+            //reduceRight() --> igual ao reduce(), porém faz a soma/concatenação de forma invertida.
+            var reduceComStrings = ["1", "2", "3", "4", "5"].reduceRight(function(anterior, atual){
+                return anterior + atual;
+            });
+            console.log("reduceComStrings = ", reduceComStrings);  //Com reduce(), o resultado seria 12345. Com reduceRight(), o resultado é 54321.
+
+
+            //reverse() --> inverte a ordem dos elementos de um array. Nota: esse método modifica o conteúdo original do array.
+            var arrayReverse = [10, 20, 30, 40];
+            console.log("arrayReverse antes do reverse() = ", arrayReverse);
+            arrayReverse.reverse();
+            console.log("arrayReverse com reverse() = ", arrayReverse);
+
+
+            //slice()   --> retorna uma cópia de parte de um array definida a partir de índices passados como argumentos (inicio, fim). Nota: O índice "início" é incluso no array de retorno, mas "fim" não é incluso. Ex: slice(2, 5) retornará os índices 2, 3, 4.
+            var arrayTeste = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            console.log("arrayTeste = ", arrayTeste);
+            var arraySlice = arrayTeste.slice(2, 5);    //incluirá o elemento de índice 2 (2), e excluirá o elemento de índice 5 (5).
+            console.log("arraySlice com slice(2, 5) = ", arraySlice);   //2, 3, 4
+            //Nota: (inicio) como valor negativo (Ex: -2) indica um deslocamento em relação ao fim do array. Assim, um slice(-2) extrai os dois últimos elementos do array.
+            //Nota: (fim) com valor negativo (Ex: 2, -1) indica um deslocamente em relação ao fim do array. Assim, um slice(2, -1) iniciaria no índice 2 (3º elemento do array), e  incluiria até o antepenultimo elemento (índice -1 indica o penúltimo indice do array. Pelo argumento "fim" indicar o indice final, mas não ser incluso no slice, o array resultante incluiria apenas o antepenultimo elemento, sendo o equivalente ao indice -2.)
+
+
+            //splice()  --> remove itens de um array, enquanto adiciona elementos novos. O método splice() retorna um array com os elementos removidos. Nota: splice() modifica diretamente o conteúdo do array que chama o método.
+                //splice(index, deleteCount, [array de elementos a serem inseridos])
+                //index: indica o índice onde o splice() deve começar a excluir elementos.
+                //deleteCount: indica a quantidade de elementos que deverão ser excluídos a partir do "index" indicado.
+                //após o deleteCount, se declara quais os elementos novos que deverão ser inseridos a partir (incluindo) do indice indicado.
+            var arrayTeste2 = [0, 1, 2, 4, 5];
+            console.log("arrayTeste2 antes do splice() = ", arrayTeste2);
+            var arraySplice = arrayTeste2.splice(2, 0, "novoElemento1", "novoElemento2");   //A partir do índice 2, irá remover 0 elementos, e adicionar "novoElemento1" e "novoElemento2". Note que, por não remover nenhum elemento, o primeiro novo elemento declarado (novoElemento1) é inserido justamente no índice 2. Ou seja, o índice declarado como início passa a ser o índice do primeiro novo elemento inserido.
+            console.log("arrayTeste2 após o splice() = ", arrayTeste2);
+            console.log("arraySplice, o array retornado pelo splice() = ", arraySplice);    //Note que o array retornado está vazio, pelo fato de não termos removido nenhum elemento do array original.
+
+                //Agora iremos remover os elementos que foram inseridos anteriormente, assim como adicionar um elemento diferente.
+            console.log("arrayTeste2 com os elementos recém adicionados = ", arrayTeste2);
+            var arraySplice2 = arrayTeste2.splice(2, 2, "novoElemento3");   //Aqui removemos 2 elementos, a partir do indice 2. Após remover os dois elementos, o "novoElemento3" é adicionado no indice 2.
+            console.log("arrayTeste2 após o segundo splice() = ", arrayTeste2); //Resultado final. 
+            console.log("arraySplice2, o array retornado pelo segundo splice() = ", arraySplice2); //Agora que removemos dois elementos, o array retornado pelo splice() contém os dois elementos removidos.            
         })()
     </script>
 </body>

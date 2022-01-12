@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Spread Operator e Arrow Functions</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Spread Operator e Arrow Functions</h1>
+
+    <script>
+        console.log("SPREAD OPERATORS:");
+        var media = calcularMedia(2, 3);
+        console.log("Media de 2 e 3 usando calcularMedia(2, 3) = ", media);
+        var mediaArray = calcularMedia([2,3]);
+        console.log("Media de 2 e 3 usando calcularMedia([2,3]) = ", mediaArray);
+        console.log("O método calcularMedia() foi feito esperando um argumento do tipo Number. Por isso, ao passar um Array como argumento, o resultado final é zero/inválido.");
+
+        console.log("O Spread Operator transforma os elementos de um array em argumentos, tornando possível passar um array como argumento em uma função que espera outro tipo de dado.Ex: ");
+
+        var mediaSpreadOperator = calcularMedia(...[2,3]);
+        console.log("Media de 2 e 3 usando Spread Operator --> calcularMedia(...[2,3]) = ", mediaSpreadOperator);
+        console.log("Os 3 ... antes do array é o chamado Spread Operator. Ele pega os elementos do array seguinte e os passa como argumentos para a função que os chama.");
+        console.log("Nota: Nem todos os browsers podem oferecer suporte ao Spread Operator, mas provavelmente o Node já deve ter suporte para esta funcionalidade.");
+
+        console.log("==================");
+        console.log("==================");
+        console.log("==================");
+        console.log("==================");
+
+        console.log("ARROW FUNCTIONS:");
+        //console.log("Há uma forma mais suscinta de escrever funções cuja tem apenas um argumento e executa apenas uma linha. Por exemplo:");
+        
+        // var temZero = notas.some(function(nota){
+        //     return nota === 0;
+        // });
+
+        //pode ser escrito da seguinte forma:
+
+        //var temZero = notas.some(nota => nota === 0);
+
+        console.log("O => já indica uma função, por isso elimina a necessidade de escrever a palavra function.");
+        console.log("O valor anterior ao => indica o(s) argumento(s) da função. Como nesse caso há apenas um argumento, não há a necessidade de utilizar os ().");
+        console.log("Como a função executa apenas uma linha de código com um return (linha 43), todo o valor após o => é interpretado como a operação/valor a ser retornado pela função.");
+    
+    </script>
+</body>
+</html>
