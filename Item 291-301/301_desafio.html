@@ -13,6 +13,13 @@
 
     <link href="../utils/bootstrap.css" rel="stylesheet">
     <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+    <style>
+        .destaque{
+            background-color: lightblue;
+            padding: 15px;
+            display: inline-block;
+        }
+    </style>
 
     <script src="../utils/beluga.js"></script>
 </head>
@@ -23,17 +30,37 @@
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Javascript Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus JAVASCRIPT iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque autem quaerat doloribus iste sapiente ea quae ducimus iusto, distinctio id adipisci? Accusamus distinctio, quaerat nisi inventore blanditiis officia saepe molestiae!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
     </div>
 
     <script>
+        var paragrafos = document.querySelectorAll("p");
+
+        //SOLUÇÃO INTELIGENTE:
+        for (var i = 0; i < paragrafos.length; i++){
+            var temJS = paragrafos[i].textContent.toLowerCase().indexOf("javascript") >= 0;
+            paragrafos[i].className = temJS ? "destaque" : "";  //className substitui a classe que já existir dentro do elemento.
+        }
         
+        //SOLUÇÃO BURRA:
+        // paragrafos.forEach(function(el, i){
+        //     var paragrafoSplit = paragrafos[i].innerHTML.split(" ");
+
+        //     for (var z = 0; z < paragrafoSplit.length; z++){
+        //         if (paragrafoSplit[z] === "Javascript"){
+        //             console.log("ACHEI A PALAVRA");
+        //             paragrafos[i].classList.add("destaque");
+        //             console.log("Classe adicionada com sucesso!");
+        //             break;
+        //         }
+        //     }
+        // });
     </script>
 </body>
 </html>
