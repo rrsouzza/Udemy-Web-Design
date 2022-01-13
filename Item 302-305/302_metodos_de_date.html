@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Date</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Date</h1>
+
+    <script>
+        (function(){
+            //MÉTODOS
+
+            //Date é um objeto que sempre precisar ser instanciado com new
+            var minhaData = new Date();
+
+            //getDay()  --> retorna qual o número do dia da semana (0 a 6). Ex: Se retornar 6, o dia da semana é sábado.
+            console.log("Dia da semana: ", minhaData.getDay());
+
+            //getDate() --> retorna qual o número do dia do mês.
+            console.log("Dia do mês: ", minhaData.getDate());
+
+            //getMonth()    --> retorna qual o mês atual (0 a 11).
+            console.log("Mês atual: ", minhaData.getMonth());
+
+            //getYear() --> retorna o ano atual. Obs: retorna a quantidade de anos passados após 1900. Ex: Se estamos em 2022, retornará 122.
+            console.log("Ano atual - 1900: ", minhaData.getYear());
+
+            //getFullYear() --> retorna o ano atual, normalmente.
+            console.log("Ano atual: ", minhaData.getFullYear());
+
+            //getHours()  --> retorna a hora "atual". Na verdade ele retorna a hora em que o objeto Date foi instanciado.
+            console.log("Hora em que o objeto Date foi instanciado: ", minhaData.getHours());
+
+            //getMinutes()  --> retorna o minuto em que o objeto Date foi instanciado.
+            console.log("Minuto em que o objeto Date foi instanciado: ", minhaData.getMinutes());
+
+            //getSeconds()  --> retorna o segundo em que o objeto Date foi instanciado.
+            console.log("Segundo em que o objeto Date foi instanciado: ", minhaData.getSeconds());
+
+            //getTime() --> retorna um timestamp referente à data definida do objeto.
+            console.log("getTime() - Timestamp: ", minhaData.getTime());
+            console.log("Data atual do objeto Date: ", minhaData);
+
+            //setDate() --> define o dia da data do objeto.
+            console.log("setDate(22) - Timestamp: ", minhaData.setDate(22));
+            console.log("Dia atual do objeto Date: ", minhaData.getDate());
+
+            //setMonth()    --> define o mês da data do objeto.
+            console.log("setMonth(2) - Timestamp: ", minhaData.setMonth(2));
+            console.log("Mês atual do objeto Date: ", minhaData.getMonth());
+
+            //setYear() --> define o ano da data do objeto.
+            console.log("setFullYear(2012) - Timestamp: ", minhaData.setYear(2012));
+            console.log("Ano atual do objeto Date: ", minhaData.getFullYear());
+
+            //setHours() // setMinutes() // setSeconds() // setMilliseconds()   --> também é possível definir o horário do objeto.
+            console.log("setHours(0): ", minhaData.setHours(0));
+            console.log("Hora atual do objeto Date: ", minhaData.getHours());
+            
+            console.log("setMinutes(0): ", minhaData.setMinutes(0));
+            console.log("Minuto atual do objeto Date: ", minhaData.getMinutes());
+            
+            console.log("setSeconds(0): ", minhaData.setSeconds(0));
+            console.log("Segundo atual do objeto Date: ", minhaData.getSeconds());
+
+            console.log("setMilliseconds(0): ", minhaData.setMilliseconds(0));
+            console.log("Milisegundo atual do objeto Date: ", minhaData.getMilliseconds());
+
+            console.log("Data atual do objeto Date: ", minhaData);
+
+            //É possível instanciar um objeto Date e passar uma data como argumento:
+            //  (YYYY, MM, DD)
+            var myDate = new Date(2020, 11, 25);
+            console.log("myDate: ", myDate);
+            //Também é possível passar o horário como argumento:
+            //  (YYYY, MM, DD, HH, MI, SS, MIL)
+            myDate = new Date(2020, 11, 25, 13, 45, 50, 500);
+            console.log("myDate atualizado: ", myDate);
+
+                //A contagem de meses começa em 0 e vai até 11. Se passar, por exemplo, 12 querendo dizer Dezembro, o Javascript simplesmente define a data como sendo Janeiro do ano seguinte. Ex:
+                myDate = new Date(2020, 12, 10);    //Em vez de entrar 10 de Dezembro de 2020, será 10 de Janeiro de 2021.
+                console.log("myDate: ", myDate);
+
+            //Também é possível passar uma data como string:
+            myDate = new Date("2020/12/25");
+            console.log("myDate com string: ", myDate);
+                //Ao passar a data como string, o mês 12 é interpretado como Dezembro.
+        })()
+    </script>
+</body>
+</html>
