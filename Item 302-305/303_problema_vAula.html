@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <!--
+            PROBLEMA: Fazer uma página que mostra quantos dias faltam para o seu próximo aniversário. Caso o dia atual seja o aniversário, mostrar uma mensagem de Parabéns.
+        -->
+        <title>Javascript - Problema</title>
+        <meta charset="utf-8">
+        
+        <link href="../utils/bootstrap.css" rel="stylesheet">
+        <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+        
+        <script src="../utils/beluga.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Javascript - Problema</h1>
+        </div>
+
+        <script>
+			"use strict";
+
+			(function(){
+				var dataAtual = new Date();
+                dataAtual.setHours(0);
+                dataAtual.setMinutes(0);
+                dataAtual.setSeconds(0);
+                dataAtual.setMilliseconds(0);
+				var anoAtual = dataAtual.getFullYear();
+
+				var dataNiver = new Date(anoAtual, 0, 24);
+
+				var dataAtualTS = dataAtual.getTime();
+				var dataNiverTS = dataNiver.getTime();
+
+				if (dataNiverTS === dataAtualTS){
+                    alert("Parabéns pelo seu aniversário!");
+                } else if (dataNiverTS < dataAtualTS){
+					dataNiver.setFullYear(++anoAtual);	//anoAtual++ iria incrementar 1 na variável anoAtual. ++anoAtual indica (anoAtual + 1);
+                    dataNiverTS = dataNiver.getTime();
+				}
+
+                const UM_DIA_TS = 24 * 60 * 60 * 1000;  //É costume o nome de uma constante ser escrito em caps.
+                //UM_DIA_TS é a quantidade de milisegundos contidos em 1 dia.
+                var diferenca = dataNiverTS - dataAtualTS;
+                console.log("Faltam " + (diferenca/UM_DIA_TS) + " dias para seu aniversário!");
+
+			})();
+            
+        </script>
+    </body>
+</html>

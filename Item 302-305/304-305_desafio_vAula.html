@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <!--
+            DESAFIO: Criar uma função que retorne uma data formatada no padrão brasileiro: DD/MM/AAA
+        -->
+        <title>Javascript - Desafio</title>
+        <meta charset="utf-8">
+        
+        <link href="../utils/bootstrap.css" rel="stylesheet">
+        <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+        
+        <script src="../utils/beluga.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Javascript - Desafio</h1>
+        </div>
+
+        <script>
+			"use strict";
+
+            (function(){
+                var data = new Date();
+                data.setDate(2);
+                data.setMonth(2);
+                
+                function formatDate(data){
+                    var dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();  //Se o dia for menor que 10 (possuir apenas 1 dígito), ele irá concatenar um zero(0) antes do dígito do dia. Se não (se for maior que 10), irá apenas mostrar a data normalmente.
+                    var mes = data.getMonth() + 1;
+                    mes = mes < 10 ? "0" + mes : mes;   //Se o mês for menor que 10 (possuir apenas 1 dígito), irá concatenar um zero(0) antes do dígito do mês. Se não (se for maior que 10), irá apenas mostrar o mês normalmente.
+
+                    return dia + "/" + mes + "/" + data.getFullYear();
+                }
+
+                console.log(formatDate(data));
+            })();
+            
+        </script>
+    </body>
+</html>
