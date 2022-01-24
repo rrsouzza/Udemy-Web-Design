@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+    <head>
+        <!--
+            DESAFIO: Mostrar cronômetro. Faça uma interface contendo um input text e três botões. Ao clicar no primeiro deve iniciar um cronômetro. Ao clicar no segundo deve pausar ou continuar. O terceiro deve resetar.
+        -->
+        <title>Javascript - Desafio</title>
+        <meta charset="utf-8">
+
+        <link href="../utils/bootstrap.css" rel="stylesheet">
+        <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+        <script src="../utils/beluga.js"></script>
+    </head>
+    <body>
+        <h1>Javascript - Desafio</h1>
+        
+        <input type="text" id="cronometro">
+        <button id="iniciar">Iniciar</button>
+        <button id="pausar">Pausar</button>
+        <button id="parar">Parar</button>
+        
+        <script>
+            (function(){
+                var $cronometro = document.querySelector('#cronometro');
+                var $iniciar = document.querySelector('#iniciar');
+                var $pausar = document.querySelector('#pausar');
+                var $parar = document.querySelector('#parar');
+
+                $iniciar.addEventListener("click", iniciar);
+                $pausar.addEventListener("click", pausar);
+                $parar.addEventListener("click", parar);
+
+                var intervalo = null;
+                var msClickIniciar = 0;
+                var msClickPausar = 0;
+                var msTempoDecorrido = 0;
+                var rodando = false;
+                
+                function iniciar(){
+                    if (rodando) return;    //Se estiver rodando, vai retornar nada e não vai executar o código abaixo
+                    parar();    //Ao chamarmos parar() no início de iniciar(), nós zeramos os valores de todas as variáveis.
+                    msClickIniciar = Date.now();
+                    iniciarCronometro();
+                    rodando = true;
+                    $pausar.textContent = "Pausar";
+                }
+
+                function iniciarCronometro(tempoDecorrido){
+                    var _ms = tempoDecorrido || 0;
+                    intervalo = setInterval(function(){
+                        var msAgora = Date.now();
+                        var diferenca = msAgora - msClickIniciar;
+                        $cronometro.value = formataMS(diferenca + _ms);
+                    }, 100);
+                }
+
+                function formataMS(ms){
+                    /*
+                        ms = 900 => 900
+                        ms = 1500 => 1:500
+                        ms = 59000 => 59:000
+                        ms = 61500 => 1:1:500
+                    */
+
+                    const MINUTO = 60 * 1000;
+
+                    if (ms < 1000){
+                        return ms;
+                    // }else if (ms < 60000){
+                    }else if (ms < MINUTO){
+                        var segundos = parseInt(ms / 1000); //número inteiro dos segundos
+                        segundos = formatTime(segundos);
+                        var centesimos = ms - (segundos * 1000);
+                        return segundos + ":" + centesimos;
+                    }else if (ms < 36000000){
+                        //var minutos = parseInt(ms / 60000);
+                        var minutos = parseInt(ms / MINUTO);
+                        return formatTime(minutos) + ":" + formataMs(ms - minutos * MINUTO);    //Função recursiva: função que dentro de seu escopo, chama a si mesma.
+                        
+                        // minutos = formatTime(minutos);
+                        // var segundos = parseInt(ms / 1000 - (minutos * 60));
+                        // segundos = formatTime(segundos);
+                        // var centesimos = ms - (segundos * 1000) - (minutos * 60 * 1000);
+                        // return minutos + ":" + segundos + ":" + centesimos;
+                    }else{
+                        var horas = parseInt(ms / 3600000);
+                        horas = formatTime(horas);
+                        //var minutos = parseInt(ms / 60000 - (horas * 60));
+                        var minutos = parseInt(ms / MINUTO - (horas * 60));
+                        minutos = formatTime(minutos);
+                        var segundos = parseInt(ms / 1000 - (minutos * 60));
+                        segundos = formatTime(segundos);
+                        //var centesimos = ms - (segundos * 1000) - (minutos * 60 * 1000);
+                        var centesimos = ms - (segundos * 1000) - (minutos * MINUTO);
+                        return horas + ":" + minutos + ":" + segundos + ":" + centesimos;
+                    }
+                }
+
+                function formatTime(valor){
+                    if (valor < 10){
+                        valor = "0" + valor;
+                    }
+                    return valor;
+                }
+
+                function pausar(){
+                    if (!$cronometro.value) return; //Se o cronômetro estiver vazio, irá retornar nada e não irá executar o código abaixo. Assim evita que o cronômetro seja iniciado através do botão de Pausar.
+                    if (rodando){
+                        clearInterval(intervalo);
+                        msClickPausar = Date.now();
+                        msTempoDecorrido += (msClickPausar - msClickIniciar);
+                        // rodando = false;
+
+                        $pausar.textContent = "Resumir";
+                    }else{                       
+                        msClickIniciar = Date.now();
+                        iniciarCronometro(msTempoDecorrido);
+                        // rodando = true;
+
+                        $pausar.textContent = "Pausar";
+                    }
+                    rodando = !rodando; //Em vez de definir o valor de rodando em cada situação, independente se estiver rodando ou não, sempre que pausar() for invocado, rodando receberá o valor oposto de seu estado atual.
+                }
+
+                function parar(){
+                    msClickIniciar = 0;
+                    msClickPausar = 0;
+                    msTempoDecorrido = 0;
+                    rodando = false;
+                    clearInterval(intervalo);
+                    $cronometro.value = "";
+                    $pausar.textContent = "Pausar";
+                }
+            })()
+        </script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <!--
+            PROBLEMA: O cliente pediu para fazer um pop-up bem irritante que PULA na interface do usuário depois de 5 segundos. Este mesmo pop-up deve ser fechado automaticamente após 5 segundos (mesmo que o usuário ainda esteja lendo-o). Lembre-se, a ideia é que seja extremamente irritante.
+        -->
+        <title>Javascript - Problema</title>
+        <meta charset="utf-8">
+        
+        <style>
+            .banner{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 0 1000px rgba(0,0,0,.8);
+                padding: 1em;
+                display: none;
+            }
+            
+            .banner_close{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Javascript - Problema</h1>
+        
+        <div class="banner">
+            <h2>Banner Irritante</h2>
+            <button class="banner_close">X</button>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis autem, consectetur, explicabo quisquam voluptatibus nobis quaerat repellat nam, ad vel similique doloremque, doloribus labore quasi provident. Excepturi, odit, velit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis autem, consectetur, explicabo quisquam voluptatibus nobis quaerat repellat nam, ad vel similique doloremque, doloribus labore quasi provident. Excepturi, odit, velit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis autem, consectetur, explicabo quisquam voluptatibus nobis quaerat repellat nam, ad vel similique doloremque, doloribus labore quasi provident. Excepturi, odit, velit.</p>
+        </div>
+
+        <script>
+            "use strict";
+            (function(){
+                var $banner = document.querySelector(".banner");
+                var $bannerBtn = document.querySelector(".banner_close");
+
+                $bannerBtn.addEventListener("click", escondeBanner);
+
+                var intervaloEsconde = null;
+                
+                function mostraBanner(){
+                    $banner.style.display = "block";
+
+                    intervaloEsconde = setTimeout(escondeBanner, 4000);   //Ao definirmos o timeOut do escondeBanner dentro do próprio mostraBanner, nós garantimos que o "cronômetro" do escondeBanner será iniciado apenas a partir do momento que o banner aparecer na tela.
+                    //O id do timeout será armazenado na variável intervaloEsconde.
+                }
+                function escondeBanner(){   //Caso o método escondeBanner seja chamado pelo click do botão, ele irá remover o elemento do DOM. Porém, o timeOut ainda tentará executar a função, em um momento onde o elemento já não existirá mais no DOM. Isso irá gerar um erro. Para evitar isso, podemos fazer com que o método escondeBanner() remova também o timeOut, toda vez que ele for executado.
+                    $bannerBtn.removeEventListener("click", escondeBanner); //Por motivos de performance, é interessante remover os eventListeners dos elementos cujo serão removidos do DOM. Não faz sentido remover os elementos do DOM e ainda ter eventListeners ocupando espaço na memória.
+                    $banner.parentNode.removeChild($banner);    //escondeBanner() não irá simplesmente tornar o display = "none", mas sim remover o elemento completamente do DOM. Para isso, devemos acessar o elemento pai do banner (no caso o próprio body), e a partir dele remover o elemento filho.
+
+                    clearTimeout(intervaloEsconde); //Toda vez que escondeBanner() for executado, ele também irá remover o timeOut programado. Caso o método seja chamado pelo botão de fechar, isso evitará com que gere um erro, visto que o Timeout seria executado após o elemento ter sido removido do DOM.
+                }
+
+                setTimeout(mostraBanner, 2000);
+                //setTimeout(escondeBanner, 10000); //Caso colocássemos o escondeBanner aqui, ele seria inserido na fila. Mas, hipoteticamente, se acontecesse de ter outra requisição na fila após o mostraBanner, não seria garantido que o escondeBanner seria executado exatamente 5 segundos após o banner estar visível na tela.
+            })()
+        </script>
+        
+        
+    </body>
+</html>

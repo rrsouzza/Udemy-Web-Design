@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <!--
+            DESAFIO: Mostrar relógio. Criar uma função que retorne a hora atual no formato hh:mm:ss. Mostre esse texto numa div qualquer na tela. Agora execute essa função a cada segundo.
+        -->
+        <title>Javascript - Desafio</title>
+        <meta charset="utf-8">
+        
+        <link href="../utils/bootstrap.css" rel="stylesheet">
+        <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+        
+        <script src="../utils/beluga.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Javascript - Desafio</h1>
+            <div class="relogio">
+
+            </div>
+        </div>
+
+        <script>
+			"use strict";
+
+            (function(){
+                var $relogio = document.querySelector(".relogio");
+                
+                function getHour(){
+                    var data = new Date();
+                    var h = formata(data.getHours());
+                    var m = formata(data.getMinutes());
+                    var s = formata(data.getSeconds());
+
+                    return h + ":" + m + ":" + s;
+                }
+
+                function formata(t){    //Irá concatenar um zero(0) na frente do elemento que for menor que 10 (possui apenas 1 dígito)
+                    return t < 10 ? "0" + t : t;
+                }
+
+                function mostraRelogio(atual){
+                    $relogio.textContent = atual;
+                }
+
+                setInterval(function(){
+                    mostraRelogio(getHour());
+                }, 1000);
+            })();
+        </script>
+    </body>
+</html>

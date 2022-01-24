@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Temporizadores</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Temporizadores</h1>
+
+    <div></div>
+
+    <script>
+        //  setTimeout(fn, ms); --> os parâmetros são uma função, e o tempo agendado (em milisegundos) para que aquela função seja executada.
+        //  setInterval(fn, ms);    --> os parâmetros são uma função, e o tempo de intervalo (em milisegundos) em que aquela função deverá ser executada. Ou seja, ela será executada "infinitas" vezes de acordo com o intervalo de tempo definido.
+        //  clearTimeout(id);   --> remove/exclui o timeout definido.
+        //  clearInterval(id);  --> remove/exclui o intervalo definido.
+
+        //  PS: Esses métodos estão disponíveis nos browsers em window, não estão disponíveis no NodeJS.
+
+        var n = 0;
+        
+        function somaUm(){
+            console.log("n = ", ++n);
+
+            if (n >= 10){
+                clearInterval(intervalo);
+            }
+        }
+        
+        var timeout = setTimeout(somaUm, 1000); //O id do timeout será armazenado na variável timeout.
+        var intervalo = setInterval(somaUm, 1000);  //O id do interval será armazenado na variável intervalo.
+
+        //setTimeout(somaUm, 1000);   //somaUm() será executada após 1000 milisegundos (ou 1 segundo).
+        //setInterval(somaUm, 3000);  //somaUm() será executada a cada 3000 milisegundos (ou 3 segundos).
+
+        var str = "";
+        var $div = document.querySelector('div');
+        var timeoutTeste = setTimeout(function(){
+            for (var i = 0; i < 1000; i++){
+                str += "i: " + i + " -- ";
+                $div.textContent += str;
+            }
+        }, 3000);
+
+
+        //Javascript possui um único thread. Isso quer dizer que as "tarefas" são executadas uma por vez, e não ao mesmo tempo. Isso quer dizer que, por exemplo, podemos definir um setTimeout lá no começo do código com temporizador definido em 50ms. Isso quer dizer que o timeout será disparado aos 50ms de execução. Porém, assumindo que o código todo leve, hipoteticamente, 100ms para ser executado por completo, mesmo o timeout tendo sido disparado aos 50ms de execução, terá de esperar os 100ms para que o código termine de ser executado, para apenas aí ele realmente ser executado.
+
+        //Isso quer dizer que, se em um código nós temos vários timeout's e interval's, haverá uma ordem de execução e eles poderão ser "atrasados", visto que apenas uma única tarefa é executada por vez.
+
+        //No caso do Interval, caso um "processo" do interval já esteja na fila, e outra ordem de execução do mesmo interval seja executada, essa nova ordem será "fundida" à ordem já pré-existente, pois uma execução do interval só é adicionada à fila caso não haja outra esperando para ser executada.
+    </script>
+</body>
+</html>
