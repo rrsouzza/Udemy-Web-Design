@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - BOM (Browser Object Model)</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - BOM (Browser Object Model)</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorem, suscipit repellendus eum esse est totam facilis sequi dolore a recusandae vel culpa non aliquid doloremque illum. Quaerat, totam provident.</p>
+    <script>
+        // BOM - Browser Object Model -> Não disponível no ECMAScript, mas a maioria dos browsers aceita o BOM, visto que ele é mais antigo que o DOM.
+        console.log("innerHeight: ", innerHeight);   //O mesmo que window.innerHeight;
+        console.log("innerWidth :", innerWidth);    //Tanto innerHeight quanto innerWidth referenciam a tela da página que está sendo exibida. Isso quer dizer que, por exemplo no Chrome DevTools, essa parte do navegador não é considerada como parte da medida do browser.  *O zoom da página também influencia.
+        console.log("outerHeight: ", outerHeight);
+        console.log("outerWidth: ", outerWidth);
+        console.log("pageXOffset: ", pageXOffset);  //O tanto que a página foi scrollada no eixo x.
+        console.log("pageYOffset: ", pageYOffset);  //O tanto que a página foi scrollada no eixo y.
+        console.log("screenX: ", screenX);  //Posição do browser na tela
+        console.log("screenY: ", screenY);  //Posição do browser na tela
+
+        //History: Objeto que armazena algumas informações relacionadas ao histórico de navegação daquela instância do browser/aba.
+
+        console.log("history.length: (se for igual a 1 não terá página para avançar ou retornar)", history.length);    //Quantidade de páginas que foram acessadas nessa instância do browser/aba. (Cada aba é uma instância diferente)
+        console.log("history.go(): ", history.go(-1));  //go() avança ou retorna às páginas do histórico. -1 retorna para a página anterior. 1 avança para a próxima página.
+        console.log("history.back() é o mesmo que history.go(-1): ", history.back());
+        console.log("history.forward() é o mesmo que history.go(1): ", history.forward());
+
+        //Location: Objeto que armazena algumas informações e métodos sobre a página em que estamos navegando.
+
+        console.log("location: ", location);    //Objetão cheio de propriedades e métodos sobre a página atual.
+        console.log("location.href: ", location.href);  //Retorna a URL da página em que estamos navegando.
+        console.log("location.protocol: ", location.protocol)   //Retorna o protocolo da página em que estamos navegando. No caso de uma página comum, seria http. No caso desse arquivo local, retorna file:   .
+        // console.log("location.reload(): ", location.reload());  //Atualiza a página  //No caso se deixar essa linha sem o comentário, a página irá se autorecarregar toda vez que executar esse comando.
+
+        //Navigator: Objeto que armazena algumas informações sobre o navegador que está sendo usado.
+
+        console.log("navigator: ", navigator);  //Retorna um objeto Navigator com todas as informações sobre o browser.
+        console.log("navigator.userAgent: ", navigator.userAgent);
+        console.log("navigator.plugins: ", navigator.plugins);
+        console.log("navigator.cookieEnabled: ", navigator.cookieEnabled);
+        console.log("navigator.platform: ", navigator.platform);
+
+        //Screen: Objeto que armazena algumas informações referentes à tela do usuário. Não do browser, mas sim da tela inteira do usuário.
+
+        console.log("screen: ", screen);    //Retorna um objeto Screen com diversas informações sobre a tela do usuário.
+        console.log("screen.availHeight: ", screen.availHeight);    //Tamanho disponível da altura da tela. Elimina a barra de tarefas na parte inferior, por isso é menor que o Height total.
+        console.log("screen.availWidth: ", screen.availWidth);  //Tamanho disponível da largura da tela.
+
+        //Métodos do BOM:
+
+        console.log("alert(): ", alert("Alerta"));  //Alerta
+        console.log("confirm(): ", confirm("Confirmar"));   //Usuário confirma. Retorna true ou false.
+        console.log("prompt(): ", prompt("Mensagem do prompt"));    //Usuário insere valores
+        
+        console.log("scrollTo(0, 50): ", scrollTo(0, 50));  //Scrolla a página *até* a posição desejada.    (width, height)
+        console.log("scrollBy(0, 50): ", scrollBy(0, 50));  //Scrolla a página "adicionando" o valor desejado. (Valores negativos para subir a página ou voltar à esquerda.);
+        console.log("scollTo(0, 0): ", scrollTo(0, 0)); //Retorna à posição zero da página.
+
+        //console.log("print(): ", print());    //Manda imprimir a página.
+
+        //Eventos do BOM:
+        console.log("EVENTOS DO BOM:");
+
+        window.addEventListener('load', function(){
+            console.log("Load disparado.");
+        });
+
+        window.addEventListener('DOMContentLoaded', function(){
+            console.log("DOMContentLoaded disparado."); //DOMContentLoaded identifica quando todo o html é carregado. Já o 'load' identifica apenas quando toda a página for carregada. Isso quer dizer que ele só é disparado após carregar todas as imagens, links externos, etc....
+        });
+
+        window.addEventListener('resize', function(e){
+            console.log("Resize disparado.");
+            console.log(e);
+        });
+
+        window.addEventListener('scroll', function(e){
+            console.log("Scroll disparado.");
+            console.log(e);
+            console.log("scroll Y: ", pageYOffset);
+        });
+
+        window.addEventListener('unload', function(){   //Ao fechar a página (unload)
+            console.log("Unload disparado");    //Por ser disparado ao fechar a página, é provável que o conteúdo dessas funções executadas por esses eventos não sejam executadas por completo, visto que a página fecha antes.
+            debugger;
+        });
+        
+        window.addEventListener('beforeunload', function(){
+            console.log("beforeUnload disparado");
+            debugger;
+        });
+
+    </script>
+</body>
+</html>
