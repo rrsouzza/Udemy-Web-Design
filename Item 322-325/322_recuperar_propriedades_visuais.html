@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Recuperar Propriedades Visuais</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+
+    <style>
+        .teste{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Javascript - Recuperar Propriedades Visuais</h1>
+
+    <div class="teste" style="background-color: green;">Apenas um teste</div>   <!-- o estilo in-line sobrescreve o estilo no .css -->
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime soluta, unde earum modi error rerum saepe sed, veniam enim corporis itaque assumenda. Perspiciatis nisi suscipit doloribus eos sed esse iure?</p>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo obcaecati accusamus beatae vero perferendis, dolor reiciendis et nobis minima quidem unde at dicta reprehenderit, natus aut atque voluptas ex quibusdam?</p>
+
+    <div class="teste2">teste 2</div>
+
+    <script>
+        var $teste = document.querySelector('.teste');
+
+        console.log($teste.style);  //Retorna um objeto Style com todas as propriedades style do elemento $teste.
+        console.log("bg: ", $teste.style.backgroundColor);  //Não mostra o valor da propriedade backgroundColor do objeto Style pois Style no javascript apenas recupera ou define valores in-line para os elementos. Como o background-color = red de $teste foi definido no CSS, a propriedade style no javascript não a recupera. Mas o background-color = green definido in-line no HTML é identificado pelo style no javascript.
+
+        console.log("getComputedStyle(): ", getComputedStyle($teste).backgroundColor);  //getComputedStyle() retorna as propriedades aplicadas do elemento passado como parâmetro. .backgroundColor retorna apenas a formatação da propriedade background-color.
+        //getComputedStyle() pode ter comportamentos diferentes de browser pra browser.
+
+        var $p = document.querySelector('p');
+        console.log($p.offsetHeight, $p.offsetWidth);
+        console.log($p.offsetLeft, $p.offsetTop);
+
+        var $teste2 = document.querySelector('.teste2');
+        console.log($teste2.offsetLeft, $teste2.offsetTop);
+        console.log("getBoundingClientRect(): ", $teste2.getBoundingClientRect());  //getBoundingClientRect() retorna um objeto contendo as informações do elemento, mas sua posição relativa à viewport (parte da página que está atualmente aparecendo para o usuário). o simples offSetHeight/Width/Left/Top retorna a posição do elemento em relação à pagina inteira.
+    </script>
+</body>
+</html>

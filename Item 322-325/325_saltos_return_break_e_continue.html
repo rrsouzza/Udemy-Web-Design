@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+<head>
+    <title>Javascript - Saltos: return, break e continue</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo">
+    <meta name="description" content="Descrição saliente">
+    <meta name="keywords" content="html, devweb, udemy">
+
+    <link href="../utils/bootstrap.css" rel="stylesheet">
+    <link href="../utils/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="../utils/beluga.js"></script>
+</head>
+<body>
+    <h1>Javascript - Saltos: return, break e continue</h1>
+
+    <script>
+        (function(){
+            function testeSaltos() {
+                for(var i = 0; i < 10; i++){
+                    console.log("testeSaltos: ", i);
+                    if (i === 5){
+                        return;     //O return encerra a execução da função. Assim, quando i for === a 5, o console.log abaixo e o return "Fim da função" não serão executados.
+                    }
+                }
+                console.log("Fim do loop.");
+                return "Fim da função.";
+            }
+            var testeSaltos = testeSaltos();
+            console.log(testeSaltos);
+            
+            function testeSaltos2(){
+                for (var i = 0; i < 10; i++){
+                    console.log("testeSaltos2: ", i);
+                    if (i === 5){
+                        break;      //O break encerra a execução do loop, mas não encerra a execução da função. Assim, ele irá imprimir até o número 5, irá encerrar o loop, e executar o console o return abaixo.
+                    }
+                }
+                console.log("Fim do loop.");
+                return "Fim da função.";
+            }
+            var testeSaltos2 = testeSaltos2();
+            console.log(testeSaltos2);
+            
+            function testeSaltos3(){
+                for (var i = 0; i < 10; i++){
+                    if (i === 5){
+                        continue;       //O continue retorna imediatamente para o loop. Assim, nesse caso ele nunca chega a executar o console.log(5) quando i === 5.
+                    }
+                    console.log("testeSaltos3: ", i);
+                }
+                console.log("Fim do loop.");
+                return "Fim da função.";
+            }
+            var testeSaltos3 = testeSaltos3();
+            console.log(testeSaltos3);
+
+            var n = 10;
+            switch(n){      //O switch nesse caso irá executar todos os cases a partir do 10, inclusive o default. Ao encontrar que case 10 é verdadeiro, irá executar todos os códigos abaixo dele. Por isso é necessário o uso de break;
+                case 0:
+                    console.log("switch 0 sem break");
+                case 10:
+                    console.log("switch 10 sem break");
+                case 20:
+                    console.log("switch 20 sem break");
+                case 30:
+                    console.log("switch 30 sem break");
+                default:
+                    console.log("switch default sem break");
+            }
+
+            switch(n){
+                case 0:
+                    console.log("switch 0 com break");
+                    break;
+                case 10:
+                    console.log("switch 10 com break");
+                    break;
+                case 20:
+                    console.log("switch 20 com break");
+                    break;
+                case 30:
+                    console.log("switch 30 com break");
+                    break;
+                default:
+                    console.log("switch default com break");
+            }
+        })()
+    </script>
+</body>
+</html>
