@@ -4,8 +4,9 @@
 <head>
     <title>Infusion</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- initial-scale define o "zoom" inicial da página. 1 define que iniciará em "0", ou o zoom padrão. -->
     <meta name="author" content="Ricardo">
-    <meta name="description" content="Descrição saliente">
+    <meta name="description" content="Projeto final">
     <meta name="keywords" content="html, devweb, udemy">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -14,15 +15,16 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       
     <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/main.css">
       
 </head>
-  <body>
-    <header>
-      <a href="index.html">Infusion</a>
+  <body class="no-js">
+    <header class="header">
+      <a href="index.html" class="logo-text">Infusion</a>
       
-      <button>Menu</button>
+      <button style="display: none" class="header__btnMenu">Menu</button>
       
-      <nav>
+      <nav class="header__nav">
         <ul>
           <li><a href="#">design folio</a></li>
           <li><a href="#">services</a></li>
@@ -34,25 +36,64 @@
       </nav>
     </header>
       
-    <section>
-      <h1>
-        Cutting edge WP business theme
+    <section class="hero">
+      <h1 class="hero__title">
+        Cutting edge <abbr title="Wordpress">WP</abbr> business theme
       </h1>
-      <p>Gutful of bottlo no dramas he's got a massive hooroo.</p>
-      <a href="#">Buy it now</a>
+      <p class="hero__text">Gutful of bottlo no dramas he's got a massive hooroo.</p>
+      <a href="#" class="hero__btn">Buy it now</a>
     </section>
 
-    <section>
-      <article>
-        <img src="img/c01.jpg" alt="Carousel Img">
+    <section class="people-cards">
+      <article class="people-cards__card">
+        <img src="img/c01.jpg" alt="Carousel Img" class="people-cards__image">
 
-        <div>
+        <div class="people-cards__avatar">
           <img src="img/teamsprite_01.png" alt="Carousel Img">
         </div>
 
-        <div>
-          <h2>Lorem ipsum dolor sit amet consectetur</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
+        <div class="people-cards__content">
+          <h2 class="people-cards__title">Lorem ipsum dolor sit amet consectetur</h2>
+          <p class="people-cards__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
+        </div>
+      </article>
+
+      <article class="people-cards__card">
+        <img src="img/c02.jpg" alt="Carousel Img" class="people-cards__image">
+
+        <div class="people-cards__avatar">
+          <img src="img/teamsprite_02.png" alt="Carousel Img">
+        </div>
+
+        <div class="people-cards__content">
+          <h2 class="people-cards__title">Lorem ipsum dolor sit amet consectetur</h2>
+          <p class="people-cards__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
+        </div>
+      </article>
+
+      <article class="people-cards__card">
+        <img src="img/c03.jpg" alt="Carousel Img" class="people-cards__image">
+
+        <div class="people-cards__avatar">
+          <img src="img/teamsprite_03.png" alt="Carousel Img">
+        </div>
+
+        <div class="people-cards__content">
+          <h2 class="people-cards__title">Lorem ipsum dolor sit amet consectetur</h2>
+          <p class="people-cards__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
+        </div>
+      </article>
+
+      <article class="people-cards__card">
+        <img src="img/c04.jpg" alt="Carousel Img" class="people-cards__image">
+
+        <div class="people-cards__avatar">
+          <img src="img/teamsprite_04.png" alt="Carousel Img">
+        </div>
+
+        <div class="people-cards__content">
+          <h2 class="people-cards__title">Lorem ipsum dolor sit amet consectetur</h2>
+          <p class="people-cards__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
         </div>
       </article>
     </section>
@@ -123,7 +164,7 @@
     </section>
 
     <footer>
-      <h2>INFUSION</h2>
+      <h2>Infusion</h2>
     
       <p>Nam mi enim, auctor non ultricies a, fringilla eu risus. Praesent vitae lorem et elit tincidunt accumsan suscipit eu libero. Maecenas diam est, venenatis vitae dui in, vestibulum mollis arcu. Donec eu nibh tincidunt, dapibus sem eu, aliquam dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum consectetur commodo eros, vitae laoreet lectus aliq</p>
 
