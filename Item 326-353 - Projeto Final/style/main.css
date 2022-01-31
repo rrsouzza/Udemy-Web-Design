@@ -1,10 +1,20 @@
 body{
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
 }
 img{
     max-width: 100%;
 }
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1em;
+    padding-left: 1em;
+    max-width: 980px;
+}
+
+
 
 .header{
     background-color: #fff;
@@ -21,6 +31,7 @@ img{
     font-weight: bold;
     color: #fff;
     float: left;
+    text-align: right;
 }
 .header__nav{
     clear: left;
@@ -48,9 +59,10 @@ img{
 .header__nav a:hover{
     color: #63c6ae;
 }
-.header__btnMenu{
+/* .header__btnMenu{
 
-}
+} */
+
 
 
 .hero{
@@ -103,4 +115,229 @@ img{
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+
+
+.people-cards{
+    margin-top: 2.5em;
+}
+/* .people-cards__card{
+
+} */
+.people-cards__card:hover{
+    outline: 5px solid #63c6ae; /* outline funciona como a borda, mas é aplicado por fora do elemento, enquanto que border é aplicado no conteúdo do elemento. */
+    outline-offset: -5px;   /* outline-offset define a abertura do outline em relação ao elemento. Um offset negativo faz com que o outline se aproxime pra dentro do elemento. -5px faz com que ele fique bem na borda interna do elemento, mas sem modificar o conteúdo do elemento como faz o border. */
+}
+.people-cards__card:hover .people-cards__avatar img{
+    transform: translateY(-50%);
+}
+.people-cards__card:hover .people-cards__title,
+.people-cards__card:hover .people-cards__text{
+    color: #63c6ae;
+}
+.people-cards__image{
+    width: 100%;
+}
+.people-cards__avatar{
+    margin: -55px auto;
+    width: 88px;
+    height: 88px;
+    overflow: hidden;
+}
+.people-cards__content{
+    text-align: center;
+    padding: 40px 25px 10px;
+    border-left: 1px solid #dbe1e7;
+}
+.people-cards__title{
+    color: #737c85;
+    font-size: 21px;
+    font-weight: normal;
+}
+.people-cards__text{
+    color: #929da5;
+    font-size: 14px;
+}
+
+
+
+.content{
+    background-color: #f9f9f9;
+    padding: 20px 0 80px;
+    border-top: 1px solid #e3e3e3;
+}
+.content__title{
+    color: #737c85;
+    font-size: 21px;
+    padding-top: 40px;
+    font-weight: 400;
+}
+.content__text{
+    color: #929da5;
+    font-size: 14px;
+    word-spacing: 3px;
+}
+
+
+
+.button{
+    padding: 15px 40px;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 15px;
+    display: inline-block;
+    transition: background-color .5s;
+}
+.button:hover{
+    background-color: #929da5;
+}
+.button-primary{
+    background-color: #63c6ae;
+}
+.button-secondary{
+    background-color: #455357;
+}
+
+
+
+.latest-articles__title{
+    background-color: #63c6ae;
+    padding: 5px 0;
+}
+.latest-articles__title h2{
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.latest-articles__thumbs{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: auto;
+    gap: 0;
+}
+.latest-articles__thumbs img{
+    display: block;
+    width: 100%;
+}
+
+
+
+.laptop-slider{
+    background-color: #242a2c;
+    padding: 125px 0 100px;
+    width: 100%;
+    overflow: auto; /* a barra de rolagem fica nessa div, e não mais na página inteira */
+}
+.slideshow{
+    white-space: nowrap;
+}
+.slideshow figure{
+    display: inline-block;
+}
+
+
+
+.quote-container{
+    background-color: #63c6ae;
+    padding: 50px 0;
+    border-bottom: 12px solid #58b9a1;
+}
+.quote-slideshow h2{
+    color: white;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: normal;
+}
+.quote-slideshow figcaption{
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+.no-js .quote-slideshow figure + figure{    /* será aplicado ao figure que existe imediatamente após outro figure */
+    margin-top: 5em;
+}
+
+
+
+.footer{
+    background-color: #242a2c;
+    padding: 50px 0 250px;
+    color: #454e51;
+    font-size: 14px;
+}
+.footer-links li{
+    list-style: none;
+}
+.footer-links a{
+    color: #454e51;
+    display: block;
+    font-weight: 600;
+    text-decoration: none;
+}
+.footer__logo{
+    text-transform: uppercase;
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    .header{
+        position: fixed;
+    }
+    .logo-text{
+        width: 25%;
+        box-sizing: border-box;
+    }
+    .header__btnMenu{
+        display: none;
+    }
+    .header__nav{
+        float: left;
+        width: 75%;
+        clear: none;
+        max-width: 800px;
+    }
+    .header__nav ul{
+        display: flex;
+        justify-content: space-around;
+    }
+    .header__nav li{
+        border-bottom: none;
+        flex-grow: 1;
+    }
+    .header__nav a{
+        background-color: white;
+    }
+
+
+    .people-cards{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+
+    .content .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+
+    .latest-articles__thumbs{
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+
+    .footer .container{
+        display: flex;
+    }
+    .footer .container > * {
+        margin: 1.5em;
+    }
 }
