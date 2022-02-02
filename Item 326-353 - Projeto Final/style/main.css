@@ -24,6 +24,7 @@ img{
 .js .header{
     position: fixed;
     width: 100%;
+    z-index: 10;
 }
 
 
@@ -77,6 +78,94 @@ img{
 
 .js .header__nav{
     transition: max-height 1s;
+}
+
+
+
+.js .laptop-slider{
+    overflow: hidden;
+    color: white;
+}
+.js .laptop-slider .slideshow{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    max-width: 950px;
+}
+.js .laptop-slider figure{
+    opacity: 0;
+    transition: opacity 1s;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.js .laptop-slider figure.show{
+    opacity: 1;
+    position: static;
+}
+.js .laptop-slider .prev,
+.js .laptop-slider .next{
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+}
+.js .laptop-slider .prev{
+    left: 10px;
+}
+.js .laptop-slider .next{
+    right: 10px;
+}
+
+.js .quote-container{
+    overflow: hidden;
+    color: white;
+    text-align: left;
+}
+.js .quote-container .quote-slideshow{
+    position: relative;
+    width: auto;
+    margin: auto;
+    max-width: 1400px;
+}
+.js .quote-container figure{
+    opacity: 0;
+    transition: opacity 1s;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.js .quote-container figure h2{
+    margin: auto 4em 1em;
+}
+.js .quote-container figure.show{
+    opacity: 1;
+    position: static;
+}
+.js .quote-container .prev,
+.js .quote-container .next{
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+
+    color: rgba(255, 255, 255, .2);
+    padding: .4em .8em;
+    border: transparent;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .2);
+}
+.js .quote-container .prev:hover,
+.js .quote-container .next:hover{
+    color: white;
+}
+.js .quote-container .prev{
+    left: 10px;
+}
+.js .quote-container .next{
+    right: 10px;
 }
 
 
@@ -301,7 +390,7 @@ img{
 
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
     .header{
         position: fixed;
     }
